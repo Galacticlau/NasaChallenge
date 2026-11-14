@@ -1,0 +1,1569 @@
+[
+  {
+    "id": "PSI-117",
+    "nombre": "Perturbaciones en llamas frías",
+    "titulo": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-117",
+    "modalidad": "Simulación / reanálisis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Cuantificar cómo el calentamiento y la convección externos afectan la estabilidad, oscilación y extinción de llamas frías alrededor de gotas; contrastar modelos con FLEX.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Gotas de n-alcanos simuladas: grandes, de 1–4 mm, y pequeñas, de aproximadamente 0,5 mm. La especie concreta no se detalla en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Simulaciones de microgravedad con convección, calentamiento o ambos. Se exploran composición ambiente, presión y casos asistidos por ozono; no se indican aquí sus valores.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Modo de perturbación, tamaño de gota, amplitud y frecuencia del forzamiento, composición y presión. No se informa una matriz completa de combinaciones.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Modelo CFD 3D en OpenFOAM contrastado con datos FLEX. Es una metodología común, no prueba de que todas las condiciones sean constantes entre simulaciones.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Salidas calculadas: retardo de ignición, frecuencia y amplitud de oscilación, separación de la llama y diámetros de extinción. Reutiliza mediciones FLEX; no declara sensores nuevos.",
+        "estado": "Salida calculada; sin sensores nuevos"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulación / reanálisis"
+      ],
+      "familia": [
+        "Otras investigaciones"
+      ],
+      "combustible": [
+        "Gotas de combustible"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Flujo o caudal",
+        "Dilución y mezcla",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Extinción",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Llamas frías",
+        "Extinción",
+        "Modelación",
+        "Dinámica de llamas"
+      ],
+      "plataforma": [
+        "Trabajo en tierra / simulación"
+      ]
+    }
+  },
+  {
+    "id": "PSI-159",
+    "nombre": "ACME CFI-G",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar condiciones de aparición de llamas frías de difusión para propano, n-butano y n-pentano; apoyar ensayos ISS con CFD y mecanismos cinéticos concordantes con las mediciones.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Propano, n-butano y n-pentano gaseosos; llamas esféricas normales e inversas. No se informa el tamaño del quemador en Objectives/Approach.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "ISS; se consideran dilución, caudal y presión. Se mencionan Zst y temperatura adiabática Tad; valores de oxígeno y flujo de aire no informados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Combustible, dilución, presión, caudal y configuración normal/inversa. No se especifica el conjunto de combinaciones efectivamente ensayadas.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Ensayos de llamas esféricas de difusión a bordo de la ISS, apoyados por simulación. Constantes por ensayo pendientes de documentar.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Cámaras, radiómetros, tubos fotomultiplicadores y termopares. La ficha no detalla modelos, calibraciones ni asignación de cada canal.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Propano",
+        "n-butano",
+        "n-pentano"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal",
+        "Dilución y mezcla",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Llamas frías",
+        "Modelación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-10",
+    "nombre": "ACME Flame Design",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Flame Design",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar inicio de formación de hollín y límites de extinción; medir cómo caudal, composición, dilución y presión afectan temperatura, tamaño, color y fracción de hollín en llamas de metano y etileno.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Metano y etileno; llamas esféricas de difusión normales e inversas y comparaciones con llamas en coflujo. Dimensiones del quemador no informadas aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Ensayos en torres de caída e ISS. Dilución con nitrógeno o CO₂; variaciones de caudal, presión y Zst. Sin valores numéricos en los campos revisados.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Combustible, diluyente y su cantidad, caudal, presión y configuración normal/inversa. Se comparan condiciones con y sin hollín y límites de extinción.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Familia de ensayos de llamas de difusión y diagnóstico óptico/térmico. No consta una tabla que identifique constantes para cada comparación.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Cámaras, radiómetros, fotomultiplicadores y termopares. Se buscan temperaturas, tamaño/color de llama, fracción volumétrica de hollín y límites de extinción.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Gravedad terrestre",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal",
+        "Dilución y mezcla"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Hollín",
+        "Extinción"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Hollín y radiación",
+        "Temperatura / calor"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-62",
+    "nombre": "Modelación UFGM y BASS",
+    "titulo": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-62",
+    "modalidad": "Simulación / reanálisis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Desarrollar y validar modelos UFGM para propagación de llama a favor del flujo; usar BASS/BASS-II como referencia y avanzar hacia predicción de límites de inflamabilidad de materiales espaciales.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Geometrías de BASS: láminas, esferas y varillas de PMMA; cilindros de cera. No se indican dimensiones en los campos revisados.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Modelación y comparación con microgravedad y gravedad terrestre; propagación concurrente. Presión, oxígeno y velocidad por caso no informados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Geometría/material y régimen gravitatorio de los casos de comparación; formulación del modelo y validación. No se informa un diseño factorial completo.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Marco de simulación fluido-sólido UFGM y uso de imágenes BASS/BASS-II. No son nuevos ensayos independientes de los datos reutilizados.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Tomografía de dos colores sobre imágenes DSLR; reconstrucciones de temperatura y hollín. Métricas: geometría de llama, temperatura, fracción de hollín y velocidad de propagación.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulación / reanálisis"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Polímeros y ceras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Gravedad terrestre",
+        "Presión",
+        "Oxígeno"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Hollín",
+        "Propagación",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Propagación",
+        "Modelación"
+      ],
+      "plataforma": [
+        "Trabajo en tierra / simulación"
+      ]
+    }
+  },
+  {
+    "id": "PSI-60",
+    "nombre": "Análisis de datos SPICE",
+    "titulo": "Computational and Experimental Analysis of SPICE Data Sets",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-60",
+    "modalidad": "Simulación / reanálisis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Explicar diferencias de formación de hollín entre 1g y microgravedad combinando imágenes SPICE y modelos; obtener temperatura y hollín y evaluar sensibilidad a procesos físicos y químicos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Reutiliza llamas de SPICE y configuraciones de quemador Yale y ACME. Los combustibles y dimensiones concretos no están especificados en estos campos.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Comparaciones entre gravedad terrestre y microgravedad. Se consideran radiación, dispersión, condiciones de contorno y transferencia de calor al quemador; valores no informados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Gravedad, configuración de quemador y parámetros de los modelos de hollín y radiación. Las combinaciones por caso requieren documentación adicional.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Procesamiento de imágenes Nikon NEF y calibración absoluta de SPICE, con comparación a simulaciones. Reutilización de datos, no campaña independiente.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Imágenes DSLR; pirometría por cociente de colores para temperatura del hollín y calibración luminosa para fracción volumétrica. Son magnitudes derivadas de imágenes.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulación / reanálisis"
+      ],
+      "familia": [
+        "SPICE"
+      ],
+      "combustible": [
+        "No especificado en la ficha"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Gravedad terrestre"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Hollín"
+      ],
+      "objetivos": [
+        "Hollín y radiación",
+        "Modelación",
+        "Temperatura / calor"
+      ],
+      "plataforma": [
+        "Trabajo en tierra / simulación"
+      ]
+    }
+  },
+  {
+    "id": "PSI-142",
+    "nombre": "Transiciones de llamas frías",
+    "titulo": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-142",
+    "modalidad": "Experimentos y simulación",
+    "tipo": "Ground Investigation",
+    "plataforma": "Not Applicable",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Construir límites de inflamabilidad de llamas frías y relacionarlos con los de llamas calientes; verificar fenómenos FLEX y obtener datos para validar modelos cinéticos y radiativos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Objetivos: llamas en contraflujo sensibilizadas con ozono. Approach: mezclas n-heptano/aire y dimetil éter (DME)/aire en modelos; geometría física detallada no informada.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Variación de oxígeno; simulaciones DME/aire a presiones elevadas de hasta 20 atm. No atribuir ese máximo a todos los ensayos físicos.",
+        "estado": "Reportado en ficha"
+      },
+      "factores_modificados": {
+        "text": "Tres esquemas numéricos, combustible, concentración de oxígeno y presión. La ficha combina objetivos de experimentos terrestres y descripción de simulaciones.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Referencia a condiciones/datos FLEX y estudio de química a baja temperatura. Constantes por caso no identificadas en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Magnitudes objetivo: límite de extinción, temperatura y distribución de especies. No se nombran sensores; Approach describe esquemas de simulación.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimentos y simulación"
+      ],
+      "familia": [
+        "Otras investigaciones"
+      ],
+      "combustible": [
+        "No especificado en la ficha"
+      ],
+      "condiciones": [
+        "Oxígeno"
+      ],
+      "mediciones": [
+        "Temperatura",
+        "Extinción",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Llamas frías",
+        "Extinción",
+        "Modelación"
+      ],
+      "plataforma": [
+        "Trabajo en tierra / simulación"
+      ]
+    }
+  },
+  {
+    "id": "PSI-101",
+    "nombre": "SAME-R",
+    "titulo": "Smoke Aerosol Measurement Experiment-Reflight",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Cuantificar tamaños de partículas líquidas del humo en baja gravedad y relacionar su distribución con generación y transporte; repetir SAME con modificaciones de materiales, condiciones e instrumentos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Pyrell, espuma intumescente retardante de llama, reemplaza muestras DBP. Lista completa y dimensiones de materiales no informadas aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Baja gravedad; se amplía a temperaturas de calentamiento mayores y ausencia de flujo durante el calentamiento. Se reportan 66 puntos de prueba, sin condiciones individuales.",
+        "estado": "Reportado en ficha"
+      },
+      "factores_modificados": {
+        "text": "Material, temperatura y presencia/ausencia de flujo. Cambio de instrumentación respecto de SAME; tres pruebas terrestres posteriores apoyan reducción de datos.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Reutiliza hardware SAME y análisis de distribuciones de tamaño. No está documentado aquí qué magnitudes permanecieron constantes en cada ensayo.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Instrumento M-pass reemplaza uno de los recintos con DustTrak y detector de ionización de SAME. Se analiza distribución de tamaño de partículas; detalles de todos los canales pendientes.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Humo y aerosoles"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Flujo o caudal",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Partículas y humo"
+      ],
+      "objetivos": [
+        "Humo y aerosoles"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-115",
+    "nombre": "Modelación de humo SAME",
+    "titulo": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-115",
+    "modalidad": "Simulación / reanálisis",
+    "tipo": "Ground Investigation",
+    "plataforma": "Not Applicable",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Simular la influencia de la gravedad sobre crecimiento de humo por pirólisis; cuantificar diferencias entre Tierra y microgravedad e identificar sus mecanismos fluidodinámicos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Partículas de ftalato de dibutilo (DBP) formadas a partir de vapor de una muestra calentada; geometría similar a SAME. Dimensiones no informadas aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Simulaciones con gravedad terrestre y microgravedad; dos velocidades bajas de flujo transversal cuyos valores no se indican.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Gravedad y dos velocidades de flujo; se evalúan termofóresis, sedimentación y geometría del flujo. No se informa el detalle de cada caso.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Simulación numérica directa y fuente caliente de vapor tipo SAME. No hay nuevos sensores descritos.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Campos escalares y distribuciones de tamaño calculados para acumulación y crecimiento de partículas. Son resultados de simulación, no lecturas instrumentales nuevas.",
+        "estado": "Salida calculada; sin sensores nuevos"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulación / reanálisis"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Humo y aerosoles"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Gravedad terrestre",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Partículas y humo",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Humo y aerosoles",
+        "Modelación"
+      ],
+      "plataforma": [
+        "Trabajo en tierra / simulación"
+      ]
+    }
+  },
+  {
+    "id": "PSI-98",
+    "nombre": "SAFFIRE-I",
+    "titulo": "Spacecraft Fire Safety Experiment-I",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar la rapidez de crecimiento de un incendio grande en baja gravedad y comparar sus límites de inflamabilidad con pruebas terrestres NASA de selección de materiales.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Tejido SIBAL: 75 % algodón y 25 % fibra de vidrio en masa; muestra aproximada de 0,94 m de largo y 0,40 m de ancho.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus después de separarse de la ISS; velocidad de aire declarada de 20 cm/s. Concentración de oxígeno y presión medidas, sin valores consignados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "La ficha no desglosa variaciones entre ensayos internos. No confundir la comparación con otras misiones SAFFIRE con variación dentro de SAFFIRE-I.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Configuración descrita de tejido en un conducto con ventiladores. La invariancia entre repeticiones requiere revisar los registros de ensayo.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Dos cámaras; termopares para temperaturas del flujo, llama y pluma; dos radiómetros; sensores de presión y fracciones molares CO₂/O₂; dos anemómetros.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Tejidos y fibras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción"
+      ],
+      "plataforma": [
+        "Nave Cygnus"
+      ]
+    }
+  },
+  {
+    "id": "PSI-39",
+    "nombre": "CFI",
+    "titulo": "Cool Flames Investigation",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Examinar combustión de n-dodecano y mezclas con isododecano; evaluar dilución con helio, tamaño de gota, presión, extinción y formación de hollín en llamas frías.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Gotas de n-dodecano, farnesano y mezclas n-dodecano/isododecano; entre agujas o sujetas por fibras de carburo de silicio. Tamaños no informados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "CIR/MDCA. Presión en Objectives: 0,25–5 atm; en Approach: 0,25–0,5 atm. Se mencionan oxígeno, nitrógeno y helio, pero la descripción química requiere contraste.",
+        "estado": "Discrepancia en fuente"
+      },
+      "factores_modificados": {
+        "text": "Combustible, dilución con helio, presión y tamaño de gota. Matriz y valores por ensayo no informados en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Gotas encendidas por alambre caliente retirado tras ignición, con observación óptica. Constantes de cada serie pendientes de verificar.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Cámara blanco/negro para tamaño de gota, cámara UV para emisión OH* y tamaño de llama, otras cámaras y radiómetros de banda estrecha/ancha.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "CFI"
+      ],
+      "combustible": [
+        "Gotas de combustible"
+      ],
+      "condiciones": [
+        "Presión",
+        "Oxígeno",
+        "Dilución y mezcla"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Radiación"
+      ],
+      "objetivos": [
+        "Llamas frías",
+        "Extinción",
+        "Hollín y radiación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-102",
+    "nombre": "SAME",
+    "titulo": "Smoke and Aerosol Measurement Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-102",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Cuantificar tamaños de partículas líquidas del humo en baja gravedad y su relación con generación/transporte; modelar crecimiento según pirólisis, propiedades del vapor y flujo.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Humo de materiales de nave sobrecalentados; no se enumeran los materiales ni sus dimensiones en Objectives/Approach.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Calentamiento/encendedor de 15–60 s; evento típico de aproximadamente 2 min. Se controlan temperatura de muestra, flujo y tiempo de envejecimiento; valores de estos últimos no indicados.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Temperatura de muestra, campo de flujo y envejecimiento de partículas. Comparación posterior en 1g buscando igualar pérdida de masa.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Montaje en Glovebox, muestreo termoforético y análisis posterior. Controlado no significa constante a lo largo de toda la investigación.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Dos detectores de humo, cámaras, muestreadores termoforéticos, microscopía electrónica de transmisión posterior y pesaje de restos para pérdida de masa.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Humo y aerosoles"
+      ],
+      "condiciones": [
+        "Flujo o caudal",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Partículas y humo"
+      ],
+      "objetivos": [
+        "Humo y aerosoles",
+        "Modelación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-106",
+    "nombre": "SLICE",
+    "titulo": "Structure and Liftoff In Combustion Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-106",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Caracterizar estructura y estabilidad de llamas laminares de difusión; determinar separación del quemador, efectos de combustible y dilución, pérdidas radiativas y validación de modelos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Metano, etileno y mezclas diluidas con nitrógeno; tubos de quemador intercambiables. Diámetros numéricos no indicados en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravedad con coflujo de aire controlado. Caudal/velocidad y temperatura medidos, sin rangos numéricos reportados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Combustible, diámetro de quemador y dilución con nitrógeno; condiciones de flujo. Se mencionan 13 experimentos de prueba sin matriz individual.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Conducto con ventilador, quemadores intercambiables y observación de llamas laminares. Constantes específicas por comparación pendientes.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Cámara de alta resolución y sensores integrados de caudal y temperatura. Se mencionan calibraciones de velocidad, hollín y ventiladores; modelos de sensores no especificados.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SLICE"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Flujo o caudal",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Hollín",
+        "Simulación y cálculos",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Modelación",
+        "Dinámica de llamas"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-99",
+    "nombre": "SAFFIRE-II",
+    "titulo": "Spacecraft Fire Experiment-II",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-99",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "Cygnus Spacecraft",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar crecimiento de incendios grandes en baja gravedad y comparar límites de inflamabilidad con los obtenidos en pruebas terrestres NASA.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "SIBAL, silicona, PMMA estructurado, PMMA plano y PMMA con Nomex. Tarjeta con 9 muestras, cada una de 5 × 29 cm; espesores no indicados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus tras separarse de ISS. Velocidad de aire de 20 o 30 cm/s según material; flujo a favor o en contra de propagación. Oxígeno/presión medidos sin valores en la ficha.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Material, velocidad y dirección del flujo. La asociación exacta material-condición está en Experimental Details, aún pendiente de revisar.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Montaje común en conducto y sistema de diagnóstico. No asumir que todos los materiales se ensayaron a ambas velocidades y direcciones.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Dos cámaras; termopares de flujo/llama/pluma; dos radiómetros; sensores de presión y fracción molar CO₂/O₂; dos anemómetros.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Tejidos y fibras",
+        "Polímeros y ceras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción"
+      ],
+      "plataforma": [
+        "Nave Cygnus"
+      ]
+    }
+  },
+  {
+    "id": "PSI-107",
+    "nombre": "SPICE",
+    "titulo": "Smoke Point In Co-flow Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-107",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar inicio de emisión de humo y formación de hollín en llamas en coflujo; relacionar longitud luminosa y punto de humo con quemador, flujo, combustible y tiempo de residencia.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Metano, etileno, propano, propileno y mezclas de propileno. Quemadores de diámetro 0,41; 0,76 y 1,6 mm.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravedad en Glovebox; coflujo entre 5,4 y 65 cm/s. Caudal de combustible ajustado hasta emisión de hollín. Oxígeno y presión no cuantificados aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Combustible/mezcla, diámetro del quemador, velocidad de coflujo y caudal de combustible. Se informa un total de 526 llamas, sin correspondencia caso a caso.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Montaje en conducto y búsqueda del punto de humo mediante ajuste del caudal. Constantes específicas y repeticiones pendientes.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Cámaras de fotografía y video para longitud/altura de llama. También se reportan pérdidas radiativas y distribución de velocidad; instrumentos de estas mediciones no detallados.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SPICE"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno",
+        "Propano"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Radiación"
+      ],
+      "objetivos": [
+        "Hollín y radiación",
+        "Humo y aerosoles"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-100",
+    "nombre": "SAFFIRE-III",
+    "titulo": "Spacecraft Fire Experiment-III",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-100",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar crecimiento de un incendio grande en baja gravedad y comparar límites de inflamabilidad con pruebas terrestres NASA.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Tejido SIBAL. Dimensiones y composición no repetidas en estos campos; no se importan automáticamente desde SAFFIRE-I.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus tras separarse de ISS. Velocidad declarada de 30 cm/s; flujo concurrente u opuesto según la ficha. Oxígeno y presión sin valores numéricos aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Se mencionan direcciones concurrente/opuesta sin desglosar casos. La comparación de 30 cm/s con 20 cm/s en SAFFIRE-I es entre investigaciones, no interna.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "SIBAL, conducto ventilado y diagnóstico descrito. Repeticiones y constantes por ensayo pendientes de Experimental Details.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Dos cámaras; termopares de flujo/llama/pluma; dos radiómetros; sensores de presión y fracción molar CO₂/O₂; dos anemómetros.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Tejidos y fibras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción"
+      ],
+      "plataforma": [
+        "Nave Cygnus"
+      ]
+    }
+  },
+  {
+    "id": "PSI-21",
+    "nombre": "ACME CLD Flame",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-21",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Caracterizar llamas débiles y formación de hollín en metano y etileno según velocidad y dilución; generar datos para evaluar modelos computacionales en extremos de dilución.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Metano y etileno gaseosos, desde muy diluidos hasta condiciones con abundante hollín. Quemador en coflujo; dimensiones no indicadas aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravedad; se varían velocidad y dilución de combustible. Rangos de oxígeno, presión y velocidad no informados en los campos revisados.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Velocidad, dilución y combustible; se comparan llamas próximas a extinción y llamas con distintos niveles de hollín.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Llamas de difusión en coflujo y comparación con modelos. No hay matriz que establezca constantes por ensayo.",
+        "estado": "Parcial en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Quimioluminiscencia OH*/CH* para forma y separación; luminosidad y extinción láser para temperatura/fracción de hollín; pirometría de filamento delgado en regiones sin hollín.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno",
+        "Dilución y mezcla"
+      ],
+      "mediciones": [
+        "Temperatura",
+        "Radiación",
+        "Hollín",
+        "Extinción"
+      ],
+      "objetivos": [
+        "Hollín y radiación",
+        "Modelación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-25",
+    "nombre": "BASS-II",
+    "titulo": "Burning and Suppression of Solids - II",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Estudiar ignición, crecimiento, propagación y extinción de sólidos en flujos lentos de microgravedad; relacionar pruebas terrestres con vuelo y aportar datos preliminares a SoFIE.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Combustibles sólidos de mayor espesor: placas, cilindros, secciones esféricas, varillas, películas y tejidos. Materiales y dimensiones concretos no enumerados en Objectives/Approach.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "ISS/MSG; túnel capaz de imponer hasta 40 cm/s. Oxígeno reducido por debajo del 21 % añadiendo nitrógeno. Flujo concurrente y opuesto; no consta base molar/volumétrica de ese porcentaje.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Velocidad y dirección del flujo, concentración de oxígeno y geometría. No consta qué combinaciones se realizaron ni cuántas repeticiones hubo.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Muestras en túnel pequeño dentro de MSG, con apoyo de tripulación. No asumir presión o temperatura constantes sin archivo de ensayo.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Se determina apariencia, crecimiento y velocidad de propagación de llama. Estos campos no identifican modelos de sensores ni cámaras concretas.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Tejidos y fibras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Oxígeno",
+        "Flujo o caudal",
+        "Dilución y mezcla"
+      ],
+      "mediciones": [
+        "Propagación",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Propagación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-20",
+    "nombre": "ACME BRE",
+    "titulo": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Relacionar combustión en microgravedad sin corrientes impuestas con propiedades de materiales; estudiar mezclas gaseosas, atmósferas y límites de extinción como emulador de combustibles condensados.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Mezclas metano/nitrógeno y etileno/nitrógeno sobre quemadores circulares porosos de 25 y 50 mm. Ensayos terrestres complementarios incluyen combustibles gaseosos, líquidos y sólidos.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Objetivos: pares presión–O₂ de 14,7 psia–21 %, 10,2 psia–26,5 % y 8,2 psia–34 %. Atmósferas O₂/N₂ y deseadas O₂/CO₂. Son condiciones propuestas, no casos confirmados.",
+        "estado": "Reportado en ficha"
+      },
+      "factores_modificados": {
+        "text": "Diámetro, combustible, diluyente, oxígeno, presión y caudal. Dentro de un ensayo: caudal inicial sin variar mientras evolucionan temperatura/flujo térmico; luego reducción escalonada para extinción.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Por ensayo se establece composición y presión de cámara. La temperatura superficial del quemador evoluciona, por lo que no debe registrarse como constante.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Sensor de flujo de calor; temperatura superficial del quemador y observación de estabilidad/extinción. Modelo del sensor y otros dispositivos no especificados.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno"
+      ],
+      "condiciones": [
+        "Presión",
+        "Oxígeno"
+      ],
+      "mediciones": [
+        "Temperatura",
+        "Extinción",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-68",
+    "nombre": "FLEX-2",
+    "titulo": "Flame Extinguishment Experiment - 2",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Ampliar FLEX a combustibles/ambientes de combustores reales; estudiar mezcla interna de gotas, extinción, hollín e interacciones y obtener datos para validar modelos.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Combustibles puros y de dos componentes en gotas libres o sobre fibra; arreglos binarios lineales. Especies y diámetros concretos no indicados en Objectives/Approach.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Presión de 0,5–3 atm; fracción molar O₂ de 0,1–0,4. Reposo de cámara de unos 2 min, espera tras despliegue de al menos 10 s y encendido seleccionable de 1–5 s.",
+        "estado": "Reportado en ficha"
+      },
+      "factores_modificados": {
+        "text": "Tipo de combustible, composición gaseosa, presión, diámetro inicial, velocidad/aceleración de traslación y separación/tamaño en arreglo binario.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Protocolo de llenado, estabilización, despliegue e ignición. Se busca estabilizar presión/temperatura antes del encendido; no significa valores idénticos en toda la campaña.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Video de cámara de color y fotografía de alta velocidad; registro de presión y temperatura de cámara. Sensores específicos no nombrados.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "FLEX"
+      ],
+      "combustible": [
+        "Gotas de combustible"
+      ],
+      "condiciones": [
+        "Presión",
+        "Oxígeno"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Hollín y radiación",
+        "Modelación"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-22",
+    "nombre": "ACME E-FIELD Flames",
+    "titulo": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Estudiar relación voltaje-corriente iónica, respuesta dinámica de la llama, formación de hollín y estabilización de llamas separadas del quemador próximas a condiciones límite.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Metano y etileno diluidos con nitrógeno; quemadores de chorro y coflujo, electrodo de malla circular. Dimensiones no informadas aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravedad en CIR; con y sin coflujo. Diferencia de potencial de hasta 10 kV entre quemador y malla. Caudal, coflujo y dilución sin valores en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Combustible, dilución, caudal, velocidad de coflujo, magnitud y polaridad del campo eléctrico. No se informa matriz de casos.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Campo impuesto entre quemador y electrodo y diagnóstico de respuesta de llama. La configuración de quemador cambia entre grupos.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Corriente iónica y curvas voltaje-corriente; cámaras de alta resolución; imágenes espectrales con filtros; detectores de termopila para emisión radiativa.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Flujo o caudal",
+        "Dilución y mezcla",
+        "Campo eléctrico"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Radiación"
+      ],
+      "objetivos": [
+        "Hollín y radiación",
+        "Dinámica de llamas"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-23",
+    "nombre": "ACME s-Flame",
+    "titulo": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-23",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Caracterizar estructura transitoria, límites de extinción e inestabilidades pulsantes de llamas esféricas con/sin hollín y comparar con simulaciones detalladas.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Hidrógeno, metano y etileno con diluyentes N₂, He o CO₂, suministrados por quemador esférico poroso. Diámetro no informado aquí.",
+        "estado": "Parcial en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Mezclas de distintas proporciones y caudales; se registran temperatura, presión y aceleración. Sin rangos numéricos de oxígeno ni aire en estos campos.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Relación combustible/diluyente, caudal y condiciones que modifican extinción e inestabilidad; comparación con/sin hollín.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Geometría nominalmente esférica y mediciones sincronizadas para contraste numérico. La estructura es transitoria, no necesariamente estacionaria.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Imágenes resueltas espectralmente, temperaturas de llama/quemador, flujo radiativo y condiciones operativas; frecuencia/amplitud de pulsaciones. Instrumentos concretos no detallados.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Metano",
+        "Etileno",
+        "Hidrógeno"
+      ],
+      "condiciones": [
+        "Presión",
+        "Oxígeno",
+        "Flujo o caudal",
+        "Dilución y mezcla",
+        "Temperatura"
+      ],
+      "mediciones": [
+        "Cámaras e imágenes",
+        "Temperatura",
+        "Radiación",
+        "Presión / flujo"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Hollín y radiación",
+        "Modelación",
+        "Dinámica de llamas"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-69",
+    "nombre": "FLEX",
+    "titulo": "Flame Extinguishment Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Determinar límites de inflamabilidad de líquidos, eficacia de extintores gaseosos y modelos predictivos mediante mediciones de combustión de gotas, extinción, radiación, hollín y temperatura.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Combustibles líquidos no enumerados en estos campos; gotas libres o sostenidas por fibra. Procedimiento LOI parte de una gota pequeña de aproximadamente 3 mm y modifica su tamaño.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "Pruebas LOI a 0,5–1,5 atm. Se reduce progresivamente la fracción molar O₂; se estudian CO₂, He y SF₆. Algunos casos inducen flujo mediante traslación de la gota.",
+        "estado": "Reportado en ficha"
+      },
+      "factores_modificados": {
+        "text": "Presión, fracción O₂, tamaño de gota, agente extintor y su concentración; gotas libres/sostenidas y movimiento lento. Se mencionan repeticiones iterativas, sin lista de casos.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Protocolo de ajuste de tamaño y oxígeno para acotar ignición/extinción. Diagnóstico puede no resolver diámetros de extinción muy pequeños.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Se buscan velocidad de combustión, diámetro de gota/extinción, radiación, hollín y perfiles térmicos. Sensores específicos no nombrados en los campos revisados.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "FLEX"
+      ],
+      "combustible": [
+        "Gotas de combustible"
+      ],
+      "condiciones": [
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Radiación",
+        "Hollín",
+        "Extinción"
+      ],
+      "objetivos": [
+        "Extinción",
+        "Hollín y radiación",
+        "Modelación",
+        "Temperatura / calor"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-26",
+    "nombre": "BASS",
+    "titulo": "Burning and Suppression of Solids",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Relacionar pruebas terrestres de inflamabilidad con microgravedad prolongada y evaluar eficacia de un gas extintor inerte ante diferentes materiales, geometrías, precalentamiento y flujo.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Tejido de 75 % algodón y 25 % fibra de vidrio en masa, Nomex y Ultem; también esferas y cilindros. Dimensiones de muestra ausentes; conducto de sección 76 × 76 mm.",
+        "estado": "Reportado en ficha"
+      },
+      "condiciones_prueba": {
+        "text": "ISS/MSG; aire de hasta 40 cm/s, concurrente u opuesto a propagación. Oxígeno y presión no cuantificados aquí; se considera gas extintor inerte.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Material, geometría, precalentamiento y velocidad/dirección del flujo; acción del agente extintor. Combinaciones y repeticiones no enumeradas.",
+        "estado": "Reportado en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Conducto ventilado; ignición de tejido por alambre Kanthal calibre 29. No trasladar este protocolo automáticamente a cada geometría sin verificación.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Observaciones superior y lateral: tamaño, forma, color, propagación y extinción. No se especifican dispositivos/modelos de captura en estos campos.",
+        "estado": "Parcial en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Tejidos y fibras",
+        "Polímeros y ceras"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Presión",
+        "Oxígeno"
+      ],
+      "mediciones": [
+        "Extinción",
+        "Propagación",
+        "Simulación y cálculos"
+      ],
+      "objetivos": [
+        "Extinción"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  },
+  {
+    "id": "PSI-47",
+    "nombre": "DAFT / DAFT-2",
+    "titulo": "Dust and Aerosol Measurement Feasibility Test / Dust and Aerosol Measurement Feasibility Test-2",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-47",
+    "modalidad": "Investigación experimental",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadatos extraídos; ensayos pendientes",
+    "atributos": {
+      "objetivos": {
+        "text": "Verificar precisión y funcionamiento de P-Trak modificado en microgravedad, compararlo con DustTrak y reducir riesgos instrumentales para SAME.",
+        "estado": "Reportado en ficha"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Aerosol de referencia Arizona Red Dust, dispersado con nitrógeno gaseoso y contenido en bolsas Mylar de 15 L. No es un combustible ensayado; isopropanol pertenece al instrumento.",
+        "estado": "Aerosol de referencia; no combustible"
+      },
+      "condiciones_prueba": {
+        "text": "Pruebas de aerosoles en microgravedad. No se informan concentración de oxígeno, velocidad de aire ni condiciones de combustión, que no son el propósito de esta prueba.",
+        "estado": "Parcial en ficha"
+      },
+      "factores_modificados": {
+        "text": "Comparación de instrumentos P-Trak modificado y DustTrak. No se enumeran concentraciones, series ni repeticiones del aerosol.",
+        "estado": "Parcial en ficha"
+      },
+      "aspectos_comunes": {
+        "text": "Aerosol de referencia contenido en bolsas y comparación instrumental. El protocolo de equivalencia de muestras requiere archivo técnico.",
+        "estado": "Reportado en ficha"
+      },
+      "sensores_mediciones": {
+        "text": "Contador de partículas TSI P-Trak modificado y DustTrak de referencia. La ficha denomina DustTrak CNC; verificar denominación y principio de medida en documentación técnica.",
+        "estado": "Reportado en ficha"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Investigación experimental"
+      ],
+      "familia": [
+        "DAFT"
+      ],
+      "combustible": [
+        "Humo y aerosoles"
+      ],
+      "condiciones": [
+        "Microgravedad",
+        "Oxígeno",
+        "Flujo o caudal"
+      ],
+      "mediciones": [
+        "Partículas y humo"
+      ],
+      "objetivos": [
+        "Otros objetivos"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    }
+  }
+]
