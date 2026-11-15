@@ -57,7 +57,9 @@ function init(data, evidence) {
   let selected = [];
   let mode = '';
   let tab = 'agrupar';
-  let focusedStudy;
+  const dialog = $('#studyDialog');
+  let studyOrigin;
+  let outsidePointer = false;
   let featuredOnly = false;
 
   function tagRecords(study, key) {
@@ -92,8 +94,9 @@ function init(data, evidence) {
 
   function showTab(which) {
     tab = which;
+    $('.layout').classList.toggle('is-comparing', tab === 'comparar');
     $$('.view').forEach((view) => view.classList.toggle('hidden', view.id !== tab));
-    $$('[data-tab]').forEach((button) => {
+    $$('.nav [data-tab]').forEach((button) => {
       button.classList.toggle('active', button.dataset.tab === tab);
       if (button.dataset.tab === tab) button.setAttribute('aria-current', 'page');
       else button.removeAttribute('aria-current');
@@ -104,6 +107,11 @@ function init(data, evidence) {
   function navigate(which) {
     if (location.hash !== `#${which}`) history.pushState(null, '', `#${which}`);
     showTab(which);
+    const panel = $(`#${which}`);
+    const heading = panel.querySelector('h2');
+    heading.tabIndex = -1;
+    heading.focus({ preventScroll: true });
+    if ($('.nav').getBoundingClientRect().top <= 0) panel.scrollIntoView();
   }
 
   function readHash() {
@@ -124,6 +132,10 @@ function init(data, evidence) {
 
   function renderSelection() {
     $('#selectedNum').textContent = `${selected.length}/3`;
+    $('#navSelection').textContent = selected.length;
+    $('#navSelection').hidden = selected.length === 0;
+    const compareShortcut = $('#studyCompare');
+    if (compareShortcut) compareShortcut.hidden = selected.length < 2;
     $('#selectedList').innerHTML = selected.length
       ? selected.map((id) => `<div class="slot"><span>${esc(id)} · ${esc(byId.get(id).nombre)}</span><button type="button" aria-label="Quitar ${esc(id)}" data-pick="${esc(id)}">✕</button></div>`).join('')
       : '<div class="placeholder">Aún no hay investigaciones seleccionadas.</div>';
@@ -182,11 +194,22 @@ function init(data, evidence) {
     }).join('');
   }
 
+  function setLibraryFilters(domain = '') {
+    $('#librarySearch').value = '';
+    $('#libraryMode').value = '';
+    $('#libraryDomain').value = domain;
+    $('#libraryEvidence').value = domain ? 'todas' : 'explicito';
+    featuredOnly = false;
+    $('#featuredOnly').setAttribute('aria-pressed', 'false');
+    renderLibrary();
+  }
+
   function renderLibrary() {
     const domain = $('#libraryDomain').value;
     const level = $('#libraryEvidence').value;
     const modality = $('#libraryMode').value;
     $('#libraryEvidence').disabled = !domain;
+    $('#clearLibrary').hidden = !(domain || modality || featuredOnly || $('#librarySearch').value.trim());
     const filtered = data.filter((study) =>
       matchesSearch(study, $('#librarySearch').value) && (!modality || study.modalidad === modality)
       && (!featuredOnly || evidence[study.id]?.tecnica)
@@ -202,36 +225,48 @@ function init(data, evidence) {
     renderSelection();
   }
 
-  function openStudy(id) {
+  function openStudy(id, trigger) {
     const study = byId.get(id);
     const review = evidence[id];
     const technical = review?.tecnica;
     const associations = tags(study, 'ambitos');
-    focusedStudy = id;
+    studyOrigin = { id, trigger, tab };
+    const sections = [
+      ['studyDescription', 'Descripción'],
+      ...(associations.length ? [['studyDomains', 'Ámbitos']] : []),
+      ...(technical ? [['studyTechnical', 'Ficha técnica']] : []),
+      ['studyEvidence', 'Etiquetas'],
+      ['studySeries', 'Series temporales'],
+    ];
+    $('#studyJumps').innerHTML = sections.map(([id, title]) =>
+      `<button type="button" class="secondary" data-section="${id}">${title}</button>`).join('');
     $('#studyDetail').innerHTML = `<div class="small">${esc(id)} · ${esc(study.modalidad)}</div>
       <h2 id="studyTitle">${esc(study.nombre)}</h2><p>${esc(study.titulo)}</p>
       <div class="detail-actions">${sourceLink(study.url, 'Abrir ficha NASA PSI')}
-        <button class="secondary" type="button" data-add="${esc(id)}"></button></div>
-      ${associations.length ? `<section class="detail-section"><h3>Ámbitos de seguridad</h3>
+        <button class="secondary" type="button" data-add="${esc(id)}"></button>
+        <button class="secondary" type="button" id="studyCompare" data-study-view="comparar" hidden>Ir a comparación</button>
+        <button class="secondary" type="button" data-study-view="similares">Ver similares</button></div>
+      <section id="studyDescription" class="detail-section" tabindex="-1"><h3>Descripción de la investigación</h3>
+        <p>Plataforma en el campo de catálogo: ${esc(declaredPlatform(study))}.</p>
+        <div class="detail-grid">${Object.entries(fields).map(([key, label]) => `<article class="science-card">
+          <h4>${label}</h4><p>${esc(study.atributos[key]?.text || 'Sin datos en el catálogo')}</p>
+          <div class="small">${esc(study.atributos[key]?.estado || 'Pendiente')} · Base del proyecto</div></article>`).join('')}</div></section>
+      ${associations.length ? `<section id="studyDomains" class="detail-section" tabindex="-1"><h3>Ámbitos de seguridad</h3>
         <div class="science-grid">${associations.map((tag) => evidenceDetail(study, tag)).join('')}</div></section>` : ''}
-      ${technical ? `<section class="detail-section"><h3>Ficha técnica ampliada</h3>
+      ${technical ? `<section id="studyTechnical" class="detail-section" tabindex="-1"><h3>Ficha técnica ampliada</h3>
         <div class="science-grid">${technical.values.map((item) => `<article class="science-card">
           <h4>${esc(item.label)}</h4><strong>${esc(item.value)}</strong><p class="small">${esc(item.kind)}</p>
           ${sourceLink(item.url || study.url, item.section)}</article>`).join('')}</div><p>${esc(technical.note)}</p></section>` : ''}
-      <section class="detail-section"><h3>Descripción de la investigación</h3>
-        <p>Plataforma en el campo de catálogo: ${esc(declaredPlatform(study))}.</p>
-        ${Object.entries(fields).map(([key, label]) => `<details><summary>${label}</summary>
-          <p>${esc(study.atributos[key]?.text || 'Sin datos en el catálogo')}</p>
-          <div class="small">${esc(study.atributos[key]?.estado || 'Pendiente')} · Base del proyecto</div></details>`).join('')}</section>
-      <section class="detail-section"><h3>Revisión de etiquetas</h3>
+      <section id="studyEvidence" class="detail-section" tabindex="-1"><h3>Revisión de etiquetas</h3>
         <p class="small">${sourceLink("https://github.com/Galacticlau/NasaChallenge/blob/main/docs/metodologia.md#revisión-de-etiquetas", "Cómo incorporar evidencia")}</p>
         ${Object.keys(categories).filter((key) => key !== 'ambitos' && tags(study, key).length).map((key) => `
           <details><summary>${categories[key]}</summary>
             <div class="science-grid">${tags(study, key).map((tag) => evidenceDetail(study, tag)).join('')}</div></details>`).join('')}</section>
-      <section class="detail-section"><h3>Series temporales</h3>
+      <section id="studySeries" class="detail-section" tabindex="-1"><h3>Series temporales</h3>
         <p>El catálogo no incorpora una serie temporal verificada para este estudio. Consulta en la ficha PSI los archivos y publicaciones disponibles.</p></section>`;
     renderSelection();
-    if (!$('#studyDialog').open) $('#studyDialog').showModal();
+    if (!dialog.open) dialog.showModal();
+    dialog.scrollTop = 0;
   }
 
   function declaredPlatform(study) {
@@ -317,7 +352,9 @@ function init(data, evidence) {
   function renderCompare() {
     $('#downloadCSV').disabled = selected.length < 2;
     $('#compareBody').innerHTML = selected.length < 2
-      ? empty('Selecciona al menos dos investigaciones en Agrupar, Biblioteca o Encontrar similares.')
+      ? `<div class="empty"><p>Selecciona al menos dos investigaciones para compararlas.</p>
+        <button type="button" class="secondary" data-tab="biblioteca">Buscar en la Biblioteca</button>
+        <button type="button" class="secondary" data-tab="agrupar">Explorar grupos</button></div>`
       : `<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th>${selected.map((id) => {
         const study = byId.get(id);
         return `<th scope="col">${esc(id)}<br>${studyButton(study)}<br>${sourceLink(study.url, 'NASA PSI')}</th>`;
@@ -369,20 +406,29 @@ function init(data, evidence) {
   document.addEventListener('click', ({ target }) => {
     const button = target.closest('button');
     if (!button) return;
-    const { tab: view, mode: modality, pick, add, study, domain } = button.dataset;
+    const { tab: view, mode: modality, pick, add, study, domain, section, studyView } = button.dataset;
     if (view) navigate(view);
     if (modality !== undefined) setMode(modality);
     if (pick || add) toggleSelection(pick || add);
-    if (study) openStudy(study);
+    if (study) openStudy(study, button);
     if (domain) {
-      $('#librarySearch').value = '';
-      $('#libraryMode').value = '';
-      $('#libraryDomain').value = domain;
-      $('#libraryEvidence').value = 'todas';
-      featuredOnly = false;
-      $('#featuredOnly').setAttribute('aria-pressed', 'false');
-      renderLibrary();
+      setLibraryFilters(domain);
       navigate('biblioteca');
+    }
+    if (section) {
+      const destination = $(`#${section}`);
+      destination.focus({ preventScroll: true });
+      destination.scrollIntoView({ block: 'start' });
+    }
+    if (studyView && studyOrigin) {
+      const id = studyOrigin.id;
+      studyOrigin = undefined;
+      dialog.close();
+      if (studyView === 'similares') {
+        $('#reference').value = id;
+        renderSimilars();
+      }
+      navigate(studyView);
     }
   });
   $('#groups').addEventListener('change', ({ target }) => {
@@ -398,6 +444,10 @@ function init(data, evidence) {
     setMode('');
   };
   $('#librarySearch').oninput = renderLibrary;
+  $('#clearLibrary').onclick = () => {
+    setLibraryFilters();
+    $('#librarySearch').focus();
+  };
   ['#libraryMode', '#libraryDomain', '#libraryEvidence'].forEach((id) => { $(id).onchange = renderLibrary; });
   $('#featuredOnly').onclick = () => {
     featuredOnly = !featuredOnly;
@@ -408,9 +458,26 @@ function init(data, evidence) {
   $('#goCompare').onclick = () => navigate('comparar');
   $('#clearSelection').onclick = () => { selected = []; renderSelection(); };
   $('#downloadCSV').onclick = downloadCSV;
-  $('#studyDialog').addEventListener('close', () => {
-    const visibleTrigger = $$('button[data-study]').find((button) => button.dataset.study === focusedStudy && button.getClientRects().length);
-    visibleTrigger?.focus();
+  function isBackdrop({ target, clientX, clientY }) {
+    if (target !== dialog) return false;
+    const { left, right, top, bottom } = dialog.getBoundingClientRect();
+    return clientX < left || clientX > right || clientY < top || clientY > bottom;
+  }
+  dialog.addEventListener('pointerdown', (event) => {
+    outsidePointer = isBackdrop(event);
+  });
+  dialog.addEventListener('click', (event) => {
+    if (outsidePointer && isBackdrop(event)) dialog.close();
+    outsidePointer = false;
+  });
+  dialog.addEventListener('close', () => {
+    outsidePointer = false;
+    if (!studyOrigin || studyOrigin.tab !== tab) return;
+    const { trigger, id } = studyOrigin;
+    studyOrigin = undefined;
+    const opener = trigger?.isConnected ? trigger
+      : $$('button[data-study]').find((button) => button.dataset.study === id && button.getClientRects().length);
+    opener?.focus({ preventScroll: true });
   });
   window.addEventListener('hashchange', readHash);
   setMode('');
