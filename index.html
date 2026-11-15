@@ -270,6 +270,10 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
   .view{scroll-margin-top:106px}
 }
 @media(max-width:760px){.home-charts{grid-template-columns:1fr}}
+
+/* Enlace independiente al minijuego; no modifica las vistas existentes. */
+.nav .game-nav-link{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:12px;border:1px solid #a86a42;background:#ff9d5c18;color:#ffceaa;font-size:13px;font-weight:750;text-decoration:none}
+.nav .game-nav-link:hover,.nav .game-nav-link:focus-visible{border-color:#ffba84;background:#ff9d5c2b}
 </style></head>
 <body><div class="shell"><header class="top"><div class="brand"><div class="logo">♨</div><div><strong>Flame Atlas</strong><small>NASA · Combustion investigations</small></div></div><div class="tip">NASA Physical Sciences Informatics</div></header>
 <section class="hero"><div><div class="eyebrow">Combustión en microgravedad</div><h1>Explora las investigaciones de NASA PSI</h1><p>Consulta, agrupa y compara estudios sobre el fuego en microgravedad y sus aplicaciones a la seguridad espacial.</p></div><div class="counter"><b id="heroCount">24</b><span>Investigaciones</span></div></section>
@@ -280,7 +284,8 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
   <button type="button" data-tab="comparar">Comparar<span id="navSelection" class="count" hidden></span></button>
   <button type="button" data-tab="similares">Encontrar similares</button>
   <button type="button" data-tab="ambitos">Áreas de aplicaciones</button>
-  <button type="button" data-tab="glosario">Glosario</button></nav>
+  <button type="button" data-tab="glosario">Glosario</button>
+  <a class="game-nav-link" href="fire-protocol.html">🎮 Fire Protocol: 0G</a></nav>
 <div class="layout is-home"><main>
 <section id="inicio" class="panel view"><h2>El catálogo de un vistazo</h2>
 <div class="home-charts">
