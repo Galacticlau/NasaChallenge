@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#08121d">
+<title>Fire Protocol: 0G · Flame Atlas</title>
+<style>
+:root{color-scheme:dark;--bg:#070d18;--p:#101e30;--border:#30445a;--c:#83effb;--o:#ffae74;--muted:#adc0cf}
+*{box-sizing:border-box}body{margin:0;color:#ecf7ff;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at 80% 0%,#15344b,#070d18 55%)}
+button,a{font:inherit}button{cursor:pointer}a{color:var(--c)}button:focus-visible,a:focus-visible{outline:3px solid var(--c);outline-offset:3px}
+.wrap{max-width:1120px;margin:auto;padding:24px 18px 55px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.brand{font-weight:900;font-size:18px;text-decoration:none;color:#fff}.brand b{display:inline-grid;place-items:center;width:38px;height:38px;margin-right:10px;border-radius:11px;background:linear-gradient(135deg,#ffd19a,#fc8455);color:#241306}
+.back,.secondary{border:1px solid #3e5972;border-radius:10px;background:#152a3f;color:#dff4ff;text-decoration:none;font-size:12px;font-weight:750;padding:10px 13px}
+.eyebrow{font-size:11px;color:var(--o);letter-spacing:2px;font-weight:800;text-transform:uppercase}
+h1{font-size:clamp(31px,4.5vw,50px);letter-spacing:-1.5px;line-height:1.1;margin:7px 0 10px}h1 span{color:var(--c)}
+.lead{color:var(--muted);max-width:780px;margin:0 0 23px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:17px;align-items:start}
+.panel{background:#0e1a29;border:1px solid var(--border);border-radius:19px;padding:15px;box-shadow:0 14px 45px #0004;min-width:0}
+.hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}.stat{display:flex;justify-content:space-between;gap:7px;align-items:center;border:1px solid #304960;background:#152c3f;border-radius:10px;padding:10px;font-size:11px;color:#b6d1df}.stat strong{font-size:15px;color:#fff}
+.frame{position:relative;background:#070f1a;border-radius:11px;border:1px solid #34516a;overflow:hidden}
+canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated;touch-action:none}
+.overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;background:#06101de8;z-index:3}.overlay[hidden]{display:none}.overlay>div{max-width:410px}
+.overlay h2{font-size:clamp(19px,3.3vw,27px);margin:8px 0}.overlay p{font-size:13px;color:#c2d6e4}
+.robot{font-size:42px}.primary{border:0;border-radius:11px;background:linear-gradient(120deg,#82eafa,#66a6ff);font-weight:900;color:#061825;padding:12px 18px}
+.status{min-height:24px;margin:11px 0 5px;font-size:13px;color:#c4dcea}
+.toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}.toolbar>div{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.toolbar b{font-size:11px;margin-right:3px;color:#bad3e0}
+.preset{border:1px solid #415e75;border-radius:9px;color:#cce3ef;background:#152c3f;font-size:12px;padding:8px 10px;font-weight:750}
+.preset[aria-pressed="true"]{border-color:var(--c);background:#25526a;color:#fff}
+.preset:disabled{opacity:.5}
+.controls{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:18px}
+.pad{display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,47px);gap:5px}.pad button,.seal{border:1px solid #4d7187;border-radius:11px;color:#fff;background:linear-gradient(#284b64,#172d41);font-weight:900;touch-action:none;user-select:none;-webkit-user-select:none}
+.pad button.pressed{background:#327790}.pad [data-dir=up]{grid-column:2;grid-row:1}.pad [data-dir=left]{grid-column:1;grid-row:2}.pad [data-dir=down]{grid-column:2;grid-row:2}.pad [data-dir=right]{grid-column:3;grid-row:2}
+.seal{width:115px;height:70px;background:linear-gradient(140deg,#d17b3d,#81401f);border-color:#fdab6e}.seal:disabled{opacity:.5}
+.info h2{font-size:18px;margin:3px 0 11px}.info h3{font-size:13px;color:var(--o);margin:20px 0 5px}.info p,.info li{font-size:12px;color:var(--muted);line-height:1.7}.info ul{padding-left:18px;margin:6px 0}
+kbd{background:#30465a;padding:2px 5px;border-radius:4px;border:1px solid #59728a;color:#fff;font:11px monospace}
+.caution{border-left:3px solid var(--o);padding-left:10px}
+footer{font-size:11px;color:#9fbbce;margin-top:20px}
+dialog{width:min(92vw,560px);background:linear-gradient(160deg,#163249,#0b1b2b);border:1px solid #4a6881;border-radius:20px;box-shadow:0 20px 80px #000c;color:white;padding:26px;max-height:90vh;overflow:auto}
+dialog::backdrop{background:#010611da}dialog h2{font-size:26px;margin:9px 0}dialog h3{font-size:15px;color:var(--c);margin:17px 0 6px}dialog p{font-size:13px;color:#c8dce8;line-height:1.65}
+.tag{display:inline-block;background:#174f4b;border:1px solid #398d85;border-radius:8px;padding:5px 9px;color:#a4f2db;font-size:11px;font-weight:850}
+.results{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.results b{font-size:12px;border:1px solid #435f73;border-radius:9px;padding:8px 11px}
+.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.actions a{border:1px solid #516e82;border-radius:10px;text-decoration:none;padding:10px 13px;font-size:12px;font-weight:750}
+.disclaimer{font-size:11px!important;color:#9db7c7!important}
+@media(max-width:870px){.layout{grid-template-columns:1fr}.info{display:block}}
+@media(max-width:520px){.wrap{padding:15px 9px 30px}.panel{padding:8px;border-radius:11px}.stat{padding:7px;flex-wrap:wrap;font-size:10px}.stat strong{font-size:13px}.hud{gap:5px}.pad{grid-template-columns:repeat(3,45px);grid-template-rows:repeat(2,44px)}.seal{width:100px}.overlay p{font-size:11px}.overlay h2{font-size:20px}}
+</style>
+</head>
+<body><div class="wrap">
+<header class="top"><a class="brand" href="index.html"><b>♨</b>Flame Atlas / Arcade</a><a class="back" href="index.html#inicio">← Volver a Flame Atlas</a></header>
+<div class="eyebrow">Misión 01 · Seguridad contra incendios</div>
+<h1>FIRE PROTOCOL: <span>0G</span></h1>
+<p class="lead">Pilota un robot en microgravedad, esquiva partículas incandescentes y activa tres estaciones de contención. Inspirado en <strong>BASS-II (PSI-25)</strong>, una investigación real de combustión.</p>
+<div class="layout">
+  <section class="panel" aria-label="Juego Fire Protocol 0G">
+    <div class="hud"><div class="stat">INTEGRIDAD <strong id="hp">♥ ♥ ♥</strong></div><div class="stat">ESTACIONES <strong id="count">0 / 3</strong></div><div class="stat">TIEMPO <strong id="timer">00:00</strong></div></div>
+    <div class="frame">
+      <canvas id="scene" width="640" height="360" role="img" aria-label="Mapa pixel art de una cámara espacial con estaciones, robot y peligros"></canvas>
+      <div class="overlay" id="intro"><div><div class="robot" aria-hidden="true">🤖</div><h2>PROTOCOLO DE CONTENCIÓN</h2><p>Muévete con <b>WASD</b> o flechas, esquiva las partículas y pulsa <b>E</b> o espacio para sellar las tres estaciones azules.</p><button class="primary" id="start">▶ INICIAR MISIÓN</button></div></div>
+      <div class="overlay" id="pauseScreen" hidden><div><h2>MISIÓN EN PAUSA</h2><p>Tu robot está a salvo mientras decides la próxima ruta.</p><button class="primary" id="resume">▶ CONTINUAR</button></div></div>
+    </div>
+    <p class="status" id="message" role="status" aria-live="polite">Busca las estaciones luminosas.</p>
+    <div class="toolbar"><div><b>FLUJO DE AIRE</b><button class="preset" data-flow="0" aria-pressed="false">0 cm/s</button><button class="preset" data-flow="20" aria-pressed="true">20 cm/s</button><button class="preset" data-flow="40" aria-pressed="false">40 cm/s</button></div><button class="preset" id="pauseButton" disabled>⏸ Pausar</button></div>
+    <div class="controls"><div class="pad" aria-label="Controles de movimiento"><button data-dir="up" aria-label="Arriba">▲</button><button data-dir="left" aria-label="Izquierda">◀</button><button data-dir="down" aria-label="Abajo">▼</button><button data-dir="right" aria-label="Derecha">▶</button></div><button class="seal" id="sealButton" disabled>⚡ SELLAR</button></div>
+  </section>
+  <aside class="panel info">
+    <h2>🎯 Tu misión</h2><p>Activa las tres estaciones. Cada estación sellada detiene una fuente de partículas. Tu robot tiene tres puntos de integridad.</p>
+    <h3>Controles</h3><ul><li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> o flechas: moverte.</li><li><kbd>E</kbd> o <kbd>Espacio</kbd>: sellar una estación cercana.</li><li>En celulares: controles táctiles.</li></ul>
+    <h3>La ciencia detrás del juego</h3><p>BASS-II investiga ignición, crecimiento, propagación y extinción de materiales sólidos en microgravedad, incluyendo cambios de flujo de aire y oxígeno.</p>
+    <p class="caution">En la descripción revisada se menciona un túnel de aire capaz de alcanzar <strong>40 cm/s</strong>. Los botones 0, 20 y 40 cm/s son opciones del juego, <strong>no una lista de ensayos comprobados</strong>.</p>
+    <p class="caution">Esta es una <strong>representación educativa y recreativa</strong>, no una simulación física validada. No predice la propagación ni la eficacia real de extintores.</p>
+  </aside>
+</div>
+<footer>Flame Atlas · Proyecto educativo independiente · <a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" target="_blank" rel="noopener noreferrer">Fuente NASA PSI-25</a></footer>
+</div>
+<dialog id="endCard" aria-labelledby="endTitle">
+  <span class="tag">INVESTIGACIÓN DE BASE · NASA PSI-25</span>
+  <h2 id="endTitle">¡Misión completada!</h2><p id="endMessage"></p><div class="results" id="stats"></div>
+  <h3>🔬 BASS-II · Burning and Suppression of Solids – II</h3>
+  <p id="objective">BASS-II estudia ignición, crecimiento, propagación y extinción de sólidos en microgravedad.</p>
+  <h3>Condiciones documentadas</h3><p id="conditions">Las pruebas investigan el flujo de aire, la concentración de oxígeno y las características de los materiales.</p>
+  <p class="disclaimer">Los comportamientos del juego son ilustrativos. Los textos científicos proceden de la ficha del proyecto, no de resultados numéricos de pruebas individuales.</p>
+  <div class="actions"><button class="primary" id="again">↻ JUGAR DE NUEVO</button><a href="index.html#biblioteca">Biblioteca</a><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" target="_blank" rel="noopener noreferrer">Investigación NASA ↗</a></div>
+</dialog>
+<script>
+"use strict";
+(()=>{
+const $=id=>document.getElementById(id), canvas=$("scene"), c=canvas.getContext("2d"); c.imageSmoothingEnabled=false;
+const stations=[{x:142,y:91,label:"A"},{x:336,y:292,label:"B"},{x:566,y:92,label:"C"}];
+const vents=[{x:245,y:122,station:0},{x:443,y:269,station:1},{x:545,y:257,station:2}];
+const walls=[
+  {x:0,y:0,w:640,h:24},{x:0,y:337,w:640,h:23},{x:0,y:0,w:23,h:360},{x:617,y:0,w:23,h:360},
+  {x:207,y:59,w:17,h:88},{x:207,y:212,w:17,h:96},
+  {x:395,y:79,w:17,h:102},{x:395,y:226,w:17,h:93},
+  {x:286,y:164,w:60,h:18},{x:496,y:153,w:49,h:17}
+];
+const stars=Array.from({length:75},(_,i)=>({x:26+(i*139)%586,y:28+(i*97)%306}));
+const keys={up:false,down:false,left:false,right:false};
+const keyMap={arrowup:"up",w:"up",arrowdown:"down",s:"down",arrowleft:"left",a:"left",arrowright:"right",d:"right"};
+let mode="ready", flow=20, player, sealed, particles, hp, elapsed, immunity, spawnTick, last=0, frame=0, until=0;
+function reset(){
+ player={x:77,y:182,vx:0,vy:0};sealed=[false,false,false];particles=[];hp=3;elapsed=0;immunity=0;spawnTick=0;until=0;
+ for(const key in keys)keys[key]=false;
+ document.querySelectorAll("[data-dir]").forEach(b=>b.classList.remove("pressed"));
+ updateHud();$("message").textContent="Sella las estaciones para detener las fuentes de peligro.";
+}
+function updateHud(){
+ $("hp").textContent=("♥ ".repeat(hp)+"♡ ".repeat(3-hp)).trim();
+ $("count").textContent=sealed.filter(Boolean).length+" / 3";
+ const secs=Math.floor(elapsed/60);$("timer").textContent=String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0");
+}
+function notify(s){$("message").textContent=s;until=elapsed+170;}
+function begin(){
+ reset();mode="playing";$("intro").hidden=true;$("pauseScreen").hidden=true;
+ $("pauseButton").disabled=false;$("pauseButton").textContent="⏸ Pausar";$("sealButton").disabled=false;
+ if($("endCard").open)$("endCard").close();
+}
+function togglePause(){
+ if(mode==="playing"){mode="paused";$("pauseScreen").hidden=false;$("pauseButton").textContent="▶ Continuar";for(const key in keys)keys[key]=false;}
+ else if(mode==="paused"){mode="playing";$("pauseScreen").hidden=true;$("pauseButton").textContent="⏸ Pausar";}
+}
+function nearest(){
+ let idx=-1,best=1e9;
+ stations.forEach((s,i)=>{if(sealed[i])return;const d=Math.hypot(player.x-s.x,player.y-s.y);if(d<best){idx=i;best=d;}});
+ return best<38?idx:-1;
+}
+function activate(){
+ if(mode!=="playing")return;
+ const i=nearest();if(i<0){notify("Acércate a una estación azul y vuelve a pulsar SELLAR.");return;}
+ sealed[i]=true;particles=particles.filter(p=>p.from!==i);
+ notify("¡Estación "+stations[i].label+" sellada! Ya no genera partículas.");
+ updateHud();if(sealed.every(Boolean))finish(true);
+}
+function finish(won){
+ mode=won?"won":"lost";$("pauseButton").disabled=true;$("sealButton").disabled=true;
+ $("endTitle").textContent=won?"¡Protocolo completado!":"Robot fuera de servicio";
+ $("endMessage").textContent=won?"Has activado las tres estaciones y controlado las fuentes de peligro.":"La integridad del robot llegó a cero. Puedes volver a intentarlo, cambiar tu ruta y ajustar el flujo.";
+ $("stats").replaceChildren();
+ ["Estaciones "+sealed.filter(Boolean).length+"/3","Tiempo "+$("timer").textContent,"Integridad "+hp+"/3"].forEach(t=>{const b=document.createElement("b");b.textContent=t;$("stats").append(b);});
+ $("endCard").showModal();
+}
+function touchesWall(x,y,r){
+ return walls.some(w=>{const px=Math.max(w.x,Math.min(x,w.x+w.w)),py=Math.max(w.y,Math.min(y,w.y+w.h));return Math.hypot(x-px,y-py)<r;});
+}
+function hit(){
+ if(immunity>0)return;
+ hp--;immunity=115;notify("¡Daño! Esquiva las partículas naranja.");
+ if(hp<=0){hp=0;updateHud();finish(false);}
+}
+function generate(){
+ vents.forEach(v=>{if(sealed[v.station]||particles.length>=90)return;
+ const a=Math.random()*6.283,speed=.4+Math.random()*.7;
+ particles.push({x:v.x,y:v.y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,t:170+Math.random()*80,from:v.station,r:2+Math.random()*2});
+ });
+}
+function tick(dt){
+ if(mode!=="playing")return;
+ elapsed+=dt;frame+=dt;immunity=Math.max(0,immunity-dt);
+ const ax=Number(keys.right)-Number(keys.left),ay=Number(keys.down)-Number(keys.up),norm=Math.hypot(ax,ay)||1;
+ player.vx+=ax/norm*.38*dt;player.vy+=ay/norm*.38*dt;
+ player.vx*=Math.pow(.90,dt);player.vy*=Math.pow(.90,dt);
+ const v=Math.hypot(player.vx,player.vy);
+ if(v>3.7){player.vx*=3.7/v;player.vy*=3.7/v;}
+ const nx=player.x+player.vx*dt,ny=player.y+player.vy*dt;
+ if(!touchesWall(nx,player.y,9))player.x=nx;else player.vx*=-.12;
+ if(!touchesWall(player.x,ny,9))player.y=ny;else player.vy*=-.12;
+ spawnTick+=dt;if(spawnTick>=29){spawnTick-=29;generate();}
+ const drift=flow/40;
+ particles=particles.filter(p=>p.t>0);
+ particles.forEach(p=>{
+   p.vx=Math.min(2.4,p.vx+drift*.005*dt);
+   let nx=p.x+(p.vx+drift*.58)*dt,ny=p.y+p.vy*dt;
+   if(touchesWall(nx,p.y,3)){p.vx*=-.65;nx=p.x;}
+   if(touchesWall(p.x,ny,3)){p.vy*=-.65;ny=p.y;}
+   p.x=nx;p.y=ny;p.t-=dt;
+   if(Math.hypot(p.x-player.x,p.y-player.y)<10+p.r)hit();
+ });
+ vents.forEach(v=>{if(!sealed[v.station]&&Math.hypot(v.x-player.x,v.y-player.y)<18)hit();});
+ if(until<elapsed)$("message").textContent=nearest()>=0?"Estación al alcance. Pulsa E o SELLAR.":"Muévete hacia las estaciones azules; evita las partículas naranja.";
+ updateHud();
+}
+function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(Math.round(x),Math.round(y),w,h);}
+function txt(s,x,y,size,color,align="left"){c.font="bold "+size+"px monospace";c.textAlign=align;c.fillStyle=color;c.fillText(s,x,y);}
+function render(){
+ rect(0,0,640,360,"#071421");
+ stars.forEach((s,i)=>rect(s.x,s.y,i%3===0?2:1,i%3===0?2:1,i%4===0?"#5d91b3":"#2d516d"));
+ for(let x=25;x<619;x+=28)for(let y=25;y<339;y+=28)rect(x,y,1,1,"#264254");
+ walls.forEach(w=>{rect(w.x,w.y,w.w,w.h,"#476178");rect(w.x+2,w.y+2,Math.max(1,w.w-4),Math.max(1,w.h-4),"#253a4e");});
+ vents.forEach((v,i)=>{
+   rect(v.x-13,v.y-13,26,26,sealed[i]?"#285749":"#843c2b");
+   rect(v.x-9,v.y-9,18,18,sealed[i]?"#48a48a":"#d56a39");
+   if(!sealed[i]){
+    const pulse=Math.sin(frame*.14+i)*3;
+    rect(v.x-5,v.y-10-pulse,10,16+pulse,"#f29a49");
+    rect(v.x-3,v.y-5-pulse,6,10,"#ffe18d");
+   }else txt("✓",v.x,v.y+5,17,"#b8ffdc","center");
+ });
+ particles.forEach(p=>{
+   rect(p.x,p.y,p.r,p.r,p.t<45?"#c97847":"#ffd18a");
+   if(p.t>45)rect(p.x-3,p.y+1,2,2,"#ed7547");
+ });
+ stations.forEach((s,i)=>{
+   const done=sealed[i],glow=Math.sin(frame*.07+i)*2;
+   rect(s.x-17,s.y-17,34,34,done?"#265b4c":"#1b4b6b");
+   rect(s.x-12,s.y-12,24,24,done?"#5dac89":"#71d8ee");
+   rect(s.x-6,s.y-6,12,12,done?"#236d56":"#2b7198");
+   txt(done?"✓":s.label,s.x,s.y+27,10,done?"#94e7b5":"#b9f4ff","center");
+   if(!done){c.strokeStyle="#6cd9ec";c.lineWidth=1;c.strokeRect(s.x-19-glow,s.y-19-glow,38+2*glow,38+2*glow);}
+ });
+ const x=Math.round(player.x),y=Math.round(player.y);
+ if(immunity===0||Math.floor(frame/6)%2===0){
+   rect(x-10,y-11,20,22,"#071923");rect(x-8,y-10,16,14,"#8bdbe6");
+   rect(x-6,y-7,12,7,"#193e59");rect(x-4,y-5,3,3,"#d6fdff");rect(x+2,y-5,3,3,"#d6fdff");
+   rect(x-5,y+5,10,5,"#d3f0f4");rect(x-13,y-4,5,10,"#70c8d1");rect(x+8,y-4,5,10,"#70c8d1");
+   rect(x-7,y+9,5,5,"#407796");rect(x+2,y+9,5,5,"#407796");rect(x-1,y-16,2,6,"#89e0ef");
+   if(Math.hypot(player.vx,player.vy)>1.2)rect(x-player.vx*4,y-player.vy*3+8,4,4,"#ffbd73");
+ }
+ txt("BASS-II // EXPERIMENTAL CHAMBER",35,43,9,"#78b1cb");
+ txt("FLOW: "+flow+" cm/s",601,43,9,"#ffd196","right");
+}
+function animation(timestamp){
+ const dt=last?Math.min((timestamp-last)/16.667,2):1;last=timestamp;
+ tick(dt);render();requestAnimationFrame(animation);
+}
+$("start").addEventListener("click",begin);
+$("again").addEventListener("click",begin);
+$("resume").addEventListener("click",togglePause);
+$("pauseButton").addEventListener("click",togglePause);
+$("sealButton").addEventListener("click",activate);
+document.querySelectorAll("[data-flow]").forEach(b=>b.addEventListener("click",()=>{
+ flow=Number(b.dataset.flow);document.querySelectorAll("[data-flow]").forEach(a=>a.setAttribute("aria-pressed",String(a===b)));
+ if(mode==="playing")notify("Flujo ilustrativo: "+flow+" cm/s. Cambia la deriva de partículas.");
+}));
+document.addEventListener("keydown",e=>{
+ const k=e.key.toLowerCase(),dir=keyMap[k];
+ if(dir){if(mode==="playing")keys[dir]=true;e.preventDefault();}
+ if((k==="e"||k===" ")&&mode==="playing"){e.preventDefault();if(!e.repeat)activate();}
+});
+document.addEventListener("keyup",e=>{const dir=keyMap[e.key.toLowerCase()];if(dir){keys[dir]=false;e.preventDefault();}});
+document.querySelectorAll("[data-dir]").forEach(b=>{
+ const dir=b.dataset.dir;
+ b.addEventListener("pointerdown",e=>{e.preventDefault();keys[dir]=true;b.classList.add("pressed");b.setPointerCapture?.(e.pointerId);});
+ const release=()=>{keys[dir]=false;b.classList.remove("pressed");};
+ ["pointerup","pointercancel","lostpointercapture"].forEach(name=>b.addEventListener(name,release));
+});
+window.addEventListener("blur",()=>{for(const k in keys)keys[k]=false;if(mode==="playing")togglePause();});
+document.addEventListener("visibilitychange",()=>{if(document.hidden&&mode==="playing")togglePause();});
+$("endCard").addEventListener("cancel",e=>e.preventDefault());
+fetch("data/investigaciones.json").then(r=>{if(!r.ok)throw Error("Data unavailable");return r.json();}).then(data=>{
+ const study=data.find(s=>s.id==="PSI-25");
+ if(!study)return;
+ const a=study.atributos||{};
+ if(a.objetivos?.text)$("objective").textContent=a.objetivos.text;
+ if(a.condiciones_prueba?.text)$("conditions").textContent=a.condiciones_prueba.text;
+}).catch(()=>{});
+reset();requestAnimationFrame(animation);
+})();
+</script>
+</body></html>
