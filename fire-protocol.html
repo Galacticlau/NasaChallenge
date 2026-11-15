@@ -1,307 +1,571 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#08121d">
-<title>Fire Protocol: 0G · Flame Atlas</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080e19">
+<title>Fire Protocol: 0G | Flame Atlas</title>
 <style>
-:root{color-scheme:dark;--bg:#070d18;--p:#101e30;--border:#30445a;--c:#83effb;--o:#ffae74;--muted:#adc0cf}
-*{box-sizing:border-box}body{margin:0;color:#ecf7ff;font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;background:radial-gradient(ellipse at 80% 0%,#15344b,#070d18 55%)}
-button,a{font:inherit}button{cursor:pointer}a{color:var(--c)}button:focus-visible,a:focus-visible{outline:3px solid var(--c);outline-offset:3px}
-.wrap{max-width:1120px;margin:auto;padding:24px 18px 55px}.top{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:30px}
-.brand{font-weight:900;font-size:18px;text-decoration:none;color:#fff}.brand b{display:inline-grid;place-items:center;width:38px;height:38px;margin-right:10px;border-radius:11px;background:linear-gradient(135deg,#ffd19a,#fc8455);color:#241306}
-.back,.secondary{border:1px solid #3e5972;border-radius:10px;background:#152a3f;color:#dff4ff;text-decoration:none;font-size:12px;font-weight:750;padding:10px 13px}
-.eyebrow{font-size:11px;color:var(--o);letter-spacing:2px;font-weight:800;text-transform:uppercase}
-h1{font-size:clamp(31px,4.5vw,50px);letter-spacing:-1.5px;line-height:1.1;margin:7px 0 10px}h1 span{color:var(--c)}
-.lead{color:var(--muted);max-width:780px;margin:0 0 23px}
-.layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:17px;align-items:start}
-.panel{background:#0e1a29;border:1px solid var(--border);border-radius:19px;padding:15px;box-shadow:0 14px 45px #0004;min-width:0}
-.hud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}.stat{display:flex;justify-content:space-between;gap:7px;align-items:center;border:1px solid #304960;background:#152c3f;border-radius:10px;padding:10px;font-size:11px;color:#b6d1df}.stat strong{font-size:15px;color:#fff}
-.frame{position:relative;background:#070f1a;border-radius:11px;border:1px solid #34516a;overflow:hidden}
+:root{color-scheme:dark;--bg:#080e19;--panel:#101d2d;--border:#324b64;--text:#ecf6ff;--muted:#acc2d1;--cyan:#7be2ed;--orange:#ffb17c;--green:#8ee6bd;--violet:#bcb0f8}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 90% -10%,#1d3950 0,transparent 50%),var(--bg);font:14px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text)}
+button,input{font:inherit}button{cursor:pointer}a{color:var(--cyan)}
+button:focus-visible,a:focus-visible{outline:3px solid #8af2f8;outline-offset:3px}
+.wrap{max-width:1280px;margin:auto;padding:17px 18px 52px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--text);font-size:17px;font-weight:800}
+.mark{width:42px;height:42px;background:linear-gradient(140deg,#ffdc96,#ff814d);border-radius:13px;display:grid;place-items:center;color:#201205;font-size:25px}
+.back{padding:9px 12px;border:1px solid #365771;background:#12243a;text-decoration:none;color:#d7edf8;border-radius:10px;font-weight:700;font-size:12px}
+.eyebrow{font:800 11px/1.5 system-ui;letter-spacing:1.8px;text-transform:uppercase;color:var(--orange)}
+h1{font-size:clamp(29px,4.1vw,45px);margin:4px 0 5px;letter-spacing:-1.2px;line-height:1.13}
+h1 span{color:var(--cyan)}
+.lead{color:var(--muted);margin:0 0 17px;max-width:970px}
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 283px;gap:16px;align-items:start}
+.panel{min-width:0;background:#0d1928;border:1px solid var(--border);border-radius:17px;padding:15px;box-shadow:0 12px 45px #0005}
+.hud{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:8px;margin-bottom:11px}
+.readout{border:1px solid #344f63;background:#16293e;border-radius:10px;padding:8px 10px;min-width:0}
+.readout small{display:block;color:#aac2d2;font-size:10px;letter-spacing:.9px;font-weight:750}
+.readout strong{display:block;font-size:15px;color:#f0fbff;font-variant-numeric:tabular-nums;white-space:nowrap}
+.readout.air{background:linear-gradient(110deg,#133c4c,#17344b);border-color:#37838b}
+.readout.air strong{color:#97f9f2;font-size:clamp(23px,3.8vw,35px);line-height:1.22}
+.readout.air strong span{font-size:12px;color:#acd3d5}
+.gameframe{border:1px solid #40627a;position:relative;background:#061322;border-radius:12px;overflow:hidden}
 canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated;touch-action:none}
-.overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;background:#06101de8;z-index:3}.overlay[hidden]{display:none}.overlay>div{max-width:410px}
-.overlay h2{font-size:clamp(19px,3.3vw,27px);margin:8px 0}.overlay p{font-size:13px;color:#c2d6e4}
-.robot{font-size:42px}.primary{border:0;border-radius:11px;background:linear-gradient(120deg,#82eafa,#66a6ff);font-weight:900;color:#061825;padding:12px 18px}
-.status{min-height:24px;margin:11px 0 5px;font-size:13px;color:#c4dcea}
-.toolbar{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:14px}.toolbar>div{display:flex;align-items:center;gap:6px;flex-wrap:wrap}.toolbar b{font-size:11px;margin-right:3px;color:#bad3e0}
-.preset{border:1px solid #415e75;border-radius:9px;color:#cce3ef;background:#152c3f;font-size:12px;padding:8px 10px;font-weight:750}
-.preset[aria-pressed="true"]{border-color:var(--c);background:#25526a;color:#fff}
-.preset:disabled{opacity:.5}
-.controls{display:flex;align-items:end;justify-content:space-between;gap:12px;margin-top:18px}
-.pad{display:grid;grid-template-columns:repeat(3,48px);grid-template-rows:repeat(2,47px);gap:5px}.pad button,.seal{border:1px solid #4d7187;border-radius:11px;color:#fff;background:linear-gradient(#284b64,#172d41);font-weight:900;touch-action:none;user-select:none;-webkit-user-select:none}
-.pad button.pressed{background:#327790}.pad [data-dir=up]{grid-column:2;grid-row:1}.pad [data-dir=left]{grid-column:1;grid-row:2}.pad [data-dir=down]{grid-column:2;grid-row:2}.pad [data-dir=right]{grid-column:3;grid-row:2}
-.seal{width:115px;height:70px;background:linear-gradient(140deg,#d17b3d,#81401f);border-color:#fdab6e}.seal:disabled{opacity:.5}
-.info h2{font-size:18px;margin:3px 0 11px}.info h3{font-size:13px;color:var(--o);margin:20px 0 5px}.info p,.info li{font-size:12px;color:var(--muted);line-height:1.7}.info ul{padding-left:18px;margin:6px 0}
-kbd{background:#30465a;padding:2px 5px;border-radius:4px;border:1px solid #59728a;color:#fff;font:11px monospace}
-.caution{border-left:3px solid var(--o);padding-left:10px}
-footer{font-size:11px;color:#9fbbce;margin-top:20px}
-dialog{width:min(92vw,560px);background:linear-gradient(160deg,#163249,#0b1b2b);border:1px solid #4a6881;border-radius:20px;box-shadow:0 20px 80px #000c;color:white;padding:26px;max-height:90vh;overflow:auto}
-dialog::backdrop{background:#010611da}dialog h2{font-size:26px;margin:9px 0}dialog h3{font-size:15px;color:var(--c);margin:17px 0 6px}dialog p{font-size:13px;color:#c8dce8;line-height:1.65}
-.tag{display:inline-block;background:#174f4b;border:1px solid #398d85;border-radius:8px;padding:5px 9px;color:#a4f2db;font-size:11px;font-weight:850}
-.results{display:flex;flex-wrap:wrap;gap:7px;margin:14px 0}.results b{font-size:12px;border:1px solid #435f73;border-radius:9px;padding:8px 11px}
-.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}.actions a{border:1px solid #516e82;border-radius:10px;text-decoration:none;padding:10px 13px;font-size:12px;font-weight:750}
-.disclaimer{font-size:11px!important;color:#9db7c7!important}
-@media(max-width:870px){.layout{grid-template-columns:1fr}.info{display:block}}
-@media(max-width:520px){.wrap{padding:15px 9px 30px}.panel{padding:8px;border-radius:11px}.stat{padding:7px;flex-wrap:wrap;font-size:10px}.stat strong{font-size:13px}.hud{gap:5px}.pad{grid-template-columns:repeat(3,45px);grid-template-rows:repeat(2,44px)}.seal{width:100px}.overlay p{font-size:11px}.overlay h2{font-size:20px}}
-
-.brief{background:#163147;border:1px solid #42677d;border-radius:10px;padding:10px;text-align:left;margin:11px 0}
-.brief strong{color:#ffc18c}.brief ol{margin:6px 0 0;padding-left:19px}.brief li{font-size:12px;line-height:1.6}
-.science-log{background:#153243;border-left:3px solid #82eafa;border-radius:9px;padding:10px;margin:11px 0;font-size:12px;color:#d4f5ff}
-.science-log b{color:#99f4fc}.science-log p{margin:4px 0}
-.fire-progress{border:1px solid #36516c;background:#14293a;border-radius:10px;padding:11px;margin:12px 0}
-.fire-progress meter{display:block;width:100%;height:15px;margin-top:7px;accent-color:#fa875b}
-@media(max-width:520px){.hud{grid-template-columns:repeat(2,minmax(0,1fr))}.overlay{align-items:start;overflow:auto}.overlay>div{margin:auto}.brief li{font-size:11px}}
+.cover{position:absolute;inset:0;z-index:3;background:#081322ee;display:flex;align-items:center;justify-content:center;padding:15px;overflow:auto;text-align:center}
+.cover[hidden]{display:none}
+.cover .inner{position:relative;margin:auto;width:min(100%,520px);z-index:2}
+.cover h2{font-size:clamp(21px,3.2vw,29px);margin:7px 0}
+.cover p{font-size:13px;color:#d2e5ee;line-height:1.55}
+.alarm{background:radial-gradient(ellipse at center,#43212fcf,#081421f5 75%)}
+.alarm:before{content:"";position:absolute;inset:0;border:5px solid #ff6e63;animation:flash 1.05s infinite alternate;pointer-events:none}
+.alarm:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(to bottom,transparent 0 6px,#fff1 6px 7px);opacity:.18;pointer-events:none}
+.alarm .symbol{width:62px;height:62px;border:2px solid #ffad7e;background:#6d2732;border-radius:16px;display:grid;place-items:center;margin:0 auto 8px;font-size:35px;animation:pulse 1.15s infinite alternate}
+.radio{border:1px solid #466e80;border-left:4px solid #81ebef;background:#102c42;padding:10px 12px;border-radius:10px;text-align:left;margin:13px 0}
+.radio b{color:#8eebef;font-size:11px;letter-spacing:1px}
+.radio p{margin:4px 0 0;color:#eef9ff}
+.primary{border:0;border-radius:10px;padding:11px 17px;background:linear-gradient(110deg,#8af4ec,#65b0f9);color:#071725;font-weight:900}
+.secondary{border:1px solid #42647a;border-radius:9px;padding:9px 12px;background:#162c42;color:#e5f6ff;font-weight:700}
+.quiet{display:block;border:0;background:none;color:#c2d7e2;text-decoration:underline;margin:10px auto 0;font-size:11px}
+.ticker{font-size:12px;margin:10px 0 0;min-height:25px;color:#cee9f7}
+.log{border-left:3px solid var(--cyan);background:#123144;padding:10px 12px;border-radius:8px;margin-top:8px;font-size:12px;line-height:1.55}
+.log strong{color:#9de8ef;font-size:10px;letter-spacing:1px}
+.log p{margin:4px 0;color:#dfebf5}
+.actionsbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
+.help{font-size:12px;color:#bcd6e3;flex:1}
+.controlset{display:flex;gap:14px;align-items:end;justify-content:space-between;margin-top:14px}
+.dpad{display:grid;grid-template:repeat(2,44px)/repeat(3,47px);gap:5px}
+.dpad button,.interact{touch-action:none;user-select:none;-webkit-user-select:none;border-radius:10px;border:1px solid #47718a;background:linear-gradient(#29506b,#183249);color:white;font-weight:900}
+.dpad button.pressed{background:#44839a}
+.dpad [data-dir="up"]{grid-column:2;grid-row:1}
+.dpad [data-dir="left"]{grid-column:1;grid-row:2}
+.dpad [data-dir="down"]{grid-column:2;grid-row:2}
+.dpad [data-dir="right"]{grid-column:3;grid-row:2}
+.interact{min-width:150px;max-width:200px;height:67px;background:linear-gradient(125deg,#bd7640,#633c29);border-color:#d99f77}
+.interact:disabled{opacity:.4;cursor:not-allowed}
+.sidebar h2{font-size:17px;margin:1px 0 11px}
+.sidebar h3{font-size:12px;color:var(--orange);letter-spacing:.4px;margin:17px 0 6px}
+.sidebar p,.sidebar li{color:var(--muted);font-size:12px;line-height:1.6}
+.sidebar ul{margin:8px 0;padding-left:18px}
+.science-data{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.fact{padding:9px;border:1px solid #31506c;background:#14263a;border-radius:9px}
+.fact small{display:block;font-size:10px;color:#a8c2d4}
+.fact strong{display:block;font-size:12px;color:#e3f7fe}
+.disclaimer{border-left:3px solid var(--orange);padding-left:10px}
+.evidence{display:grid;gap:7px}
+.evidence .item{padding:8px 10px;border-radius:9px;border:1px solid #31465c;background:#101e2c;font-size:11px;color:#a6bfcc}
+.evidence .item.active{border-color:#4ea99f;background:#173b41;color:#aaf9e0}
+.progress-track{height:11px;border-radius:99px;overflow:hidden;background:#2a3345;border:1px solid #43576a;margin:6px 0}
+.progress-track span{display:block;background:linear-gradient(90deg,#73e3ed,#faad6e);height:100%;width:0;transition:width .35s}
+.stage-note{background:#132d42;border:1px solid #36576d;border-radius:9px;padding:10px;font-size:11px;color:#c6dfed}
+footer{font-size:11px;color:#a7bbcb;line-height:1.7;margin:17px 0}
+dialog{border:1px solid #467590;background:linear-gradient(160deg,#14344c,#0a1828);color:var(--text);border-radius:18px;padding:24px;width:min(92vw,610px);max-height:90vh;overflow:auto;box-shadow:0 25px 80px #000d}
+dialog::backdrop{background:#010914da}
+dialog h2{font-size:25px;margin:9px 0}
+dialog h3{font-size:16px;color:var(--cyan);margin:17px 0 7px}
+dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
+.pill{font-size:10px;letter-spacing:.6px;font-weight:850;display:inline-block;padding:5px 9px;border-radius:8px;border:1px solid #418e87;background:#173f40;color:#9eecdb}
+.dialog-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center;margin-top:17px}
+.dialog-actions a{text-decoration:none;border:1px solid #55768b;border-radius:10px;padding:9px 11px;font-size:12px;color:#bfeeff}
+.choices{display:grid;gap:9px;margin:13px 0}
+.choice{display:block;width:100%;text-align:left;border:1px solid #416279;background:#142d41;color:#e6f6fc;border-radius:10px;padding:11px 13px;font-weight:700}
+.choice:hover{border-color:#8dd5e5}
+.analysis-feedback{font-size:12px!important;min-height:22px;color:#f9c38e!important}
+@keyframes flash{from{opacity:.18}to{opacity:.76}}
+@keyframes pulse{from{transform:scale(.95);box-shadow:0 0 3px #f76363}to{transform:scale(1.06);box-shadow:0 0 27px #f7636380}}
+@media(max-width:1000px){.layout{grid-template-columns:1fr}.science-data{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:640px){.wrap{padding:13px 9px 34px}.panel{padding:9px}.hud{grid-template-columns:repeat(2,1fr);gap:5px}.readout.air strong{font-size:25px}.science-data{grid-template-columns:repeat(2,1fr)}.cover{padding:8px;align-items:flex-start}.cover .inner{margin:auto}.cover h2{font-size:19px}.cover p{font-size:11px;line-height:1.35}.alarm .symbol{width:35px;height:35px;font-size:22px;margin-bottom:4px}.radio{padding:7px;margin:7px 0}.dpad{grid-template:repeat(2,42px)/repeat(3,42px)}.interact{height:62px;min-width:110px;max-width:144px;font-size:12px}.lead{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.alarm:before,.alarm .symbol{animation:none}.progress-track span{transition:none}}
 </style>
 </head>
-<body><div class="wrap">
-<header class="top"><a class="brand" href="index.html"><b>♨</b>Flame Atlas / Arcade</a><a class="back" href="index.html#inicio">← Volver a Flame Atlas</a></header>
-<div class="eyebrow">Misión 01 · Seguridad contra incendios</div>
+<body>
+<div class="wrap">
+<header class="top">
+  <a class="brand" href="index.html"><span class="mark">♨</span>Flame Atlas <span style="color:#96bacf;font-size:12px">/ ARCADE</span></a>
+  <a class="back" href="index.html#biblioteca">← Research Library</a>
+</header>
+<div class="eyebrow" id="missionLabel">Mission 01 / Flame Extinguishment</div>
 <h1>FIRE PROTOCOL: <span>0G</span></h1>
-<p class="lead">En una estación espacial ficticia, un incendio avanza sobre muestras combustibles. Explora la cámara, ajusta la ventilación y detén la propagación antes de que alcance los sistemas críticos. Inspirado en <strong>BASS-II (PSI-25)</strong>.</p>
+<p class="lead" id="missionLead">A research-based pixel-art adventure. Control robot R-0, observe a flame in microgravity, and discover how to extinguish it.</p>
 <div class="layout">
-  <section class="panel" aria-label="Juego Fire Protocol 0G">
-    <div class="hud"><div class="stat">INTEGRIDAD <strong id="hp">♥ ♥ ♥</strong></div><div class="stat">ESTACIONES <strong id="count">0 / 3</strong></div><div class="stat">TIEMPO <strong id="timer">00:00</strong></div><div class="stat">PROPAGACIÓN <strong id="fireLevel">0 %</strong></div></div>
-    <div class="frame">
-      <canvas id="scene" width="640" height="360" role="img" aria-label="Mapa pixel art de una cámara espacial con estaciones, robot y peligros"></canvas>
-      <div class="overlay" id="intro"><div>
-<div class="eyebrow">Mensaje de control de misión · Escenario ficticio</div>
-<h2>¡INCENDIO EN ÓRBITA!</h2>
-<p>La prueba de combustión ha salido mal. <strong>El fuego está avanzando por tres muestras sólidas hacia equipos críticos.</strong> Tienes que contener las tres zonas antes de perder la cámara.</p>
-<div class="brief"><strong>PROTOCOLO DE EMERGENCIA</strong><ol>
-<li><b>OBSERVA</b> cómo avanzan las franjas de fuego hasta el módulo del extremo. Si lo alcanzan, pierdes.</li>
-<li><b>AJUSTA</b> el flujo de ventilación y compara qué ocurre con las llamas y las brasas.</li>
-<li><b>MUÉVETE</b> con WASD o las flechas. Pulsa E, espacio o SELLAR cerca de los terminales azules.</li>
-</ol></div>
-<p>Recuerda: en microgravedad el fuego también puede propagarse. ¡El tiempo importa!</p>
-<button class="primary" id="start">▶ DESPLEGAR ROBOT</button>
-</div></div>
-      <div class="overlay" id="pauseScreen" hidden><div><h2>MISIÓN EN PAUSA</h2><p>Tu robot está a salvo mientras decides la próxima ruta.</p><button class="primary" id="resume">▶ CONTINUAR</button></div></div>
+  <main class="panel" aria-label="Fire Protocol game">
+    <div class="hud">
+      <div class="readout air"><small>AIRFLOW</small><strong><span id="airflow">10.0</span> <span>cm/s</span></strong></div>
+      <div class="readout"><small>OXYGEN</small><strong>18.7%</strong></div>
+      <div class="readout"><small>FLAME</small><strong id="flameStatus">ACTIVE</strong></div>
+      <div class="readout"><small id="progressLabel">MISSION TIME</small><strong id="missionTime">00:00</strong></div>
     </div>
-    <p class="status" id="message" role="status" aria-live="polite">Observa cómo avanzan los frentes de fuego.</p>
-<div class="science-log" aria-live="polite"><b>🛰️ Bitácora científica</b><p id="scienceText">Sin convección natural intensa, la ventilación puede afectar profundamente la combustión. Debes ganar tiempo antes de que el fuego alcance los módulos críticos.</p></div>
-    <div class="toolbar"><div><b>FLUJO DE AIRE</b><button class="preset" data-flow="0" aria-pressed="false">0 cm/s</button><button class="preset" data-flow="20" aria-pressed="true">20 cm/s</button><button class="preset" data-flow="40" aria-pressed="false">40 cm/s</button></div><button class="preset" id="pauseButton" disabled>⏸ Pausar</button></div>
-    <div class="controls"><div class="pad" aria-label="Controles de movimiento"><button data-dir="up" aria-label="Arriba">▲</button><button data-dir="left" aria-label="Izquierda">◀</button><button data-dir="down" aria-label="Abajo">▼</button><button data-dir="right" aria-label="Derecha">▶</button></div><button class="seal" id="sealButton" disabled>⚡ SELLAR</button></div>
-  </section>
-  <aside class="panel info">
-    <h2>🚨 Misión de emergencia</h2>
-<p><strong>Historia ficticia:</strong> tres muestras combustibles arden dentro de una cámara experimental. El fuego se extiende por cada muestra y amenaza un módulo de soporte. Si una llama alcanza su extremo, la misión fracasa aunque el robot no sufra daño.</p>
-<div class="fire-progress"><strong>Máximo avance: <span id="dangerPct">0 %</span></strong><meter id="dangerMeter" min="0" max="100" value="0">0%</meter></div>
-<h3>Tu estrategia</h3><p>Observa el frente de fuego, cambia el flujo de aire para ganar tiempo y llega a los terminales azules. Cada terminal sella un foco y detiene su avance (regla ficticia del juego).</p>
-    <h3>Controles</h3><ul><li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> o flechas: moverte.</li><li><kbd>E</kbd> o <kbd>Espacio</kbd>: sellar una estación cercana.</li><li>En celulares: controles táctiles.</li></ul>
-    <h3>La ciencia detrás del juego</h3>
-<p>NASA estudió en <strong>BASS-II</strong> el crecimiento y la propagación de llamas sobre sólidos en microgravedad. Algunas llamas pueden mantenerse con un flujo muy bajo y aumentar su intensidad cuando la ventilación cambia.</p>
-<p>No existe una regla universal de que más flujo produzca siempre mayor propagación: también influyen el combustible, la geometría y el oxígeno.</p>
-    <p class="caution">En la descripción revisada se menciona un túnel de aire capaz de alcanzar <strong>40 cm/s</strong>. Los botones 0, 20 y 40 cm/s son opciones del juego, <strong>no una lista de ensayos comprobados</strong>.</p>
-    <p class="caution">La propagación y los efectos de cada botón son <strong>reglas educativas ficticias</strong>, no datos medidos. Este juego no es una simulación física validada ni indica cómo combatir un incendio real.</p>
+    <div class="gameframe">
+      <canvas id="scene" width="960" height="540" aria-label="Pixel-art microgravity laboratory, flame, fans and a controllable robot" role="img"></canvas>
+      <section class="cover alarm" id="intro" aria-label="Emergency briefing">
+        <div class="inner">
+          <div class="symbol" aria-hidden="true">⚠</div>
+          <div class="eyebrow" id="briefStep">EMERGENCY TRANSMISSION 01 / 03</div>
+          <h2 id="briefTitle">COMBUSTION DETECTED</h2>
+          <p id="briefBody">The chamber reports a flame. A monitoring robot is being deployed. Experimental records are available, but the safest intervention is not yet identified.</p>
+          <div class="radio"><b id="briefSpeaker">MISSION CONTROL</b><p id="briefRadio">"R-0, can you hear us? Find a way to extinguish this flame. Observe the instruments carefully."</p></div>
+          <button class="primary" id="briefNext">▶ CONTINUE</button>
+          <button class="quiet" id="briefSkip">Skip briefing</button>
+        </div>
+      </section>
+      <section class="cover" id="pauseCover" hidden>
+        <div class="inner"><h2>MISSION PAUSED</h2><p>Your observations are preserved.</p><button class="primary" id="resume">▶ RESUME</button></div>
+      </section>
+    </div>
+    <p class="ticker" id="ticker" aria-live="polite">Move around the lab and investigate the equipment.</p>
+    <div class="log"><strong id="logTitle">MISSION CONTROL</strong><p id="logText">Our objective is to extinguish the flame. Look for useful experimental evidence.</p></div>
+    <div class="actionsbar">
+      <div class="help" id="help">WASD / arrow keys to move · E / space to inspect or operate nearby equipment.</div>
+      <button class="secondary" id="pauseButton" disabled>⏸ Pause</button>
+    </div>
+    <div class="controlset">
+      <div class="dpad" aria-label="Touch movement controls">
+        <button type="button" data-dir="up" aria-label="Move up">▲</button>
+        <button type="button" data-dir="left" aria-label="Move left">◀</button>
+        <button type="button" data-dir="down" aria-label="Move down">▼</button>
+        <button type="button" data-dir="right" aria-label="Move right">▶</button>
+      </div>
+      <button type="button" class="interact" id="interact" disabled>⚡ INTERACT</button>
+    </div>
+  </main>
+  <aside class="panel sidebar">
+    <h2 id="sideTitle">🛰 Mission 1 · Extinguish the flame</h2>
+    <p id="sideDescription">A controlled microgravity combustion experiment has produced a flame. Your assignment is to discover how to extinguish it by interacting with the chamber.</p>
+    <h3>DOCUMENTED EXPERIMENT</h3>
+    <div class="science-data">
+      <div class="fact"><small>TEST</small><strong>GMT45-T4</strong></div>
+      <div class="fact"><small>SAMPLE</small><strong>SIBAL fabric</strong></div>
+      <div class="fact"><small>COMPOSITION</small><strong>75% cotton · 25% fiberglass</strong></div>
+      <div class="fact"><small>SAMPLE WIDTH</small><strong>2.2 cm</strong></div>
+      <div class="fact"><small>OXYGEN</small><strong>18.7% by volume</strong></div>
+      <div class="fact"><small>STARTING FLOW</small><strong>10 cm/s</strong></div>
+    </div>
+    <h3 id="sideProgressTitle">CHAMBER OBSERVATIONS</h3>
+    <div id="observationList" class="evidence">
+      <div class="item">Flame is burning on the SIBAL sample.</div>
+      <div class="item">Animated fans indicate forced airflow.</div>
+      <div class="item">Examine equipment to learn what is adjustable.</div>
+    </div>
+    <h3 id="sideTipsTitle">CONTROLS</h3>
+    <ul id="sideTips">
+      <li>Move R-0 with WASD, arrow keys or the touch arrows.</li>
+      <li>Approach illuminated equipment and press E, space, or INTERACT.</li>
+      <li>Observe the flame shape, color and airflow reading.</li>
+    </ul>
+    <p class="disclaimer" id="sideDisclaimer">Scientific values and the observed extinction sequence come from NASA's BASS-II report. The robot, laboratory setting and interaction timing are educational game adaptations, not a numerical physics simulation.</p>
+    <div class="stage-note">Research reference: <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">NASA BASS-II Summary Report (2021), Table 7.1 and Figures 7.5–7.6</a>.</div>
   </aside>
 </div>
-<footer>Flame Atlas · Proyecto educativo independiente · <a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" target="_blank" rel="noopener noreferrer">Fuente NASA PSI-25</a></footer>
+<footer>Flame Atlas is an independent educational project, not an official NASA game. Based on published BASS-II experimental results. <a href="index.html#biblioteca">Return to the research catalog</a>.</footer>
 </div>
-<dialog id="endCard" aria-labelledby="endTitle">
-  <span class="tag">INVESTIGACIÓN DE BASE · NASA PSI-25</span>
-  <h2 id="endTitle">¡Misión completada!</h2><p id="endMessage"></p><div class="results" id="stats"></div>
-  <h3>🔬 BASS-II · Burning and Suppression of Solids – II</h3>
-<p><strong>¿Qué descubriste?</strong> La microgravedad no impide la propagación del fuego sobre sólidos. El flujo forzado de aire puede modificar las llamas, junto con el oxígeno y las propiedades del material. Tu experiencia fue recreativa, no una reproducción de los ensayos.</p>
-  <p id="objective">BASS-II estudia ignición, crecimiento, propagación y extinción de sólidos en microgravedad.</p>
-  <h3>Condiciones documentadas</h3><p id="conditions">Las pruebas investigan el flujo de aire, la concentración de oxígeno y las características de los materiales.</p>
-  <p class="disclaimer">Los comportamientos del juego son ilustrativos. Los textos científicos proceden de la ficha del proyecto, no de resultados numéricos de pruebas individuales.</p>
-  <div class="actions"><button class="primary" id="again">↻ JUGAR DE NUEVO</button><a href="index.html#biblioteca">Biblioteca</a><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" target="_blank" rel="noopener noreferrer">Investigación NASA ↗</a></div>
+<dialog id="missionReport" aria-labelledby="reportTitle">
+  <span class="pill" id="reportTag">SCIENTIFIC FINDING · NASA BASS-II</span>
+  <h2 id="reportTitle">Flame extinguished!</h2>
+  <p id="reportIntro"></p>
+  <div id="reportBody"></div>
+  <div class="dialog-actions">
+    <button class="primary" id="nextMission">▶ INVESTIGATE THE CAUSE</button>
+    <button class="secondary" id="replay">↻ REPLAY</button>
+    <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">Read NASA's report ↗</a>
+  </div>
+</dialog>
+<dialog id="analysisDialog" aria-labelledby="analysisTitle">
+  <span class="pill">MISSION 02 · EVIDENCE RECONSTRUCTION</span>
+  <h2 id="analysisTitle">What directly ignited the sample?</h2>
+  <p>You have examined the fuel, oxygen, ignition hardware and airflow record. Select the direct ignition source documented for the controlled BASS-II setup.</p>
+  <div class="choices">
+    <button class="choice" type="button" data-answer="flow">The airflow itself, without a heat source</button>
+    <button class="choice" type="button" data-answer="wire">A heated igniter wire at the sample end</button>
+    <button class="choice" type="button" data-answer="width">The 2.2 cm sample width by itself</button>
+  </div>
+  <p class="analysis-feedback" id="analysisFeedback" aria-live="polite"></p>
+  <button class="secondary" id="analysisClose">Return to the chamber</button>
 </dialog>
 <script>
 "use strict";
-(()=>{
-const $=id=>document.getElementById(id), canvas=$("scene"), c=canvas.getContext("2d"); c.imageSmoothingEnabled=false;
-const stations=[{x:142,y:91,label:"A"},{x:336,y:292,label:"B"},{x:566,y:92,label:"C"}];
-const vents=[{x:245,y:122,station:0},{x:443,y:269,station:1},{x:545,y:257,station:2}];
-const walls=[
-  {x:0,y:0,w:640,h:24},{x:0,y:337,w:640,h:23},{x:0,y:0,w:23,h:360},{x:617,y:0,w:23,h:360},
-  {x:207,y:59,w:17,h:88},{x:207,y:212,w:17,h:96},
-  {x:395,y:79,w:17,h:102},{x:395,y:226,w:17,h:93},
-  {x:286,y:164,w:60,h:18},{x:496,y:153,w:49,h:17}
-];
-const stars=Array.from({length:75},(_,i)=>({x:26+(i*139)%586,y:28+(i*97)%306}));
-const keys={up:false,down:false,left:false,right:false};
-const keyMap={arrowup:"up",w:"up",arrowdown:"down",s:"down",arrowleft:"left",a:"left",arrowright:"right",d:"right"};
-let mode="ready", flow=20, player, sealed, particles, hp, elapsed, immunity, spawnTick, last=0, frame=0, until=0, fronts, flowChanges=0;
-const tracks=[{x:245,y:122,dx:1,dy:0,len:130},{x:443,y:269,dx:1,dy:0,len:150},{x:545,y:257,dx:0,dy:-1,len:146}];
-const researchNotes=["BASS-II estudió la propagación de llamas sobre sólidos en microgravedad. La ausencia de gravedad no significa que la llama permanezca inmóvil.","El oxígeno, el combustible y la geometría también influyen: el flujo por sí solo no predice todo el comportamiento.","Las pruebas de microgravedad contribuyen a comprender la seguridad de las naves. La ventilación puede modificar la llama."];
-function reset(){
- player={x:77,y:182,vx:0,vy:0};sealed=[false,false,false];fronts=[.05,.05,.05];flowChanges=0;particles=[];hp=3;elapsed=0;immunity=0;spawnTick=0;until=0;
- for(const key in keys)keys[key]=false;
- document.querySelectorAll("[data-dir]").forEach(b=>b.classList.remove("pressed"));
- updateHud();$("message").textContent="¡Alerta! El fuego avanza hacia módulos críticos.";$("scienceText").textContent="Las llamas pueden propagarse sobre materiales sólidos en microgravedad. Observa cómo influye la ventilación.";
-}
-function updateHud(){
- $("hp").textContent=("♥ ".repeat(hp)+"♡ ".repeat(3-hp)).trim();
- $("count").textContent=sealed.filter(Boolean).length+" / 3";
- const secs=Math.floor(elapsed/60);$("timer").textContent=String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0");
-const risk=Math.round(100*Math.max(...fronts.map((v,i)=>sealed[i]?0:v)));$("fireLevel").textContent=risk+" %";$("dangerPct").textContent=risk+" %";$("dangerMeter").value=risk;
-}
-function notify(s){$("message").textContent=s;until=elapsed+170;}
-function begin(){
- reset();mode="playing";$("intro").hidden=true;$("pauseScreen").hidden=true;
- $("pauseButton").disabled=false;$("pauseButton").textContent="⏸ Pausar";$("sealButton").disabled=false;
- if($("endCard").open)$("endCard").close();
-}
-function togglePause(){
- if(mode==="playing"){mode="paused";$("pauseScreen").hidden=false;$("pauseButton").textContent="▶ Continuar";for(const key in keys)keys[key]=false;}
- else if(mode==="paused"){mode="playing";$("pauseScreen").hidden=true;$("pauseButton").textContent="⏸ Pausar";}
-}
-function nearest(){
- let idx=-1,best=1e9;
- stations.forEach((s,i)=>{if(sealed[i])return;const d=Math.hypot(player.x-s.x,player.y-s.y);if(d<best){idx=i;best=d;}});
- return best<38?idx:-1;
-}
-function activate(){
- if(mode!=="playing")return;
- const i=nearest();if(i<0){notify("Acércate a una estación azul y vuelve a pulsar SELLAR.");return;}
- sealed[i]=true;particles=particles.filter(p=>p.from!==i);$("scienceText").textContent=researchNotes[i];
- notify("¡Foco "+stations[i].label+" contenido! Su frente de fuego se detuvo.");
- updateHud();if(sealed.every(Boolean))finish(true);
-}
-function finish(won){
- mode=won?"won":"lost";$("pauseButton").disabled=true;$("sealButton").disabled=true;
- $("endTitle").textContent=won?"¡Protocolo completado!":"Robot fuera de servicio";
- $("endMessage").textContent=won?"¡Contuviste los tres focos antes de que las llamas alcanzaran los sistemas críticos!":hp<=0?"El robot perdió su integridad. Esquiva las brasas y ensaya otra ruta.":"El frente de fuego alcanzó un módulo crítico. No basta con evitar partículas: debes actuar antes de que las llamas se propaguen.";
- $("stats").replaceChildren();
- ["Estaciones "+sealed.filter(Boolean).length+"/3","Tiempo "+$("timer").textContent,"Integridad "+hp+"/3","Cambios de flujo "+flowChanges].forEach(t=>{const b=document.createElement("b");b.textContent=t;$("stats").append(b);});
- $("endCard").showModal();
-}
-function touchesWall(x,y,r){
- return walls.some(w=>{const px=Math.max(w.x,Math.min(x,w.x+w.w)),py=Math.max(w.y,Math.min(y,w.y+w.h));return Math.hypot(x-px,y-py)<r;});
-}
-function hit(){
- if(immunity>0)return;
- hp--;immunity=115;notify("¡Daño! Esquiva las partículas naranja.");
- if(hp<=0){hp=0;updateHud();finish(false);}
-}
-function generate(){
- vents.forEach(v=>{if(sealed[v.station]||particles.length>=90)return;
- const a=Math.random()*6.283,speed=.4+Math.random()*.7;
- particles.push({x:v.x,y:v.y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,t:170+Math.random()*80,from:v.station,r:2+Math.random()*2});
- });
-}
-function tick(dt){
- if(mode!=="playing")return;
- elapsed+=dt;frame+=dt;immunity=Math.max(0,immunity-dt);
- const ax=Number(keys.right)-Number(keys.left),ay=Number(keys.down)-Number(keys.up),norm=Math.hypot(ax,ay)||1;
- player.vx+=ax/norm*.38*dt;player.vy+=ay/norm*.38*dt;
- player.vx*=Math.pow(.90,dt);player.vy*=Math.pow(.90,dt);
- const v=Math.hypot(player.vx,player.vy);
- if(v>3.7){player.vx*=3.7/v;player.vy*=3.7/v;}
- const nx=player.x+player.vx*dt,ny=player.y+player.vy*dt;
- if(!touchesWall(nx,player.y,9))player.x=nx;else player.vx*=-.12;
- if(!touchesWall(player.x,ny,9))player.y=ny;else player.vy*=-.12;
- // Velocidades deliberadamente ficticias: NO corresponden a resultados experimentales.
-const rates={0:.00016,20:.00028,40:.00043};
-fronts.forEach((v,i)=>{if(!sealed[i])fronts[i]=Math.min(1,v+rates[flow]*dt*(1+i*.04));});
-if(fronts.some((v,i)=>!sealed[i]&&v>=1)){updateHud();finish(false);return;}
-spawnTick+=dt;if(spawnTick>=29){spawnTick-=29;generate();}
- const drift=flow/40;
- particles=particles.filter(p=>p.t>0);
- particles.forEach(p=>{
-   p.vx=Math.min(2.4,p.vx+drift*.005*dt);
-   let nx=p.x+(p.vx+drift*.58)*dt,ny=p.y+p.vy*dt;
-   if(touchesWall(nx,p.y,3)){p.vx*=-.65;nx=p.x;}
-   if(touchesWall(p.x,ny,3)){p.vy*=-.65;ny=p.y;}
-   p.x=nx;p.y=ny;p.t-=dt;
-   if(Math.hypot(p.x-player.x,p.y-player.y)<10+p.r)hit();
- });
- vents.forEach(v=>{if(!sealed[v.station]&&Math.hypot(v.x-player.x,v.y-player.y)<18)hit();});
- if(until<elapsed){const risk=Math.round(Math.max(...fronts.map((v,i)=>sealed[i]?0:v))*100);$("message").textContent=nearest()>=0?"¡Terminal al alcance! Pulsa E / SELLAR para detener ese foco.":risk>70?"¡PELIGRO! Las llamas se acercan a un equipo crítico.":"¡El fuego está avanzando! Controla el flujo y llega a las estaciones.";}
- updateHud();
-}
-function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(Math.round(x),Math.round(y),w,h);}
-function txt(s,x,y,size,color,align="left"){c.font="bold "+size+"px monospace";c.textAlign=align;c.fillStyle=color;c.fillText(s,x,y);}
-function render(){
- rect(0,0,640,360,"#071421");
- stars.forEach((s,i)=>rect(s.x,s.y,i%3===0?2:1,i%3===0?2:1,i%4===0?"#5d91b3":"#2d516d"));
- for(let x=25;x<619;x+=28)for(let y=25;y<339;y+=28)rect(x,y,1,1,"#264254");
- walls.forEach(w=>{rect(w.x,w.y,w.w,w.h,"#476178");rect(w.x+2,w.y+2,Math.max(1,w.w-4),Math.max(1,w.h-4),"#253a4e");});
- vents.forEach((v,i)=>{
-   rect(v.x-13,v.y-13,26,26,sealed[i]?"#285749":"#843c2b");
-   rect(v.x-9,v.y-9,18,18,sealed[i]?"#48a48a":"#d56a39");
-   if(!sealed[i]){
-    const pulse=Math.sin(frame*.14+i)*3;
-    rect(v.x-5,v.y-10-pulse,10,16+pulse,"#f29a49");
-    rect(v.x-3,v.y-5-pulse,6,10,"#ffe18d");
-   }else txt("✓",v.x,v.y+5,17,"#b8ffdc","center");
- });
- // Frentes de llama que avanzan por materiales sólidos; visualización ilustrativa, no modelo físico.
- tracks.forEach((t,i)=>{
-   const head=fronts[i]*t.len;
-   for(let d=0;d<=t.len;d+=6){const x=t.x+t.dx*d,y=t.y+t.dy*d,ash=d<=head;rect(x-4,y-4,8,8,ash?"#793e2a":"#526875");if(!ash)rect(x-2,y-2,4,4,"#a7c0b9");}
-   if(!sealed[i]){
-     const fx=t.x+t.dx*head,fy=t.y+t.dy*head,pulse=Math.round(Math.sin(frame*.2+i)*2);
-     rect(fx-6,fy-12-pulse,12,17+pulse,"#f38242");rect(fx-3,fy-9-pulse,6,11+pulse,"#ffd37b");
-   }
-   const ex=t.x+t.dx*t.len,ey=t.y+t.dy*t.len;
-   rect(ex-10,ey-10,20,20,sealed[i]?"#246a53":"#8d3434");
-   rect(ex-6,ey-6,12,12,sealed[i]?"#8ce1b8":"#ffb67e");
-   txt(sealed[i]?"✓":"!",ex,ey+4,13,"#fff","center");
-   txt("MÓDULO "+stations[i].label,ex,ey+(t.dx?-18:24),9,sealed[i]?"#9decc5":"#ffc6a7","center");
- });
- particles.forEach(p=>{
-   rect(p.x,p.y,p.r,p.r,p.t<45?"#c97847":"#ffd18a");
-   if(p.t>45)rect(p.x-3,p.y+1,2,2,"#ed7547");
- });
- stations.forEach((s,i)=>{
-   const done=sealed[i],glow=Math.sin(frame*.07+i)*2;
-   rect(s.x-17,s.y-17,34,34,done?"#265b4c":"#1b4b6b");
-   rect(s.x-12,s.y-12,24,24,done?"#5dac89":"#71d8ee");
-   rect(s.x-6,s.y-6,12,12,done?"#236d56":"#2b7198");
-   txt(done?"✓":s.label,s.x,s.y+27,10,done?"#94e7b5":"#b9f4ff","center");
-   if(!done){c.strokeStyle="#6cd9ec";c.lineWidth=1;c.strokeRect(s.x-19-glow,s.y-19-glow,38+2*glow,38+2*glow);}
- });
- const x=Math.round(player.x),y=Math.round(player.y);
- if(immunity===0||Math.floor(frame/6)%2===0){
-   rect(x-10,y-11,20,22,"#071923");rect(x-8,y-10,16,14,"#8bdbe6");
-   rect(x-6,y-7,12,7,"#193e59");rect(x-4,y-5,3,3,"#d6fdff");rect(x+2,y-5,3,3,"#d6fdff");
-   rect(x-5,y+5,10,5,"#d3f0f4");rect(x-13,y-4,5,10,"#70c8d1");rect(x+8,y-4,5,10,"#70c8d1");
-   rect(x-7,y+9,5,5,"#407796");rect(x+2,y+9,5,5,"#407796");rect(x-1,y-16,2,6,"#89e0ef");
-   if(Math.hypot(player.vx,player.vy)>1.2)rect(x-player.vx*4,y-player.vy*3+8,4,4,"#ffbd73");
- }
- txt("BASS-II // EXPERIMENTAL CHAMBER",35,43,9,"#78b1cb");
- txt("FLOW: "+flow+" cm/s",601,43,9,"#ffd196","right");
-}
-function animation(timestamp){
- const dt=last?Math.min((timestamp-last)/16.667,2):1;last=timestamp;
- tick(dt);render();requestAnimationFrame(animation);
-}
-$("start").addEventListener("click",begin);
-$("again").addEventListener("click",begin);
-$("resume").addEventListener("click",togglePause);
-$("pauseButton").addEventListener("click",togglePause);
-$("sealButton").addEventListener("click",activate);
-document.querySelectorAll("[data-flow]").forEach(b=>b.addEventListener("click",()=>{
- flow=Number(b.dataset.flow);document.querySelectorAll("[data-flow]").forEach(a=>a.setAttribute("aria-pressed",String(a===b)));
- if(mode==="playing"){flowChanges++;
-$("scienceText").textContent=flow===0?"En este juego, menos flujo hace más lento el avance. Sin embargo, BASS-II observó que algunas llamas persisten con flujo muy bajo: el riesgo no desaparece.":flow===20?"La ventilación modifica el transporte en este escenario. En ciencia real, la respuesta depende del oxígeno, material y orientación del flujo.":"BASS-II observó que algunas llamas tenues se intensifican al aumentar bruscamente el flujo. Las velocidades que ves aquí son ficticias.";
-notify("Ventilación ilustrativa: "+flow+" cm/s. ¡Observa los frentes!");}
-}));
-document.addEventListener("keydown",e=>{
- const k=e.key.toLowerCase(),dir=keyMap[k];
- if(dir){if(mode==="playing")keys[dir]=true;e.preventDefault();}
- if((k==="e"||k===" ")&&mode==="playing"){e.preventDefault();if(!e.repeat)activate();}
-});
-document.addEventListener("keyup",e=>{const dir=keyMap[e.key.toLowerCase()];if(dir){keys[dir]=false;e.preventDefault();}});
-document.querySelectorAll("[data-dir]").forEach(b=>{
- const dir=b.dataset.dir;
- b.addEventListener("pointerdown",e=>{e.preventDefault();keys[dir]=true;b.classList.add("pressed");b.setPointerCapture?.(e.pointerId);});
- const release=()=>{keys[dir]=false;b.classList.remove("pressed");};
- ["pointerup","pointercancel","lostpointercapture"].forEach(name=>b.addEventListener(name,release));
-});
-window.addEventListener("blur",()=>{for(const k in keys)keys[k]=false;if(mode==="playing")togglePause();});
-document.addEventListener("visibilitychange",()=>{if(document.hidden&&mode==="playing")togglePause();});
-$("endCard").addEventListener("cancel",e=>e.preventDefault());
-fetch("data/investigaciones.json").then(r=>{if(!r.ok)throw Error("Data unavailable");return r.json();}).then(data=>{
- const study=data.find(s=>s.id==="PSI-25");
- if(!study)return;
- const a=study.atributos||{};
- if(a.objetivos?.text)$("objective").textContent=a.objetivos.text;
- if(a.condiciones_prueba?.text)$("conditions").textContent=a.condiciones_prueba.text;
-}).catch(()=>{});
-reset();requestAnimationFrame(animation);
+(() => {
+  const $ = id => document.getElementById(id);
+  const cvs = $("scene"), ctx = cvs.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
+  const W = 960, H = 540;
+  const report = $("missionReport"), analysis = $("analysisDialog");
+  const flowStages = [10, 8, 4, 2.2];
+  const keys = {up:false,down:false,left:false,right:false};
+  const keyMap = {w:"up",arrowup:"up",s:"down",arrowdown:"down",a:"left",arrowleft:"left",d:"right",arrowright:"right"};
+  const deviceL1 = [
+    {id:"fan",x:180,y:365,label:"AIRFLOW CONTROL",color:"#83eefa"},
+    {id:"oxygen",x:790,y:153,label:"OXYGEN SENSOR",color:"#88c8fb"},
+    {id:"sample",x:748,y:404,label:"SAMPLE MONITOR",color:"#f4bd83"}
+  ];
+  const deviceL2 = [
+    {id:"fuel",x:186,y:153,label:"FUEL SAMPLE",color:"#f3c895"},
+    {id:"oxygen",x:777,y:150,label:"OXYGEN SENSOR",color:"#96ccfb"},
+    {id:"igniter",x:700,y:395,label:"IGNITER WIRE",color:"#ffa98c"},
+    {id:"air",x:170,y:390,label:"AIRFLOW LOG",color:"#8be8ed"},
+    {id:"board",x:473,y:448,label:"ANALYSIS CONSOLE",color:"#b7adfb"}
+  ];
+  const evidenceNames = {fuel:"Fuel: composite cotton-fiberglass fabric (SIBAL)",oxygen:"Oxidizer: 18.7% oxygen by volume",igniter:"Ignition: a heated wire was used in the BASS-II setup",air:"Airflow: controls flame behavior, but is not the ignition source"};
+  const briefing = [
+    {step:"EMERGENCY TRANSMISSION 01 / 03",title:"COMBUSTION DETECTED",body:"An active flame has appeared in a microgravity experiment chamber. Mission Control has deployed a small inspection robot to investigate.",speaker:"MISSION CONTROL",radio:'"R-0, the experiment is burning. Your task is to find a way to extinguish the flame. Observe before you act."',action:"▶ CONTINUE"},
+    {step:"EXPERIMENTAL RECORD 02 / 03",title:"LIVE EXPERIMENT DATA",body:"Sample: SIBAL fabric (75% cotton, 25% fiberglass). Width: 2.2 cm. Oxygen: 18.7%. Initial airflow: 10 cm/s. These values come from a documented BASS-II test.",speaker:"RESEARCH OFFICER",radio:'"The source of ignition is not your immediate task. You can investigate that once the flame is out."',action:"▶ CONTINUE"},
+    {step:"ROBOT MISSION 03 / 03",title:"EXTINGUISH THE FLAME",body:"Move with WASD, arrow keys, or the touch controls. Inspect nearby glowing equipment with E, space, or INTERACT. Watch the airflow indicator and the changing flame.",speaker:"MISSION CONTROL",radio:'"We will not tell you which adjustment works. Discover it through observation. Good luck, R-0."',action:"▶ DEPLOY ROBOT"}
+  ];
+  const stars = Array.from({length:85},(_,i)=>({x:27+(i*151)%906,y:42+(i*97)%454,c:i%5===0?"#517e9c":"#2c475e"}));
+  let level = 1, mode = "briefing", briefIndex = 0, frame=0, clock=0, lastTime=0;
+  let robot, stageIndex=0, holdTime=0, scenarioRisk=0, cooldown=0, logExpire=0, logMessage="";
+  let evidence = new Set(), scanCount=0, wrongCount=0, progress=0;
+  function writeStatus(title,text){
+    $("logTitle").textContent = title;
+    $("logText").textContent = text;
+    $("ticker").textContent = text;
+  }
+  function currFlow(){return level===1?flowStages[stageIndex]:2.2;}
+  function setBriefing(idx){
+    briefIndex=idx;
+    const b=briefing[idx];
+    $("briefStep").textContent=b.step;
+    $("briefTitle").textContent=b.title;
+    $("briefBody").textContent=b.body;
+    $("briefSpeaker").textContent=b.speaker;
+    $("briefRadio").textContent=b.radio;
+    $("briefNext").textContent=b.action;
+  }
+  function resetLevel(what){
+    level=what;mode="playing";frame=0;clock=0;robot={x:360,y:370,vx:0,vy:0};
+    stageIndex=0;holdTime=0;scenarioRisk=0;cooldown=0;evidence=new Set();scanCount=0;wrongCount=0;
+    Object.keys(keys).forEach(k=>keys[k]=false);
+    $("intro").hidden=true;$("pauseCover").hidden=true;$("pauseButton").disabled=false;$("pauseButton").textContent="⏸ Pause";$("interact").disabled=false;
+    if(report.open)report.close();if(analysis.open)analysis.close();
+    $("missionLabel").textContent=level===1?"MISSION 01 / FLAME EXTINGUISHMENT":"MISSION 02 / INVESTIGATE THE IGNITION";
+    $("missionLead").textContent=level===1?
+      "A microgravity flame is active. Explore the chamber, investigate its instruments, and discover the way to extinguish it.":
+      "The flame is out. Investigate how controlled combustion began and why airflow is only one of several relevant factors.";
+    $("progressLabel").textContent=level===1?"MISSION CLOCK":"EVIDENCE FOUND";
+    $("sideTitle").textContent=level===1?"🛰 Mission 1 · Extinguish the flame":"🔎 Mission 2 · Investigate the ignition";
+    $("sideDescription").textContent=level===1?
+      "Find a way to extinguish the active SIBAL flame. Examine instruments and observe any changes. Mission Control will not give away the solution.":
+      "This was a controlled experiment, not a real spacecraft accident. Reconstruct the ignition process and the roles of fuel, oxygen, heat and airflow.";
+    $("sideProgressTitle").textContent=level===1?"FLAME OBSERVATIONS":"EVIDENCE COLLECTED";
+    $("sideTipsTitle").textContent=level===1?"HOW TO PLAY":"HOW TO INVESTIGATE";
+    $("sideDisclaimer").textContent=level===1?
+      "Test GMT45-T4 is real. Fan graphics, robot actions, the mission clock and exact animation speed are educational adaptations. In the real report, the flame did not disappear immediately when flow reached 2.2 cm/s.":
+      "The hot-wire igniter, sample material, oxygen and airflow are research-based. Robot scans and the incident narrative are fictional. Airflow is one influential variable, not the direct ignition source in this test.";
+    if(level===1){
+      $("sideTips").innerHTML="<li>Move R-0 with arrows / WASD or touch arrows.</li><li>Approach a glowing terminal and press E, space or INTERACT.</li><li>Watch the flame shape and the live airflow display.</li>";
+      writeStatus("MISSION CONTROL","Find a way to extinguish the flame. Move around the chamber and examine the instruments.");
+    }else{
+      $("sideTips").innerHTML="<li>Scan four glowing evidence stations.</li><li>Find the analysis console after collecting all four records.</li><li>Identify what provided ignition heat in the actual experiment.</li>";
+      writeStatus("MISSION CONTROL","The flame is out, but what caused ignition? Inspect the four evidence stations, then use the analysis console.");
+    }
+    updateSidebar();
+    updateHUD();
+  }
+  function updateSidebar(){
+    const items=$("observationList");
+    items.replaceChildren();
+    if(level===1){
+      const messages=["Flame ignited on SIBAL fabric.","Watch animated fans and airflow reading.","Current experiment: "+currFlow().toFixed(1)+" cm/s."];
+      if(stageIndex>=1)messages.push("Flame length and width decrease after flow reduction.");
+      if(stageIndex>=2)messages.push("The flame becomes visibly more compact.");
+      if(stageIndex===3)messages.push("Blue, round flame persists briefly before extinction.");
+      messages.forEach((t,i)=>addListItem(items,t,i>2));
+    }else{
+      Object.entries(evidenceNames).forEach(([id,t])=>addListItem(items,(evidence.has(id)?"✓ ":"○ ")+t,evidence.has(id)));
+      addListItem(items,evidence.size===4?"Analysis console unlocked":"Evidence "+evidence.size+" / 4 collected",evidence.size===4);
+    }
+  }
+  function addListItem(parent,message,active){
+    const div=document.createElement("div");div.className="item"+(active?" active":"");div.textContent=message;parent.appendChild(div);
+  }
+  function updateHUD(){
+    $("airflow").textContent=currFlow().toFixed(1);
+    $("flameStatus").textContent=level===2||mode==="level1done"?"OUT":stageIndex===3?"DIM BLUE":stageIndex===2?"SHRINKING":stageIndex===1?"REDUCED":"ACTIVE";
+    $("missionTime").textContent=level===2?evidence.size+"/4":formatTime(clock);
+  }
+  function formatTime(seconds){let n=Math.floor(seconds);return String(Math.floor(n/60)).padStart(2,"0")+":"+String(n%60).padStart(2,"0");}
+  function devices(){return level===1?deviceL1:deviceL2;}
+  function nearest(){
+    let candidate=null,dist=Infinity;
+    devices().forEach(d=>{let dd=Math.hypot(robot.x-d.x,robot.y-d.y);if(dd<dist){candidate=d;dist=dd;}});
+    return dist<86?candidate:null;
+  }
+  function interact(){
+    if(mode!=="playing")return;
+    if(cooldown>0)return;
+    const device=nearest();
+    if(!device){writeStatus("R-0","Move closer to a glowing instrument to inspect or operate it.");return;}
+    cooldown=26;
+    if(level===1){
+      if(device.id==="fan"){
+        if(stageIndex<flowStages.length-1){
+          stageIndex++;
+          holdTime=0;
+          const flow=currFlow();
+          const text=stageIndex===1?"Airflow is now 8.0 cm/s. Watch the flame become shorter and narrower.":
+            stageIndex===2?"Airflow is now 4.0 cm/s. The flame is smaller. What could happen at lower flow?":
+            "Airflow has reached 2.2 cm/s. The flame is becoming blue and round. Keep observing: extinction is not immediate.";
+          writeStatus("OBSERVATION",text);
+        }else{
+          writeStatus("RESEARCH OFFICER","2.2 cm/s is being held. Observe the shrinking blue flame.");
+        }
+        updateHUD();updateSidebar();
+      }else if(device.id==="oxygen"){
+        writeStatus("OXYGEN SENSOR","Reading: 18.7% oxygen by volume. This was the recorded value in test GMT45-T4. Oxygen is held fixed in this reenactment.");
+      }else if(device.id==="sample"){
+        writeStatus("SAMPLE MONITOR","SIBAL fabric, 2.2 cm wide; 75% cotton and 25% fiberglass. The material and its geometry are fixed during this test.");
+      }
+    }else{
+      if(device.id==="board"){
+        if(evidence.size===4){analysis.showModal();$("analysisFeedback").textContent="";}else writeStatus("ANALYSIS CONSOLE","Insufficient evidence: scan all four stations first ("+evidence.size+"/4).");
+      }else{
+        if(!evidence.has(device.id)){evidence.add(device.id);scanCount++;}
+        const texts={
+          fuel:"SIBAL is a cotton-fiberglass blend: 75% cotton and 25% fiberglass. It provides a combustible material.",
+          oxygen:"Recorded oxygen concentration: 18.7% by volume. Oxygen supports combustion; this test had a controlled atmospheric condition.",
+          igniter:"An electrically heated sawtooth wire igniter was used at a sample end in the BASS-II experimental setup. This is the direct source of ignition heat.",
+          air:"The measured airflow changed from 10 to 2.2 cm/s. It influenced flame shape, spread and extinction, but did not replace fuel, oxygen or ignition heat."
+        };
+        writeStatus("EVIDENCE LOGGED",texts[device.id]+(evidence.size===4?" All clues collected: find the analysis console.":""));
+        updateSidebar();updateHUD();
+      }
+    }
+  }
+  function outcome(title,message,body,isFirst){
+    mode=isFirst?"level1done":"level2done";
+    $("pauseButton").disabled=true;$("interact").disabled=true;
+    $("reportTag").textContent=isFirst?"RESEARCH FINDING · BASS-II / GMT45-T4":"FINAL REPORT · MISSION 02";
+    $("reportTitle").textContent=title;$("reportIntro").textContent=message;
+    $("reportBody").innerHTML=body;
+    $("nextMission").textContent=isFirst?"▶ BEGIN MISSION 2":"✓ MISSIONS COMPLETE";
+    $("nextMission").disabled=!isFirst;
+    $("replay").textContent=isFirst?"↻ REPLAY MISSION 1":"↻ REPLAY MISSION 2";
+    updateHUD();
+    report.showModal();
+  }
+  function finishLevel1(){
+    outcome("FLAME EXTINGUISHED",
+      "You found the adjustable airflow control and reproduced the qualitative extinction sequence reported for test GMT45-T4.",
+      '<h3>WHAT THE EXPERIMENT SHOWED</h3><p>With SIBAL fabric 2.2 cm wide and 18.7% oxygen, airflow was reduced from 10 cm/s to 2.2 cm/s. Flame length and width decreased. The flame became smaller, more circular and blue, and eventually went out while low airflow was maintained.</p><p><strong>Important:</strong> Reducing airflow does not always extinguish a fire. This is the observed outcome of one controlled microgravity test. Fuel, oxygen, geometry and other conditions matter.</p><p><strong>Next mission:</strong> What caused ignition, and why is airflow not the only factor involved?</p><p style="font-size:11px;color:#a8becc">Based on NASA BASS-II Summary Report, Table 7.1 (test GMT45-T4) and Figures 7.5–7.6. Animation time is compressed for gameplay.</p>',true);
+  }
+  function finishLevel2(){
+    if(analysis.open)analysis.close();
+    outcome("IGNITION RECONSTRUCTED",
+      "You identified the ignition source and connected it to the other conditions required for the controlled combustion experiment.",
+      '<h3>FOUR DISTINCT ROLES</h3><p><strong>Heat:</strong> a heated wire ignited the SIBAL sample. <strong>Fuel:</strong> cotton-fiberglass fabric. <strong>Oxidizer:</strong> an atmosphere containing 18.7% oxygen. <strong>Airflow:</strong> influenced the continuing flame, its appearance and its extinction, but was not the direct source of ignition heat.</p><p>In this particular test, lowering airflow extinguished the flame. That does <strong>not</strong> mean airflow is the only relevant factor in combustion or that reducing it will always work.</p><p><strong>Research lesson:</strong> investigate multiple conditions before generalizing from an experiment.</p><p style="font-size:11px;color:#a8becc">Sources: NASA BASS-II Summary Report (2021) and NASA BASS-II investigation presentation (2014). The fictional emergency and robot investigation are not real NASA events.</p>',false);
+  }
+  function startBriefing(){briefIndex=0;setBriefing(0);mode="briefing";$("intro").hidden=false;$("pauseCover").hidden=true;}
+  function advanceBriefing(){if(briefIndex<briefing.length-1){setBriefing(briefIndex+1);}else resetLevel(1);}
+  function togglePause(){
+    if(mode==="playing"){mode="paused";$("pauseCover").hidden=false;$("pauseButton").textContent="▶ Resume";Object.keys(keys).forEach(k=>keys[k]=false);}
+    else if(mode==="paused"){mode="playing";$("pauseCover").hidden=true;$("pauseButton").textContent="⏸ Pause";}
+  }
+  function tick(dt){
+    if(mode!=="playing")return;
+    const elapsed=dt/60;
+    clock+=elapsed;frame+=dt;cooldown=Math.max(0,cooldown-dt);
+    const dx=Number(keys.right)-Number(keys.left),dy=Number(keys.down)-Number(keys.up);
+    const mag=Math.hypot(dx,dy)||1;
+    robot.vx=(robot.vx+dx/mag*.48*dt)*Math.pow(.86,dt);
+    robot.vy=(robot.vy+dy/mag*.48*dt)*Math.pow(.86,dt);
+    const speed=Math.hypot(robot.vx,robot.vy);
+    if(speed>5){robot.vx=robot.vx/speed*5;robot.vy=robot.vy/speed*5;}
+    robot.x=Math.min(899,Math.max(59,robot.x+robot.vx*dt));
+    robot.y=Math.min(489,Math.max(76,robot.y+robot.vy*dt));
+    if(level===1){
+      if(stageIndex===3){
+        holdTime+=elapsed;
+        if(holdTime>=9){finishLevel1();return;}
+      }
+      // Scenario clock is fictional; the documented GMT45-T4 report does not specify these game risk values.
+      scenarioRisk+=elapsed*(stageIndex===0?.72:stageIndex===1?.38:stageIndex===2?.18:0);
+      if(stageIndex===0&&clock>55){writeStatus("MISSION CONTROL","The flame is still active. Inspect the equipment; one chamber setting can be adjusted.");}
+      updateHUD();
+      if(stageIndex===3&&holdTime<9){
+        $("ticker").textContent="Hold at 2.2 cm/s. The blue flame is contracting... "+Math.round(holdTime/9*100)+"% of the animated extinction sequence.";
+      }
+    }
+  }
+  const rect=(x,y,w,h,color)=>{ctx.fillStyle=color;ctx.fillRect(Math.round(x),Math.round(y),Math.max(0,Math.round(w)),Math.max(0,Math.round(h)));};
+  function text(t,x,y,size,color,align="left"){
+    ctx.fillStyle=color;ctx.textAlign=align;ctx.font="bold "+size+"px monospace";ctx.fillText(t,x,y);
+  }
+  function drawFan(x,y,offset){
+    rect(x-45,y-48,90,96,"#21374b");
+    rect(x-39,y-43,78,86,"#0b2433");
+    ctx.strokeStyle="#6692a2";ctx.lineWidth=5;ctx.beginPath();ctx.arc(x,y,31,0,Math.PI*2);ctx.stroke();
+    const rot=frame*.018*Math.max(.1,currFlow()/2.2)+offset;
+    for(let k=0;k<4;k++){
+      const a=rot+k*Math.PI/2;
+      ctx.save();ctx.translate(x,y);ctx.rotate(a);
+      rect(0,-7,29,13,"#74b7c4");rect(9,-5,19,9,"#a2d6d3");ctx.restore();
+    }
+    rect(x-6,y-6,12,12,"#d7f8f1");
+    for(let i=0;i<3;i++){
+      const shift=(frame*(.6+currFlow()*.13)+i*42+offset*19)%150;
+      const xx=x+52+shift;
+      if(xx<865&&currFlow()>0)rect(xx,y-21+i*19,17+currFlow()*2,2,currFlow()>=8?"#69d9ef":"#5e8fae");
+    }
+  }
+  function drawFlame(){
+    const fx=550,fy=275;
+    // Pixel-art fuel sample with a charred ignition end.
+    rect(fx-118,fy+30,235,35,"#495364");rect(fx-110,fy+36,220,23,"#c1bfa9");
+    for(let i=0;i<14;i++)rect(fx-107+i*15,fy+36,5,23,"#9d9a86");
+    rect(fx+100,fy+31,11,35,"#394e61");
+    const stage=stageIndex;
+    let radius=stage===0?100:stage===1?75:stage===2?47:37;
+    let length=stage===0?155:stage===1?115:stage===2?68:40;
+    if(stage===3){const t=Math.min(1,holdTime/9);radius*=1-t*.99;length*=1-t*.99;}
+    if(level===2)radius=0;
+    if(radius<1)return;
+    const t=frame*.075;
+    const bluish=stage>=2;
+    const colOuter=bluish?"#3564c2":"#d94e29";
+    const colMid=bluish?"#5188eb":"#ff9a45";
+    const colInner=bluish?"#85d8fd":"#ffe4a1";
+    const pixel=7;
+    // Flames become rounder and predominantly blue as airflow falls (qualitative observational mapping).
+    for(let yy=-Math.floor(radius);yy<=Math.floor(radius);yy+=pixel){
+      for(let xx=-Math.floor(length*.7);xx<=Math.floor(length*.7);xx+=pixel){
+        const nx=xx/(length*.7),ny=yy/radius;
+        const jitter=Math.sin(xx*.09+yy*.12+t)*.06;
+        if(nx*nx+ny*ny<.92+jitter){
+          const f=nx*nx+ny*ny;
+          rect(fx+xx-5,fy+yy-12,pixel+1,pixel+1,f<.34?colInner:f<.68?colMid:colOuter);
+        }
+      }
+    }
+    if(stage<2){
+      const spur=Math.sin(t*2)*8;
+      rect(fx-32,fy-radius-17+spur,22,27,"#ff9b4e");
+      rect(fx-27,fy-radius-10+spur,11,13,"#ffe49c");
+    }
+    if(stage>=2){
+      rect(fx-10,fy-radius-7,14,8,"#96cfff");
+    }
+    text(stage===3?"DIM BLUE FLAME":stage===2?"SMALLER FLAME":"FLAME ACTIVE",fx,fy-radius-40,13,stage>=2?"#9ecbff":"#ffd49c","center");
+  }
+  function drawDevice(d){
+    const isNear=robot&&Math.hypot(robot.x-d.x,robot.y-d.y)<86;
+    const active=level===2&&evidence.has(d.id);
+    const c=d.color;
+    rect(d.x-25,d.y-28,50,51,"#192b40");
+    rect(d.x-21,d.y-24,42,42,active?"#1d574c":"#33546c");
+    rect(d.x-17,d.y-20,34,26,active?"#67c8ac":c);
+    rect(d.x-12,d.y-15,24,16,"#18354b");
+    if(d.id==="fan"||d.id==="air")text("↘",d.x,d.y-2,18,c,"center");
+    else if(d.id==="oxygen")text("O2",d.x,d.y-4,13,c,"center");
+    else if(d.id==="sample"||d.id==="fuel")text("▦",d.x,d.y-2,20,c,"center");
+    else if(d.id==="igniter")text("⚡",d.x,d.y-2,17,c,"center");
+    else text("?",d.x,d.y-2,19,c,"center");
+    if(isNear){
+      ctx.lineWidth=2;ctx.strokeStyle="#a3f1f0";ctx.strokeRect(d.x-33,d.y-37,66,72);
+    }
+    text(d.label,d.x,d.y+37,11,active?"#9beac5":"#bad5e3","center");
+  }
+  function drawRobot(){
+    const x=Math.round(robot.x),y=Math.round(robot.y);
+    rect(x-15,y-15,30,35,"#031a2c");
+    rect(x-13,y-15,26,24,"#88d3e0");
+    rect(x-10,y-10,20,11,"#173f59");
+    rect(x-7,y-7,5,5,"#d5ffff");rect(x+3,y-7,5,5,"#d5ffff");
+    rect(x-7,y+10,14,9,"#d0eaf3");rect(x-21,y-5,7,18,"#4c98b6");rect(x+14,y-5,7,18,"#4c98b6");
+    rect(x-10,y+19,7,8,"#457995");rect(x+3,y+19,7,8,"#457995");
+    rect(x-2,y-22,4,8,"#92edee");
+    if(Math.hypot(robot.vx,robot.vy)>1.3)rect(x-5,y+29,10,8,Math.floor(frame/4)%2?"#ffd18b":"#ff9e54");
+    text("R-0",x,y-33,13,"#a7f6f1","center");
+  }
+  function render(){
+    rect(0,0,W,H,"#081828");
+    stars.forEach(s=>rect(s.x,s.y,2,2,s.c));
+    for(let x=48;x<920;x+=32)for(let y=65;y<505;y+=32)rect(x,y,1,1,"#254055");
+    rect(28,38,904,24,"#2e4e66");rect(28,504,904,19,"#2e4e66");
+    rect(28,38,22,485,"#2e4e66");rect(910,38,22,485,"#2e4e66");
+    for(let x=54;x<905;x+=35){rect(x,50,3,4,"#66869f");rect(x,510,3,4,"#66869f");}
+    text("EXPERIMENTAL CHAMBER / MICROGRAVITY",64,90,14,"#779cb6");
+    text(level===1?"TEST GMT45-T4":"POST-TEST INVESTIGATION",890,90,13,"#a8bbcb","right");
+    drawFan(113,220,.2);drawFan(113,332,1.1);
+    if(level===1){
+      drawFlame();
+      drawDevice(deviceL1[0]);drawDevice(deviceL1[1]);drawDevice(deviceL1[2]);
+      text("FORCED AIRFLOW",244,123,14,"#73d0e7");
+      text("SIBAL FABRIC / 2.2 cm WIDTH",550,373,13,"#e1cfad","center");
+      text("OXYGEN 18.7%",855,119,11,"#9bbecb","right");
+      if(stageIndex===3&&holdTime>0)text("LOW-FLOW HOLD / "+Math.round(holdTime)+"s",600,447,13,"#acd6ff","center");
+    }else{
+      rect(433,295,230,35,"#53606a");rect(446,302,202,22,"#c2bba6");
+      rect(636,286,8,50,"#b0a4a6");rect(627,278,23,10,"#db866f");
+      text("SIBAL SAMPLE / EXTINCTION COMPLETE",545,365,13,"#9ce6bf","center");
+      deviceL2.forEach(drawDevice);
+      text("INVESTIGATE FOUR EXPERIMENTAL FACTORS",470,115,14,"#b6e9fc","center");
+    }
+    drawRobot();
+    if(mode==="paused")rect(0,0,W,H,"#081827aa");
+  }
+  function loop(ts){
+    const dt=lastTime?Math.min(2,(ts-lastTime)/16.667):1;
+    lastTime=ts;
+    tick(dt);
+    render();
+    requestAnimationFrame(loop);
+  }
+  $("briefNext").addEventListener("click",advanceBriefing);
+  $("briefSkip").addEventListener("click",()=>resetLevel(1));
+  $("interact").addEventListener("click",interact);
+  $("pauseButton").addEventListener("click",togglePause);
+  $("resume").addEventListener("click",togglePause);
+  $("nextMission").addEventListener("click",()=>{if(level===1)resetLevel(2);});
+  $("replay").addEventListener("click",()=>resetLevel(level));
+  $("analysisClose").addEventListener("click",()=>analysis.close());
+  document.querySelectorAll("[data-answer]").forEach(button=>button.addEventListener("click",()=>{
+    if(button.dataset.answer==="wire")finishLevel2();
+    else{
+      wrongCount++;
+      $("analysisFeedback").textContent="Not quite. Airflow and sample width affect the experiment, but a direct ignition source supplies heat. Check your recorded evidence and try again.";
+    }
+  }));
+  document.addEventListener("keydown",e=>{
+    const tag=document.activeElement&&document.activeElement.tagName;
+    if(tag==="INPUT"||tag==="TEXTAREA")return;
+    const k=e.key.toLowerCase(),dir=keyMap[k];
+    if(dir&&mode==="playing"){keys[dir]=true;e.preventDefault();}
+    if((k==="e"||k===" ")&&mode==="playing"){e.preventDefault();if(!e.repeat)interact();}
+    if(k==="escape"&&!report.open&&!analysis.open&&(mode==="playing"||mode==="paused")){e.preventDefault();togglePause();}
+  });
+  document.addEventListener("keyup",e=>{const dir=keyMap[e.key.toLowerCase()];if(dir)keys[dir]=false;});
+  document.querySelectorAll("[data-dir]").forEach(b=>{
+    const dir=b.dataset.dir;
+    b.addEventListener("pointerdown",e=>{e.preventDefault();if(mode==="playing")keys[dir]=true;b.classList.add("pressed");if(b.setPointerCapture)b.setPointerCapture(e.pointerId);});
+    const release=()=>{keys[dir]=false;b.classList.remove("pressed");};
+    ["pointerup","pointercancel","lostpointercapture"].forEach(n=>b.addEventListener(n,release));
+  });
+  window.addEventListener("blur",()=>{Object.keys(keys).forEach(k=>keys[k]=false);if(mode==="playing")togglePause();});
+  document.addEventListener("visibilitychange",()=>{if(document.hidden&&mode==="playing")togglePause();});
+  report.addEventListener("cancel",e=>e.preventDefault());
+  analysis.addEventListener("cancel",e=>e.preventDefault());
+  robot={x:360,y:370,vx:0,vy:0};
+  setBriefing(0);updateSidebar();updateHUD();
+  requestAnimationFrame(loop);
 })();
 </script>
-</body></html>
+</body>
+</html>
