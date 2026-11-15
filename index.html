@@ -1,6 +1,6 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>ZeroFlame · Combustión en microgravedad</title>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ZeroFlame · Microgravity Combustion</title>
 <link rel="stylesheet" href="zeroflame-logo.css">
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap");
@@ -285,80 +285,80 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
 @media(max-width:600px){.game-resource{align-items:flex-start}.game-resource-cta{width:100%;text-align:center}}
 </style></head>
 <body><div class="shell"><header class="top"><div class="brand"><span class="zeroflame-logo"><img src="zeroflame-emblema.jpg" alt="" width="1254" height="1254"></span><div><strong>ZeroFlame</strong><small>NASA · Combustion investigations</small></div></div><div class="tip">NASA Physical Sciences Informatics</div></header>
-<section class="hero"><div><div class="eyebrow">Combustión en microgravedad</div><h1>Explora las investigaciones de NASA PSI</h1><p>Consulta, agrupa y compara estudios sobre el fuego en microgravedad y sus aplicaciones a la seguridad espacial.</p></div><div class="counter"><b id="heroCount">24</b><span>Investigaciones</span></div></section>
-<nav class="nav" aria-label="Vistas de ZeroFlame">
-  <button type="button" class="active" data-tab="inicio" aria-current="page">Inicio</button>
-  <button type="button" data-tab="agrupar">Agrupar</button>
-  <button type="button" data-tab="biblioteca">Biblioteca</button>
-  <button type="button" data-tab="comparar">Comparar<span id="navSelection" class="count" hidden></span></button>
-  <button type="button" data-tab="similares">Encontrar similares</button>
-  <button type="button" data-tab="ambitos">Áreas de aplicaciones</button>
-  <button type="button" data-tab="glosario">Glosario</button>
+<section class="hero"><div><div class="eyebrow">Microgravity Combustion</div><h1>Explore NASA PSI Research</h1><p>Browse, group, and compare studies on fire in microgravity and their applications to spacecraft safety.</p></div><div class="counter"><b id="heroCount">24</b><span>Studies</span></div></section>
+<nav class="nav" aria-label="ZeroFlame navigation">
+  <button type="button" class="active" data-tab="inicio" aria-current="page">Home</button>
+  <button type="button" data-tab="agrupar">Group</button>
+  <button type="button" data-tab="biblioteca">Library</button>
+  <button type="button" data-tab="comparar">Compare<span id="navSelection" class="count" hidden></span></button>
+  <button type="button" data-tab="similares">Find Similar Studies</button>
+  <button type="button" data-tab="ambitos">Application Areas</button>
+  <button type="button" data-tab="glosario">Glossary</button>
   <a class="game-nav-link" href="fire-protocol.html">🎮 Fire Protocol: 0G</a></nav>
 <div class="layout is-home"><main>
-<section id="inicio" class="panel view"><h2>El catálogo de un vistazo</h2>
+<section id="inicio" class="panel view"><h2>Catalog at a Glance</h2>
 <div class="home-charts">
-  <article class="science-card home-chart"><h3>Modalidades de investigación</h3><ul id="homeModalities"></ul></article>
-  <article class="science-card home-chart"><h3>Áreas de aplicaciones</h3><ul id="homeAreas"></ul>
-    <p class="small">Una investigación puede aparecer en más de un área.</p></article>
+  <article class="science-card home-chart"><h3>Study Types</h3><ul id="homeModalities"></ul></article>
+  <article class="science-card home-chart"><h3>Application Areas</h3><ul id="homeAreas"></ul>
+    <p class="small">A study may appear in more than one area.</p></article>
 </div>
-<a class="science-card home-resource game-resource" href="fire-protocol.html" aria-label="Jugar Fire Protocol: 0G, un juego sobre combustión en microgravedad">
-  <div><h3>🎮 Fire Protocol: 0G</h3><p>Controla un robot, descubre cómo extinguir una llama en microgravedad e investiga las condiciones de combustión utilizando evidencia de NASA BASS-II.</p></div>
-  <span class="game-resource-cta">▶ Jugar ahora</span>
+<a class="science-card home-resource game-resource" href="fire-protocol.html" aria-label="Play Fire Protocol: 0G, a game about microgravity combustion">
+  <div><h3>🎮 Fire Protocol: 0G</h3><p>Control a robot, discover how to extinguish a flame in microgravity, and investigate combustion conditions using evidence from NASA BASS-II.</p></div>
+  <span class="game-resource-cta">▶ Play Now</span>
 </a>
 </section>
-<section id="agrupar" class="panel view hidden"><h2>Agrupar por similitud</h2><p>Elige un criterio y explora qué estudios comparten características. Una investigación puede pertenecer a más de un grupo.</p><div class="controls"><div class="field"><label for="groupBy">Criterio de agrupación</label><select id="groupBy"><option value="modalidad">Modalidad de investigación</option><option value="familia">Familia de proyecto</option><option value="combustible">Combustibles y materiales</option><option value="condiciones">Condiciones mencionadas</option><option value="mediciones">Mediciones o instrumentos mencionados</option><option value="objetivos">Objetivos científicos</option><option value="ambitos">Área de aplicación</option><option value="plataforma">Plataforma de trabajo</option></select></div><div class="field"><label for="search">Buscar dentro de los grupos</label><input type="search" id="search" placeholder="Ej.: FLEX, oxígeno, hollín, PSI-98"></div></div>
-<div class="controls"><div class="field"><label for="groupEvidence">Tipo de vínculo</label><select id="groupEvidence" class="evidence-select"></select></div><div class="field" id="domainGroup" hidden><label for="groupDomain">Área de aplicación</label><select id="groupDomain"><option value="">Todos</option></select></div></div>
-<div class="field"><label id="groupModeLabel">Filtrar por modalidad</label><div class="pills" id="modeFilters" aria-labelledby="groupModeLabel"></div></div>
-<div class="row-head"><div class="legend" id="countGroups"></div><button class="secondary" id="clearFilters">Limpiar filtros</button></div><div id="groups" class="groups"></div><p class="hint">Abre una ficha para ver la justificación, la fuente y el alcance de cada etiqueta.</p></section>
-<section id="similares" class="panel view hidden"><h2>Encontrar investigaciones afines</h2><p>Selecciona una investigación de referencia. El indicador es una semejanza documental estimada a partir de modalidad, familia, materiales, condiciones, mediciones y objetivos; no es una medición experimental.</p><div class="controls"><div class="field"><label for="reference">Investigación de referencia</label><select id="reference"></select></div><div class="field"><label for="minScore">Afinidad mínima que mostrar</label><select id="minScore"><option value="0">Todas</option><option value="30">30 % o más</option><option value="50">50 % o más</option><option value="70">70 % o más</option></select></div></div><div class="field"><label for="includeInferred" class="check-option"><input type="checkbox" id="includeInferred"> Incluir vínculos inferidos</label></div><div id="referenceDetail" class="highlight"></div><div id="similarList" class="sim-list" style="margin-top:16px"></div><p class="hint">El porcentaje es un índice heurístico descriptivo, no una probabilidad ni una validación de que los ensayos compartieron condiciones experimentales.</p></section>
-<section id="comparar" class="panel view hidden"><div class="row-head"><div><h2>Comparar investigaciones</h2><p>Selecciona hasta tres investigaciones en cualquier vista y observa sus atributos lado a lado.</p></div><button class="secondary" id="downloadCSV">↓ Exportar CSV</button></div><div id="compareBody"></div></section>
-<section id="ambitos" class="panel view hidden"><h2>Áreas de aplicaciones</h2>
-<p>Clasificación temática de ZeroFlame. Cada vínculo se justifica con el objetivo, el método o un resultado de la investigación. Una ficha puede aparecer en varias áreas.</p>
+<section id="agrupar" class="panel view hidden"><h2>Group by Similarity</h2><p>Choose a criterion to explore shared study characteristics. A study may belong to more than one group.</p><div class="controls"><div class="field"><label for="groupBy">Group by</label><select id="groupBy"><option value="modalidad">Study Type</option><option value="familia">Project Family</option><option value="combustible">Fuels and Materials</option><option value="condiciones">Reported Conditions</option><option value="mediciones">Reported Measurements or Instruments</option><option value="objetivos">Scientific Objectives</option><option value="ambitos">Application Area</option><option value="plataforma">Research Platform</option></select></div><div class="field"><label for="search">Search within groups</label><input type="search" id="search" placeholder="e.g., FLEX, oxygen, soot, PSI-98"></div></div>
+<div class="controls"><div class="field"><label for="groupEvidence">Link Type</label><select id="groupEvidence" class="evidence-select"></select></div><div class="field" id="domainGroup" hidden><label for="groupDomain">Application Area</label><select id="groupDomain"><option value="">All</option></select></div></div>
+<div class="field"><label id="groupModeLabel">Filter by Study Type</label><div class="pills" id="modeFilters" aria-labelledby="groupModeLabel"></div></div>
+<div class="row-head"><div class="legend" id="countGroups"></div><button class="secondary" id="clearFilters">Clear Filters</button></div><div id="groups" class="groups"></div><p class="hint">Open a study record to see the reasoning, source, and scope behind each tag.</p></section>
+<section id="similares" class="panel view hidden"><h2>Find Similar Studies</h2><p>Select a reference study. This documentary similarity score estimates overlap in study type, project family, materials, conditions, measurements, and objectives. It is separate from the experimental measurements.</p><div class="controls"><div class="field"><label for="reference">Reference Study</label><select id="reference"></select></div><div class="field"><label for="minScore">Minimum Similarity</label><select id="minScore"><option value="0">All</option><option value="30">30% or higher</option><option value="50">50% or higher</option><option value="70">70% or higher</option></select></div></div><div class="field"><label for="includeInferred" class="check-option"><input type="checkbox" id="includeInferred"> Include Inferred Links</label></div><div id="referenceDetail" class="highlight"></div><div id="similarList" class="sim-list" style="margin-top:16px"></div><p class="hint">This percentage is a descriptive heuristic. It does not estimate probability or establish that tests shared experimental conditions.</p></section>
+<section id="comparar" class="panel view hidden"><div class="row-head"><div><h2>Compare Studies</h2><p>Select up to three studies from any view and compare their attributes side by side.</p></div><button class="secondary" id="downloadCSV">↓ Export CSV</button></div><div id="compareBody"></div></section>
+<section id="ambitos" class="panel view hidden"><h2>Application Areas</h2>
+<p>ZeroFlame groups studies by theme. Each link is supported by a study objective, method, or result. A study may appear in more than one area.</p>
 <div id="domainCards" class="science-grid"></div></section>
-<section id="biblioteca" class="panel view hidden"><h2>Biblioteca de investigaciones</h2>
-<p>Abre una ficha para consultar los datos disponibles, la justificación de sus etiquetas y las fuentes.</p>
-<div class="controls"><div class="field"><label for="librarySearch">Buscar investigación</label><input id="librarySearch" type="search" placeholder="Ej.: PSI-98, humo, metano"></div><div class="field"><label for="libraryMode">Modalidad</label><select id="libraryMode"><option value="">Todas</option></select></div><div class="field"><label for="libraryDomain">Área de aplicación</label><select id="libraryDomain"><option value="">Todos</option></select></div><div class="field"><label for="libraryEvidence">Tipo de vínculo del área elegida</label><select id="libraryEvidence" class="evidence-select"></select></div></div>
-<div class="row-head"><p id="libraryCount" role="status"></p><div class="library-actions"><button type="button" class="secondary" id="clearLibrary" hidden>Limpiar filtros</button><button type="button" class="secondary" id="featuredOnly" aria-pressed="false">Ver solo fichas ampliadas</button></div></div><div id="libraryCards" class="science-grid"></div></section>
-<section id="glosario" class="panel view hidden"> <h2>Glosario científico</h2><p class="lead">Conceptos que aparecen en experimentos de combustión, transporte de humo y seguridad de naves espaciales.</p>
+<section id="biblioteca" class="panel view hidden"><h2>Study Library</h2>
+<p>Open a study record to see the available data, reasoning behind its tags, and sources.</p>
+<div class="controls"><div class="field"><label for="librarySearch">Search studies</label><input id="librarySearch" type="search" placeholder="e.g., PSI-98, smoke, methane"></div><div class="field"><label for="libraryMode">Study Type</label><select id="libraryMode"><option value="">All</option></select></div><div class="field"><label for="libraryDomain">Application Area</label><select id="libraryDomain"><option value="">All</option></select></div><div class="field"><label for="libraryEvidence">Link type for the selected area</label><select id="libraryEvidence" class="evidence-select"></select></div></div>
+<div class="row-head"><p id="libraryCount" role="status"></p><div class="library-actions"><button type="button" class="secondary" id="clearLibrary" hidden>Clear Filters</button><button type="button" class="secondary" id="featuredOnly" aria-pressed="false">Show Expanded Records Only</button></div></div><div id="libraryCards" class="science-grid"></div></section>
+<section id="glosario" class="panel view hidden"> <h2>Science Glossary</h2><p class="lead">Terms used in combustion experiments, smoke transport, and spacecraft fire safety.</p>
 <div class="detail-grid">
   <article class="science-card">
-    <h3>Fracción molar de oxígeno (O₂)</h3>
-    <p>Proporción de moléculas de oxígeno respecto del total de moléculas de la mezcla gaseosa. No es lo mismo que presión parcial.</p>
+    <h3>Oxygen Mole Fraction (O₂)</h3>
+    <p>The fraction of molecules in a gas mixture that are oxygen. Mole fraction is distinct from partial pressure.</p>
   </article>
   <article class="science-card">
-    <h3>Velocidad de coflujo</h3>
-    <p>Velocidad del gas que rodea una llama, normalmente aire. Modifica la mezcla, el transporte de calor y la forma de la llama.</p>
+    <h3>Coflow Speed</h3>
+    <p>The speed of the gas, usually air, surrounding a flame. It affects mixing, heat transport, and flame shape.</p>
   </article>
   <article class="science-card">
-    <h3>Diámetro de gota</h3>
-    <p>Tamaño característico de una gota de combustible. En experimentos de combustión de gotas se relaciona con evaporación, combustión y extinción.</p>
+    <h3>Droplet Diameter</h3>
+    <p>A characteristic size of a fuel droplet. In droplet combustion experiments, it relates to evaporation, burning, and extinction.</p>
   </article>
   <article class="science-card">
-    <h3>Smoke point (punto de humo)</h3>
-    <p>Longitud de llama asociada a la aparición de humo visible en determinadas condiciones de ensayo. Depende del combustible, quemador y flujo.</p>
+    <h3>Smoke Point</h3>
+    <p>The flame length associated with the onset of visible smoke under specified test conditions. It depends on fuel, burner, and flow.</p>
   </article>
   <article class="science-card">
-    <h3>Tasa de quemado</h3>
-    <p>Magnitud que describe la rapidez con que se consume el combustible. Debe conservarse la definición y unidad exactas usadas por cada publicación.</p>
+    <h3>Burning Rate</h3>
+    <p>A measure of how quickly fuel is consumed. Use the exact definition and units reported in each publication.</p>
   </article>
   <article class="science-card">
-    <h3>Extinción</h3>
-    <p>Pérdida de la combustión autosostenida que hace que la llama se apague. Puede depender de composición gaseosa, presión, tamaño de gota, temperatura y agente supresor.</p>
+    <h3>Extinguishment</h3>
+    <p>The loss of self-sustaining combustion that causes a flame to go out. It can depend on gas composition, pressure, droplet size, temperature, and the suppressant used.</p>
   </article>
   <article class="science-card">
-    <h3>Microgravedad</h3>
-    <p>Condición de aceleración residual muy baja. No significa gravedad exactamente cero y no debe asumirse para toda ficha del catálogo.</p>
+    <h3>Microgravity</h3>
+    <p>An environment with very low residual acceleration. Actual acceleration is not exactly zero, and the catalog also includes studies under other conditions.</p>
   </article>
   <article class="science-card">
-    <h3>Fluctuación</h3>
-    <p>Variación temporal de una señal, como temperatura, altura de llama o concentración de partículas. Para cuantificarla se requiere una serie temporal o estadísticas reportadas (por ejemplo, desviación estándar).</p>
+    <h3>Fluctuation</h3>
+    <p>Variation over time in a signal such as temperature, flame height, or particle concentration. Quantifying fluctuation requires a time series or reported statistics such as the standard deviation.</p>
   </article>
 </div>
 </section>
-</main><aside class="panel side"><h2>Tu selección <span id="selectedNum" class="count">0/3</span></h2><p>Agrega hasta tres investigaciones para contrastar objetivos, muestras, condiciones y mediciones.</p><div id="selectedList" class="side-list"></div><button id="goCompare" class="primary" disabled>Comparar investigaciones</button><button id="clearSelection" class="secondary" style="width:100%;margin-top:9px">Vaciar selección</button><div id="catalogueSummary" class="highlight"></div><div class="note">Fuente: fichas NASA PSI (Objectives y Approach). El inventario corresponde a investigaciones, no a ensayos individuales verificados.</div></aside></div>
-<footer class="foot">ZeroFlame · Catálogo de 24 investigaciones · <a href="https://github.com/Galacticlau/NasaChallenge/blob/main/docs/metodologia.md">Metodología y revisión de evidencia</a></footer>
+</main><aside class="panel side"><h2>Your Selection <span id="selectedNum" class="count">0/3</span></h2><p>Add up to three studies to compare objectives, samples, conditions, and measurements.</p><div id="selectedList" class="side-list"></div><button id="goCompare" class="primary" disabled>Compare Studies</button><button id="clearSelection" class="secondary" style="width:100%;margin-top:9px">Clear Selection</button><div id="catalogueSummary" class="highlight"></div><div class="note">Source: NASA PSI study records, Objectives and Approach. The catalog is organized by study.</div></aside></div>
+<footer class="foot">ZeroFlame · Catalog of 24 studies · <a href="https://github.com/Galacticlau/NasaChallenge/blob/main/docs/methodology.md">Methodology and evidence review</a></footer>
 </div>
-<dialog id="studyDialog" aria-labelledby="studyTitle"><div class="dialog-inner"><div class="dialog-top"><nav id="studyJumps" class="study-jumps" aria-label="Secciones de la ficha"></nav><form method="dialog"><button class="secondary" autofocus aria-label="Cerrar ficha">Cerrar</button></form></div><div id="studyDetail"></div></div></dialog>
-<noscript>Activa JavaScript para consultar el catálogo de ZeroFlame.</noscript>
-<script src="atlas.js?v=portada" defer></script></body></html>
+<dialog id="studyDialog" aria-labelledby="studyTitle"><div class="dialog-inner"><div class="dialog-top"><nav id="studyJumps" class="study-jumps" aria-label="Study record sections"></nav><form method="dialog"><button class="secondary" autofocus aria-label="Close study record">Close</button></form></div><div id="studyDetail"></div></div></dialog>
+<noscript>Enable JavaScript to browse the ZeroFlame catalog.</noscript>
+<script src="atlas.js?v=english" defer></script></body></html>

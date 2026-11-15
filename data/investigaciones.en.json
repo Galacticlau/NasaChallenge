@@ -1,0 +1,1593 @@
+[
+  {
+    "id": "PSI-117",
+    "nombre": "Cool Flame Perturbations",
+    "titulo": "Effect of External Thermo-Convective Perturbation on Cool Flame Dynamics: A Multidimensional Multi-Physics CFD Analysis",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-117",
+    "modalidad": "Simulation / reanalysis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Quantify how external heating and convection affect the stability, oscillation, and extinction of cool flames around droplets, and compare the models with FLEX data.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Simulated large n-alkane droplets of 1–4 mm and small droplets of about 0.5 mm. The specific species is not given in these fields.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity simulations with convection, heating, or both. Ambient composition, pressure, and ozone-assisted cases are explored; their values are not given here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Perturbation type, droplet size, forcing amplitude and frequency, composition, and pressure. A complete matrix of combinations is not reported.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "A 3D OpenFOAM CFD model checked against FLEX data. A shared method does not establish that conditions were constant across simulations.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Calculated outputs include ignition delay, oscillation frequency and amplitude, flame separation, and extinction diameters. The study reuses FLEX measurements and lists no new sensors.",
+        "estado": "Calculated output; no new sensors"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulation / reanalysis"
+      ],
+      "familia": [
+        "Other investigations"
+      ],
+      "combustible": [
+        "Fuel droplets"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Flow or flow rate",
+        "Dilution and mixing",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Extinguishment",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Cool flames",
+        "Extinguishment",
+        "Modeling",
+        "Flame dynamics"
+      ],
+      "plataforma": [
+        "Ground study / simulation"
+      ]
+    },
+    "objetivo_original": "Cuantificar cómo el calentamiento y la convección externos afectan la estabilidad, oscilación y extinción de llamas frías alrededor de gotas; contrastar modelos con FLEX."
+  },
+  {
+    "id": "PSI-159",
+    "nombre": "ACME CFI-G",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Cool Flames Investigation with Gases",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-159",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Identify the conditions that produce cool diffusion flames in propane, n-butane, and n-pentane, and support ISS tests with CFD and kinetic mechanisms consistent with the measurements.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Gaseous propane, n-butane, and n-pentane; normal and inverse spherical flames. Burner size is not reported in Objectives or Approach.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "ISS; dilution, flow rate, and pressure are considered. Zst and adiabatic temperature Tad are mentioned. Oxygen and airflow values are not given here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel, dilution, pressure, flow rate, and normal or inverse configuration. The record does not list the combinations actually tested.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "ISS tests of spherical diffusion flames supported by simulations. Constants for individual tests are not documented here.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Cameras, radiometers, photomultiplier tubes, and thermocouples. The record does not detail models, calibrations, or channel assignments.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Propane",
+        "n-butane",
+        "n-pentane"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate",
+        "Dilution and mixing",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Cool flames",
+        "Modeling"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Determinar condiciones de aparición de llamas frías de difusión para propano, n-butano y n-pentano; apoyar ensayos ISS con CFD y mecanismos cinéticos concordantes con las mediciones."
+  },
+  {
+    "id": "PSI-10",
+    "nombre": "ACME Flame Design",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Flame Design",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-10",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Identify the onset of soot formation and extinction limits, and measure how flow rate, composition, dilution, and pressure affect temperature, flame size, color, and soot fraction in methane and ethylene flames.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Methane and ethylene; normal and inverse spherical diffusion flames, with comparisons to coflow flames. Burner dimensions are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Drop-tower and ISS tests. Dilution with nitrogen or CO₂; variations in flow rate, pressure, and Zst. No numerical values in the fields reviewed.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel, diluent and its amount, flow rate, pressure, and normal or inverse configuration. Sooting and nonsooting conditions and extinction limits are compared.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "A series of diffusion flame tests with optical and thermal diagnostics. No table identifies the constants for each comparison.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Cameras, radiometers, photomultipliers, and thermocouples. Target quantities include temperatures, flame size and color, soot volume fraction, and extinction limits.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Earth gravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate",
+        "Dilution and mixing"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Soot",
+        "Extinguishment"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Soot and radiation",
+        "Temperature / heat"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Determinar inicio de formación de hollín y límites de extinción; medir cómo caudal, composición, dilución y presión afectan temperatura, tamaño, color y fracción de hollín en llamas de metano y etileno."
+  },
+  {
+    "id": "PSI-62",
+    "nombre": "UFGM and BASS Modeling",
+    "titulo": "Concurrent Flame Spread Modeling using Flamelet Generated Manifolds in Microgravity with Comparison to BASS Experiments using Two-Color Tomography",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-62",
+    "modalidad": "Simulation / reanalysis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Develop and validate UFGM models for concurrent flame spread, use BASS and BASS-II as references, and advance the prediction of flammability limits for spacecraft materials.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "BASS geometries include PMMA sheets, spheres, and rods, and wax cylinders. Dimensions are not given in the fields reviewed.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Modeling and comparisons under microgravity and Earth gravity, with concurrent spread. Pressure, oxygen, and flow velocity per case are not reported here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Geometry, material, and gravity regime in the comparison cases; model formulation and validation. A full factorial design is not reported.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "A coupled fluid–solid UFGM simulation framework using BASS and BASS-II images. The study reuses existing test data.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Two-color tomography of DSLR images to reconstruct temperature and soot. Metrics include flame geometry, temperature, soot fraction, and spread rate.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulation / reanalysis"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Polymers and waxes"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Earth gravity",
+        "Pressure",
+        "Oxygen"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Soot",
+        "Flame spread",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Flame spread",
+        "Modeling"
+      ],
+      "plataforma": [
+        "Ground study / simulation"
+      ]
+    },
+    "objetivo_original": "Desarrollar y validar modelos UFGM para propagación de llama a favor del flujo; usar BASS/BASS-II como referencia y avanzar hacia predicción de límites de inflamabilidad de materiales espaciales."
+  },
+  {
+    "id": "PSI-60",
+    "nombre": "SPICE Data Analysis",
+    "titulo": "Computational and Experimental Analysis of SPICE Data Sets",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-60",
+    "modalidad": "Simulation / reanalysis",
+    "tipo": "Ground Investigation",
+    "plataforma": "",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Explain differences in soot formation at 1g and in microgravity using SPICE images and models, derive temperature and soot quantities, and assess sensitivity to physical and chemical processes.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Reuses SPICE flames and Yale and ACME burner configurations. Specific fuels and dimensions are not given in these fields.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "Comparisons between Earth gravity and microgravity. Radiation, dispersion, boundary conditions, and heat transfer to the burner are considered; values are not given here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Gravity, burner configuration, and parameters of the soot and radiation models. The combinations used in each case require further documentation.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Nikon NEF image processing and absolute SPICE calibration compared with simulations. The study reuses existing data.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "DSLR images, color-ratio pyrometry for soot temperature, and luminous calibration for soot volume fraction. These quantities are derived from images.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulation / reanalysis"
+      ],
+      "familia": [
+        "SPICE"
+      ],
+      "combustible": [
+        "Not specified in the record"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Earth gravity"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Soot"
+      ],
+      "objetivos": [
+        "Soot and radiation",
+        "Modeling",
+        "Temperature / heat"
+      ],
+      "plataforma": [
+        "Ground study / simulation"
+      ]
+    },
+    "objetivo_original": "Explicar diferencias de formación de hollín entre 1g y microgravedad combinando imágenes SPICE y modelos; obtener temperatura y hollín y evaluar sensibilidad a procesos físicos y químicos."
+  },
+  {
+    "id": "PSI-142",
+    "nombre": "Cool Flame Transitions",
+    "titulo": "Quantitative Studies of Cool Flame Transitions at Radiation / Stretch Extinction Using Counterflow Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-142",
+    "modalidad": "Experiments and simulation",
+    "tipo": "Ground Investigation",
+    "plataforma": "Not Applicable",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Establish cool-flame flammability limits, relate them to hot-flame limits, verify phenomena observed in FLEX, and obtain data to validate kinetic and radiative models.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Objectives: ozone-sensitized counterflow flames. Approach: n-heptane/air and dimethyl ether (DME)/air mixtures in models. Detailed physical geometry is not reported.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Varied oxygen; DME/air simulations at elevated pressures up to 20 atm. This maximum describes the simulations and cannot be assigned to every physical test.",
+        "estado": "Reported in the record"
+      },
+      "factores_modificados": {
+        "text": "Three numerical schemes, fuel, oxygen concentration, and pressure. The record combines ground-test objectives and simulation descriptions.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "FLEX conditions and data provide a reference for studying low-temperature chemistry. Constants by case are not identified in these fields.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Target quantities include extinction limit, temperature, and species distribution. No sensors are named; Approach describes simulation schemes.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experiments and simulation"
+      ],
+      "familia": [
+        "Other investigations"
+      ],
+      "combustible": [
+        "Not specified in the record"
+      ],
+      "condiciones": [
+        "Oxygen"
+      ],
+      "mediciones": [
+        "Temperature",
+        "Extinguishment",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Cool flames",
+        "Extinguishment",
+        "Modeling"
+      ],
+      "plataforma": [
+        "Ground study / simulation"
+      ]
+    },
+    "objetivo_original": "Construir límites de inflamabilidad de llamas frías y relacionarlos con los de llamas calientes; verificar fenómenos FLEX y obtener datos para validar modelos cinéticos y radiativos."
+  },
+  {
+    "id": "PSI-101",
+    "nombre": "SAME-R",
+    "titulo": "Smoke Aerosol Measurement Experiment-Reflight",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-101",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Quantify the sizes of liquid smoke particles in low gravity and relate their distribution to generation and transport. Repeat SAME with changes to materials, conditions, and instruments.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Pyrell, an intumescent flame-retardant foam, replaces DBP samples. A full material list and dimensions are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Low gravity, with higher heating temperatures and a no-flow condition during heating. The record reports 66 test points without individual conditions.",
+        "estado": "Reported in the record"
+      },
+      "factores_modificados": {
+        "text": "Material, temperature, and presence or absence of flow. Instrumentation changed from SAME; three subsequent ground tests supported data reduction.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Reuses SAME hardware and size-distribution analysis. The quantities held constant in each test are not documented here.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "M-pass replaces one of SAME's enclosures containing a DustTrak and an ionization detector. Particle-size distributions are analyzed. Full channel details are pending.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Smoke and aerosols"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Flow or flow rate",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Particles and smoke"
+      ],
+      "objetivos": [
+        "Smoke and aerosols"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Cuantificar tamaños de partículas líquidas del humo en baja gravedad y relacionar su distribución con generación y transporte; repetir SAME con modificaciones de materiales, condiciones e instrumentos."
+  },
+  {
+    "id": "PSI-115",
+    "nombre": "SAME Smoke Modeling",
+    "titulo": "Utilization of the Smoke Aerosol Measurement Experiment Data for Advanced Modeling and Simulation of Smoke Generation in Micro-Gravity",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-115",
+    "modalidad": "Simulation / reanalysis",
+    "tipo": "Ground Investigation",
+    "plataforma": "Not Applicable",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Simulate how gravity affects the growth of smoke from pyrolysis, quantify differences between Earth gravity and microgravity, and identify the fluid-dynamic mechanisms.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Dibutyl phthalate (DBP) particles formed from vapor released by a heated sample, using a geometry similar to SAME. Dimensions are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Earth-gravity and microgravity simulations at two low crossflow speeds whose values are not specified.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Gravity and two flow speeds; thermophoresis, settling, and flow geometry are assessed. Individual case details are not reported.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "Direct numerical simulation and a heated SAME-type vapor source. No new sensors are described.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Calculated scalar fields and size distributions for particle accumulation and growth. These are simulation outputs.",
+        "estado": "Calculated output; no new sensors"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Simulation / reanalysis"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Smoke and aerosols"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Earth gravity",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Particles and smoke",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Smoke and aerosols",
+        "Modeling"
+      ],
+      "plataforma": [
+        "Ground study / simulation"
+      ]
+    },
+    "objetivo_original": "Simular la influencia de la gravedad sobre crecimiento de humo por pirólisis; cuantificar diferencias entre Tierra y microgravedad e identificar sus mecanismos fluidodinámicos."
+  },
+  {
+    "id": "PSI-98",
+    "nombre": "SAFFIRE-I",
+    "titulo": "Spacecraft Fire Safety Experiment-I",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-98",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Determine how quickly a large fire grows in low gravity and compare flammability limits with NASA ground tests used to screen materials.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "SIBAL fabric: 75% cotton and 25% fiberglass by mass. Approximate sample dimensions: 0.94 m long and 0.40 m wide.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus after departing the ISS; reported airflow speed of 20 cm/s. Oxygen concentration and pressure were measured, but values are not provided here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "The record does not describe variations between individual tests. Comparisons with other SAFFIRE missions are separate from variation within SAFFIRE-I.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "The record describes fabric inside a duct with fans. Checking what was held constant across repeats requires the test records.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Two cameras, thermocouples for flow, flame, and plume temperatures, two radiometers, pressure and CO₂/O₂ mole-fraction sensors, and two anemometers.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Fabrics and fibers"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment"
+      ],
+      "plataforma": [
+        "Cygnus spacecraft"
+      ]
+    },
+    "objetivo_original": "Determinar la rapidez de crecimiento de un incendio grande en baja gravedad y comparar sus límites de inflamabilidad con pruebas terrestres NASA de selección de materiales."
+  },
+  {
+    "id": "PSI-39",
+    "nombre": "CFI",
+    "titulo": "Cool Flames Investigation",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-39",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Examine combustion of n-dodecane and mixtures containing isododecane, and assess helium dilution, droplet size, pressure, extinction, and soot formation in cool flames.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Droplets of n-dodecane, farnesane, and n-dodecane/isododecane blends, either between needles or held by silicon carbide fibers. Sizes are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "CIR/MDCA. Pressure in Objectives: 0.25–5 atm; in Approach: 0.25–0.5 atm. Oxygen, nitrogen, and helium are mentioned; the chemical description needs cross-checking.",
+        "estado": "Source discrepancy"
+      },
+      "factores_modificados": {
+        "text": "Fuel, helium dilution, pressure, and droplet size. The test matrix and test-level values are not reported in these fields.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "Droplets were ignited with a hot wire, withdrawn after ignition, and observed optically. Constants for each series still need verification.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "A monochrome camera for droplet size, a UV camera for OH* emission and flame size, other cameras, and narrowband and broadband radiometers.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "CFI"
+      ],
+      "combustible": [
+        "Fuel droplets"
+      ],
+      "condiciones": [
+        "Pressure",
+        "Oxygen",
+        "Dilution and mixing"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Radiation"
+      ],
+      "objetivos": [
+        "Cool flames",
+        "Extinguishment",
+        "Soot and radiation"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Examinar combustión de n-dodecano y mezclas con isododecano; evaluar dilución con helio, tamaño de gota, presión, extinción y formación de hollín en llamas frías."
+  },
+  {
+    "id": "PSI-102",
+    "nombre": "SAME",
+    "titulo": "Smoke and Aerosol Measurement Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-102",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Quantify liquid smoke particle sizes in low gravity and relate them to generation and transport. Model growth as a function of pyrolysis, vapor properties, and flow.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Smoke from overheated spacecraft materials. Objectives and Approach do not list the materials or their dimensions.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Heating or igniter times of 15–60 s; a typical event lasts about 2 min. Sample temperature, flow, and aging time were controlled; values for the latter two are not given.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Sample temperature, flow field, and particle aging. Later 1g comparisons sought to match mass loss.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Glovebox setup, thermophoretic sampling, and subsequent analysis. A controlled variable may still vary between tests.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Two smoke detectors, cameras, thermophoretic samplers, subsequent transmission electron microscopy, and weighing of residues to measure mass loss.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SAME"
+      ],
+      "combustible": [
+        "Smoke and aerosols"
+      ],
+      "condiciones": [
+        "Flow or flow rate",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Particles and smoke"
+      ],
+      "objetivos": [
+        "Smoke and aerosols",
+        "Modeling"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Cuantificar tamaños de partículas líquidas del humo en baja gravedad y su relación con generación/transporte; modelar crecimiento según pirólisis, propiedades del vapor y flujo."
+  },
+  {
+    "id": "PSI-106",
+    "nombre": "SLICE",
+    "titulo": "Structure and Liftoff In Combustion Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-106",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Characterize the structure and stability of laminar diffusion flames, measure burner lift-off and effects of fuel and dilution, assess radiative losses, and validate models.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Methane, ethylene, and nitrogen-diluted mixtures in interchangeable burner tubes. Numerical diameters are not given in these fields.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity with controlled air coflow. Flow rate or speed and temperature were measured, but numerical ranges are not reported here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel, burner diameter, nitrogen dilution, and flow conditions. Thirteen test experiments are mentioned without an individual test matrix.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Fan-driven duct, interchangeable burners, and observation of laminar flames. Constants for individual comparisons are pending.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "A high-resolution camera and built-in flow and temperature sensors. Speed, soot, and fan calibrations are mentioned; sensor models are not specified.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SLICE"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Flow or flow rate",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Soot",
+        "Simulation and calculations",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Modeling",
+        "Flame dynamics"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Caracterizar estructura y estabilidad de llamas laminares de difusión; determinar separación del quemador, efectos de combustible y dilución, pérdidas radiativas y validación de modelos."
+  },
+  {
+    "id": "PSI-99",
+    "nombre": "SAFFIRE-II",
+    "titulo": "Spacecraft Fire Experiment-II",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-99",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "Cygnus Spacecraft",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Determine how a large fire grows in low gravity and compare flammability limits with those from NASA ground tests.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "SIBAL, silicone, structured PMMA, flat PMMA, and PMMA with Nomex. A card held 9 samples measuring 5 × 29 cm each. Thicknesses are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus after departing the ISS. Airflow speed was 20 or 30 cm/s depending on the material, with flow along or against the direction of spread. Oxygen and pressure were measured without values listed in the record.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Material, flow speed, and flow direction. The exact material-to-condition mapping is in Experimental Details and remains to be reviewed.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "Shared duct and diagnostic setup. The fields reviewed do not establish that every material was tested at both speeds and in both directions.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Two cameras, flow, flame, and plume thermocouples, two radiometers, pressure and CO₂/O₂ mole-fraction sensors, and two anemometers.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Fabrics and fibers",
+        "Polymers and waxes"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment"
+      ],
+      "plataforma": [
+        "Cygnus spacecraft"
+      ]
+    },
+    "objetivo_original": "Determinar crecimiento de incendios grandes en baja gravedad y comparar límites de inflamabilidad con los obtenidos en pruebas terrestres NASA."
+  },
+  {
+    "id": "PSI-107",
+    "nombre": "SPICE",
+    "titulo": "Smoke Point In Co-flow Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-107",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Identify the onset of smoke emission and soot formation in coflow flames, and relate luminous flame length and smoke point to the burner, flow, fuel, and residence time.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Methane, ethylene, propane, propylene, and propylene blends. Burner diameters of 0.41, 0.76, and 1.6 mm.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity in the Glovebox, with coflow from 5.4 to 65 cm/s. Fuel flow was adjusted until soot was emitted. Oxygen and pressure are not quantified here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel or blend, burner diameter, coflow speed, and fuel flow rate. A total of 526 flames is reported without a case-by-case breakdown.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Duct setup and smoke-point determination by adjusting flow. Specific constants and repeats are pending.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Still and video cameras for flame length or height. Radiative losses and velocity distribution are also reported; the instruments used for those measurements are not detailed.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SPICE"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene",
+        "Propane"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Radiation"
+      ],
+      "objetivos": [
+        "Soot and radiation",
+        "Smoke and aerosols"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Determinar inicio de emisión de humo y formación de hollín en llamas en coflujo; relacionar longitud luminosa y punto de humo con quemador, flujo, combustible y tiempo de residencia."
+  },
+  {
+    "id": "PSI-100",
+    "nombre": "SAFFIRE-III",
+    "titulo": "Spacecraft Fire Experiment-III",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-100",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Determine how a large fire grows in low gravity and compare flammability limits with NASA ground tests.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "SIBAL fabric. Dimensions and composition are not repeated in these fields; values from SAFFIRE-I are not automatically transferred.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "Cygnus after departing the ISS. Reported speed of 30 cm/s, with concurrent or opposed flow according to the record. Numerical oxygen and pressure values are not given here.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Concurrent and opposed directions are mentioned without a case breakdown. The comparison of 30 cm/s with SAFFIRE-I's 20 cm/s is between investigations.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "SIBAL, a ventilated duct, and the described diagnostics. Repeats and test constants remain to be checked in Experimental Details.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "Two cameras, flow, flame, and plume thermocouples, two radiometers, pressure and CO₂/O₂ mole-fraction sensors, and two anemometers.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "SAFFIRE"
+      ],
+      "combustible": [
+        "Fabrics and fibers"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment"
+      ],
+      "plataforma": [
+        "Cygnus spacecraft"
+      ]
+    },
+    "objetivo_original": "Determinar crecimiento de un incendio grande en baja gravedad y comparar límites de inflamabilidad con pruebas terrestres NASA."
+  },
+  {
+    "id": "PSI-21",
+    "nombre": "ACME CLD Flame",
+    "titulo": "Advanced Combustion via Microgravity Experiments / Coflow Laminar Diffusion Flame",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-21",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Characterize weak flames and soot formation in methane and ethylene as a function of speed and dilution, and generate data for evaluating computational models at extreme dilution.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Gaseous methane and ethylene under conditions ranging from highly diluted to heavily sooting. Coflow burner; dimensions are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity, with varied speed and fuel dilution. Oxygen, pressure, and speed ranges are not reported in the fields reviewed.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Speed, dilution, and fuel. Near-extinction flames are compared with flames at different soot levels.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Coflow diffusion flames and comparison with models. No matrix identifies constants for individual tests.",
+        "estado": "Partially reported"
+      },
+      "sensores_mediciones": {
+        "text": "OH*/CH* chemiluminescence for shape and lift-off, luminosity and laser extinction for soot temperature and fraction, and thin-filament pyrometry in soot-free regions.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen",
+        "Dilution and mixing"
+      ],
+      "mediciones": [
+        "Temperature",
+        "Radiation",
+        "Soot",
+        "Extinguishment"
+      ],
+      "objetivos": [
+        "Soot and radiation",
+        "Modeling"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Caracterizar llamas débiles y formación de hollín en metano y etileno según velocidad y dilución; generar datos para evaluar modelos computacionales en extremos de dilución."
+  },
+  {
+    "id": "PSI-25",
+    "nombre": "BASS-II",
+    "titulo": "Burning and Suppression of Solids - II",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-25",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Study ignition, growth, spread, and extinction of solids in slow microgravity flows, relate ground tests to flight results, and provide preliminary data for SoFIE.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Thicker solid fuels in plates, cylinders, spherical sections, rods, films, and fabrics. Specific materials and dimensions are not listed in Objectives or Approach.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "ISS/MSG tunnel capable of up to 40 cm/s. Oxygen was reduced below 21% by adding nitrogen. Concurrent and opposed flow were used. The percentage basis, molar or volumetric, is not given.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Flow speed and direction, oxygen concentration, and geometry. The combinations performed and number of repeats are not stated.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "Samples in a small tunnel inside the MSG with crew support. Test records are needed to establish whether pressure or temperature remained constant.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Flame appearance, growth, and spread rate were determined. These fields do not identify specific sensor or camera models.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Fabrics and fibers"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Oxygen",
+        "Flow or flow rate",
+        "Dilution and mixing"
+      ],
+      "mediciones": [
+        "Flame spread",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Flame spread"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Estudiar ignición, crecimiento, propagación y extinción de sólidos en flujos lentos de microgravedad; relacionar pruebas terrestres con vuelo y aportar datos preliminares a SoFIE."
+  },
+  {
+    "id": "PSI-20",
+    "nombre": "ACME BRE",
+    "titulo": "Advanced Combustion via Microgravity Experiments - Burning Rate Emulator",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-20",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Relate combustion in microgravity without imposed flow to material properties, and study gas mixtures, atmospheres, and extinction limits as an analog for condensed fuels.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Methane/nitrogen and ethylene/nitrogen mixtures on porous circular burners of 25 and 50 mm. Complementary ground tests include gaseous, liquid, and solid fuels.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "Objectives propose pressure–O₂ pairs of 14.7 psia–21%, 10.2 psia–26.5%, and 8.2 psia–34%, with O₂/N₂ and desired O₂/CO₂ atmospheres. These are proposed conditions.",
+        "estado": "Reported in the record"
+      },
+      "factores_modificados": {
+        "text": "Diameter, fuel, diluent, oxygen, pressure, and flow rate. Within a test the initial flow is held while temperature and heat flux evolve, then reduced stepwise toward extinction.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Chamber composition and pressure are set for each test. Burner surface temperature changes during a test.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "A heat-flux sensor, burner surface temperature, and observations of stability and extinction. Sensor model and other devices are not specified.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene"
+      ],
+      "condiciones": [
+        "Pressure",
+        "Oxygen"
+      ],
+      "mediciones": [
+        "Temperature",
+        "Extinguishment",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Relacionar combustión en microgravedad sin corrientes impuestas con propiedades de materiales; estudiar mezclas gaseosas, atmósferas y límites de extinción como emulador de combustibles condensados."
+  },
+  {
+    "id": "PSI-68",
+    "nombre": "FLEX-2",
+    "titulo": "Flame Extinguishment Experiment - 2",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-68",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Extend FLEX to fuels and environments relevant to real combustors, study internal droplet mixing, extinction, soot, and interactions, and obtain data for model validation.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Pure and two-component fuels in free or fiber-supported droplets, with linear binary arrangements. Exact species and diameters are not given in Objectives or Approach.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Pressure of 0.5–3 atm and O₂ mole fraction of 0.1–0.4. Chamber settling of about 2 min, post-deployment wait of at least 10 s, and selectable ignition interval of 1–5 s.",
+        "estado": "Reported in the record"
+      },
+      "factores_modificados": {
+        "text": "Fuel type, gas composition, pressure, initial diameter, translation speed and acceleration, and spacing and size in binary arrangements.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Fill, stabilization, deployment, and ignition protocol. Pressure and temperature are stabilized before ignition, and their target values may vary between tests.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Color camera video and high-speed photography, with chamber pressure and temperature recorded. Specific sensors are not named.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "FLEX"
+      ],
+      "combustible": [
+        "Fuel droplets"
+      ],
+      "condiciones": [
+        "Pressure",
+        "Oxygen"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Soot and radiation",
+        "Modeling"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Ampliar FLEX a combustibles/ambientes de combustores reales; estudiar mezcla interna de gotas, extinción, hollín e interacciones y obtener datos para validar modelos."
+  },
+  {
+    "id": "PSI-22",
+    "nombre": "ACME E-FIELD Flames",
+    "titulo": "Advanced Combustion via Microgravity Experiments Electric-Field Effects on Laminar Diffusion Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-22",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Study the voltage–ion-current relationship, dynamic flame response, soot formation, and stabilization of lifted flames near limiting conditions.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Methane and ethylene diluted with nitrogen; jet and coflow burners and a circular mesh electrode. Dimensions are not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity in the CIR, with and without coflow. Potential difference up to 10 kV between burner and mesh. Flow rate, coflow, and dilution values are not given in these fields.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel, dilution, flow rate, coflow velocity, and electric-field magnitude and polarity. A case matrix is not reported.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "An imposed field between burner and electrode and diagnostics of flame response. Burner configuration changes between groups.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Ion current and voltage–current curves, high-resolution cameras, spectrally filtered images, and thermopile detectors for radiant emission.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Flow or flow rate",
+        "Dilution and mixing",
+        "Electric field"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Radiation"
+      ],
+      "objetivos": [
+        "Soot and radiation",
+        "Flame dynamics"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Estudiar relación voltaje-corriente iónica, respuesta dinámica de la llama, formación de hollín y estabilización de llamas separadas del quemador próximas a condiciones límite."
+  },
+  {
+    "id": "PSI-23",
+    "nombre": "ACME s-Flame",
+    "titulo": "Advanced Combustion via Microgravity Experiments-Structure and Response of Spherical Diffusion Flames",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-23",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Characterize transient structure, extinction limits, and pulsating instabilities of spherical flames with and without soot, and compare with detailed simulations.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Hydrogen, methane, and ethylene with N₂, He, or CO₂ diluents supplied through a porous spherical burner. Diameter is not given here.",
+        "estado": "Partially reported"
+      },
+      "condiciones_prueba": {
+        "text": "Mixtures with varying proportions and flow rates. Temperature, pressure, and acceleration were recorded. Numerical ranges for oxygen and airflow are not given in these fields.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Fuel-to-diluent ratio, flow rate, and conditions affecting extinction and instability; comparison of sooting and nonsooting flames.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Nominally spherical geometry and synchronized measurements for numerical comparison. The structure is transient and may vary over time.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Spectrally resolved images, flame and burner temperatures, radiant flux, operating conditions, and pulsation frequency and amplitude. Specific instruments are not detailed.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "ACME"
+      ],
+      "combustible": [
+        "Methane",
+        "Ethylene",
+        "Hydrogen"
+      ],
+      "condiciones": [
+        "Pressure",
+        "Oxygen",
+        "Flow or flow rate",
+        "Dilution and mixing",
+        "Temperature"
+      ],
+      "mediciones": [
+        "Cameras and imaging",
+        "Temperature",
+        "Radiation",
+        "Pressure / flow"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Soot and radiation",
+        "Modeling",
+        "Flame dynamics"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Caracterizar estructura transitoria, límites de extinción e inestabilidades pulsantes de llamas esféricas con/sin hollín y comparar con simulaciones detalladas."
+  },
+  {
+    "id": "PSI-69",
+    "nombre": "FLEX",
+    "titulo": "Flame Extinguishment Experiment",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-69",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Determine liquid-fuel flammability limits and gaseous suppressant effectiveness, and develop predictive models using measurements of droplet burning, extinction, radiation, soot, and temperature.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Liquid fuels are not listed in these fields. Droplets are free or fiber-supported. The LOI procedure begins with a small droplet of about 3 mm and varies its size.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "LOI tests at 0.5–1.5 atm. O₂ mole fraction is progressively decreased, and CO₂, He, and SF₆ are studied. Some cases induce flow by translating the droplet.",
+        "estado": "Reported in the record"
+      },
+      "factores_modificados": {
+        "text": "Pressure, O₂ fraction, droplet size, suppressant and concentration, free or supported droplets, and slow translation. Iterative repetitions are mentioned without a case list.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "The procedure adjusts size and oxygen to bracket ignition and extinction. Diagnostics may not resolve very small extinction diameters.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Target quantities include burning rate, droplet and extinction diameters, radiation, soot, and temperature profiles. Specific sensors are not named in the fields reviewed.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "FLEX"
+      ],
+      "combustible": [
+        "Fuel droplets"
+      ],
+      "condiciones": [
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Radiation",
+        "Soot",
+        "Extinguishment"
+      ],
+      "objetivos": [
+        "Extinguishment",
+        "Soot and radiation",
+        "Modeling",
+        "Temperature / heat"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Determinar límites de inflamabilidad de líquidos, eficacia de extintores gaseosos y modelos predictivos mediante mediciones de combustión de gotas, extinción, radiación, hollín y temperatura."
+  },
+  {
+    "id": "PSI-26",
+    "nombre": "BASS",
+    "titulo": "Burning and Suppression of Solids",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-26",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Relate ground flammability tests to sustained microgravity and evaluate an inert gaseous suppressant across materials, geometries, preheating, and flow conditions.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Fabric with 75% cotton and 25% fiberglass by mass, Nomex, and Ultem, as well as spheres and cylinders. Sample dimensions are absent; duct cross section was 76 × 76 mm.",
+        "estado": "Reported in the record"
+      },
+      "condiciones_prueba": {
+        "text": "ISS/MSG, with air speeds up to 40 cm/s concurrent with or opposed to spread. Oxygen and pressure are not quantified here. An inert gaseous suppressant is considered.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Material, geometry, preheating, flow speed and direction, and suppressant action. Combinations and repetitions are not listed.",
+        "estado": "Reported in the record"
+      },
+      "aspectos_comunes": {
+        "text": "Ventilated duct and fabric ignition by a 29-gauge Kanthal wire. Whether this protocol applied to each geometry requires verification.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "Top and side observations of size, shape, color, propagation, and extinction. Capture devices or models are not specified in these fields.",
+        "estado": "Partially reported"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "BASS"
+      ],
+      "combustible": [
+        "Fabrics and fibers",
+        "Polymers and waxes"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Pressure",
+        "Oxygen"
+      ],
+      "mediciones": [
+        "Extinguishment",
+        "Flame spread",
+        "Simulation and calculations"
+      ],
+      "objetivos": [
+        "Extinguishment"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Relacionar pruebas terrestres de inflamabilidad con microgravedad prolongada y evaluar eficacia de un gas extintor inerte ante diferentes materiales, geometrías, precalentamiento y flujo."
+  },
+  {
+    "id": "PSI-47",
+    "nombre": "DAFT / DAFT-2",
+    "titulo": "Dust and Aerosol Measurement Feasibility Test / Dust and Aerosol Measurement Feasibility Test-2",
+    "url": "https://psi.nasa.gov/physci/repo/data/investigations/PSI-47",
+    "modalidad": "Experimental study",
+    "tipo": "Microgravity Investigation",
+    "plataforma": "International Space Station (ISS)",
+    "estado": "Metadata extracted; individual tests pending",
+    "atributos": {
+      "objetivos": {
+        "text": "Verify the accuracy and operation of the modified P-Trak in microgravity, compare it with the DustTrak, and reduce instrumentation risks for SAME.",
+        "estado": "Reported in the record"
+      },
+      "combustibles_muestras_quemadores": {
+        "text": "Arizona Red Dust reference aerosol dispersed with gaseous nitrogen in 15 L Mylar bags. Isopropanol is part of the instrument. The aerosol serves as a reference material.",
+        "estado": "Reference aerosol; not a fuel"
+      },
+      "condiciones_prueba": {
+        "text": "Microgravity aerosol tests. Oxygen concentration, air speed, and combustion conditions are not reported because they are outside this test's purpose.",
+        "estado": "Partially reported"
+      },
+      "factores_modificados": {
+        "text": "Comparison of the modified P-Trak and DustTrak instruments. Aerosol concentrations, series, and repetitions are not listed.",
+        "estado": "Partially reported"
+      },
+      "aspectos_comunes": {
+        "text": "A bagged reference aerosol and instrument comparison. The technical file is needed to establish sample equivalence.",
+        "estado": "Reported in the record"
+      },
+      "sensores_mediciones": {
+        "text": "A modified TSI P-Trak particle counter and a reference DustTrak. The record calls the DustTrak a CNC; check the terminology and measurement principle in the technical documentation.",
+        "estado": "Reported in the record"
+      }
+    },
+    "tags": {
+      "modalidad": [
+        "Experimental study"
+      ],
+      "familia": [
+        "DAFT"
+      ],
+      "combustible": [
+        "Smoke and aerosols"
+      ],
+      "condiciones": [
+        "Microgravity",
+        "Oxygen",
+        "Flow or flow rate"
+      ],
+      "mediciones": [
+        "Particles and smoke"
+      ],
+      "objetivos": [
+        "Other objectives"
+      ],
+      "plataforma": [
+        "ISS"
+      ]
+    },
+    "objetivo_original": "Verificar precisión y funcionamiento de P-Trak modificado en microgravedad, compararlo con DustTrak y reducir riesgos instrumentales para SAME."
+  }
+]
