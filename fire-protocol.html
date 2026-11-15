@@ -240,6 +240,14 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
   const flowStages = [10, 8, 4, 2.2];
   const keys = {up:false,down:false,left:false,right:false};
   const keyMap = {w:"up",arrowup:"up",s:"down",arrowdown:"down",a:"left",arrowleft:"left",d:"right",arrowright:"right"};
+  // The interactive airflow terminal moves after every successful adjustment.
+  // Coordinates refer only to the game layout, not to the NASA apparatus.
+  const airflowControlPositions = [
+    {x:180,y:365},
+    {x:465,y:155},
+    {x:815,y:320},
+    {x:240,y:165}
+  ];
   const deviceL1 = [
     {id:"fan",x:180,y:365,label:"AIRFLOW CONTROL",color:"#83eefa"},
     {id:"oxygen",x:790,y:153,label:"OXYGEN SENSOR",color:"#88c8fb"},
@@ -268,6 +276,13 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
     $("ticker").textContent = text;
   }
   function currFlow(){return level===1?flowStages[stageIndex]:2.2;}
+  function moveAirflowControl(){
+    const position=airflowControlPositions[stageIndex];
+    const terminal=deviceL1.find(device=>device.id==="fan");
+    terminal.x=position.x;
+    terminal.y=position.y;
+    terminal.label=stageIndex===flowStages.length-1?"AIRFLOW SECURED":"AIRFLOW CONTROL";
+  }
   function setBriefing(idx){
     briefIndex=idx;
     const b=briefing[idx];
@@ -280,7 +295,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
   }
   function resetLevel(what){
     level=what;mode="playing";frame=0;clock=0;robot={x:360,y:370,vx:0,vy:0};
-    stageIndex=0;holdTime=0;scenarioRisk=0;cooldown=0;evidence=new Set();scanCount=0;wrongCount=0;
+    stageIndex=0;moveAirflowControl();holdTime=0;scenarioRisk=0;cooldown=0;evidence=new Set();scanCount=0;wrongCount=0;
     Object.keys(keys).forEach(k=>keys[k]=false);
     $("intro").hidden=true;$("pauseCover").hidden=true;$("pauseButton").disabled=false;$("pauseButton").textContent="⏸ Pause";$("interact").disabled=false;
     if(report.open)report.close();if(analysis.open)analysis.close();
@@ -347,12 +362,13 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
       if(device.id==="fan"){
         if(stageIndex<flowStages.length-1){
           stageIndex++;
+          moveAirflowControl();
           holdTime=0;
           const flow=currFlow();
           const text=stageIndex===1?"Airflow is now 8.0 cm/s. Watch the flame become shorter and narrower.":
             stageIndex===2?"Airflow is now 4.0 cm/s. The flame is smaller. What could happen at lower flow?":
             "Airflow has reached 2.2 cm/s. The flame is becoming blue and round. Keep observing: extinction is not immediate.";
-          writeStatus("OBSERVATION",text);
+          writeStatus("OBSERVATION",text+(stageIndex<flowStages.length-1?" The airflow control has appeared at a different location.":""));
         }else{
           writeStatus("RESEARCH OFFICER","2.2 cm/s is being held. Observe the shrinking blue flame.");
         }
