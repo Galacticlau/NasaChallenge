@@ -1,0 +1,2144 @@
+{
+  "PSI-10": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Studies soot onset and how flames change with flow rate, dilution, and pressure.",
+        "source": "base"
+      },
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Aims to determine extinction limits.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Dilution and mixing": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes mixtures or dilution in the design or comparison."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        },
+        "Soot": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies soot as a target or calculated quantity."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-62": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Uses models to predict flame spread and material flammability limits.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "inferido",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Uses data, configurations, or methods from that family as a reference."
+        }
+      },
+      "combustible": {
+        "Polymers and waxes": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies polymeric materials such as PMMA or Ultem, depending on the study."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Earth gravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary identifies Earth-gravity cases in the comparison."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies flame spread as an observed or reconstructed quantity."
+        },
+        "Soot": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies soot as a target or calculated quantity."
+        },
+        "Simulation and calculations": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary documents calculated outputs or simulations."
+        }
+      },
+      "objetivos": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include studying or modeling flame spread."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "Ground study / simulation": {
+          "status": "inferido",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "The record describes simulation or analysis and does not identify a dedicated flight platform."
+        }
+      }
+    }
+  },
+  "PSI-98": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "Objectives",
+        "reason": "Studies fire growth and compares flammability limits.",
+        "source": "psi"
+      },
+      {
+        "label": "Detection",
+        "status": "inferido",
+        "section": "Approach",
+        "reason": "Temperature and gas signals were recorded to observe the fire. Detector evaluation remains undocumented.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "SIBAL fabric composition",
+          "value": "75% cotton and 25% fiberglass by mass",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        },
+        {
+          "label": "Sample dimensions",
+          "value": "≈ 0.94 m × 0.40 m",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        },
+        {
+          "label": "Airflow speed",
+          "value": "20 cm/s",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        }
+      ],
+      "note": "According to Approach, the test took place aboard Cygnus after departure from the ISS. Flight Platform in the same record lists ISS."
+    },
+    "etiquetas": {
+      "plataforma": {
+        "Cygnus spacecraft": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The experiment took place aboard Cygnus after departing the ISS."
+        }
+      },
+      "objetivos": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Objectives",
+          "reason": "The study aims to determine how quickly a large-scale fire grows."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fabrics and fibers": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies fabrics among the samples."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        },
+        "Pressure / flow": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes recording pressure or flow."
+        }
+      }
+    }
+  },
+  "PSI-99": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Studies fire growth and flammability limits.",
+        "source": "base"
+      },
+      {
+        "label": "Detection",
+        "status": "inferido",
+        "section": "sensores_mediciones",
+        "reason": "The instruments record thermal and gas signals during combustion. Detector evaluation remains undocumented.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "objetivos": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The study summary identifies fire growth as an objective."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fabrics and fibers": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies fabrics among the samples."
+        },
+        "Polymers and waxes": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies polymeric materials such as PMMA or Ultem, depending on the study."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        },
+        "Pressure / flow": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes recording pressure or flow."
+        }
+      },
+      "plataforma": {
+        "Cygnus spacecraft": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary places the test aboard Cygnus after it departed the ISS."
+        }
+      }
+    }
+  },
+  "PSI-100": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Studies fire growth and flammability limits.",
+        "source": "base"
+      },
+      {
+        "label": "Detection",
+        "status": "inferido",
+        "section": "sensores_mediciones",
+        "reason": "The instruments record thermal and gas signals during combustion. Detector evaluation remains undocumented.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "objetivos": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The study summary identifies fire growth as an objective."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fabrics and fibers": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies fabrics among the samples."
+        }
+      },
+      "condiciones": {
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        },
+        "Pressure / flow": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes recording pressure or flow."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-106": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "inferido",
+        "section": "objetivos",
+        "reason": "Flame stability and its response to fuel and dilution can inform questions about combustion conditions.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SLICE": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes temperature as a variable considered, controlled, or measured."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Pressure / flow": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes recording pressure or flow."
+        }
+      },
+      "objetivos": {
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-107": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "inferido",
+        "section": "Objectives",
+        "reason": "Relates soot onset to fuel and flow. Its relevance to prevention is inferred from those mechanisms.",
+        "source": "psi"
+      },
+      {
+        "label": "Detection",
+        "status": "explicito",
+        "section": "Objectives and Approach",
+        "reason": "Studies soot emission onset and its dependence on burner and coflow. This provides evidence about the smoke signal.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Flames studied",
+          "value": "526",
+          "kind": "Published count",
+          "section": "Approach"
+        },
+        {
+          "label": "Burner diameters",
+          "value": "0.41 · 0.76 · 1.6 mm",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        },
+        {
+          "label": "Air coflow speed",
+          "value": "5.4–65 cm/s",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        },
+        {
+          "label": "Fuels",
+          "value": "Methane, ethylene, propane, propylene, and propylene blends",
+          "kind": "Reported materials",
+          "section": "Approach"
+        }
+      ],
+      "note": "The count covers the full set of flames studied. The record does not list 526 distinct configurations."
+    },
+    "etiquetas": {
+      "condiciones": {
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "Reports air coflow from 5.4 to 65 cm/s."
+        },
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The record identifies methane among the fuels used."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The record identifies ethylene among the fuels used."
+        },
+        "Propane": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The record identifies propane among the fuels used."
+        },
+        "Propylene": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The record identifies propylene among the fuels used."
+        }
+      },
+      "familia": {
+        "SPICE": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        }
+      },
+      "objetivos": {
+        "Smoke and aerosols": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies smoke formation, size, emission, or transport."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-21": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "inferido",
+        "section": "objetivos",
+        "reason": "Studies weak flames and their response to dilution, relevant to flame stability.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Dilution and mixing": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes mixtures or dilution in the design or comparison."
+        }
+      },
+      "mediciones": {
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Soot": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies soot as a target or calculated quantity."
+        }
+      },
+      "objetivos": {
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-25": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Studies ignition, growth, and spread in solids.",
+        "source": "base"
+      },
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Extinction of solid fuels is among the objectives.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fabrics and fibers": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies fabrics among the samples."
+        }
+      },
+      "condiciones": {
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies flame spread as an observed or reconstructed quantity."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include studying or modeling flame spread."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-20": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "inferido",
+        "section": "objetivos",
+        "reason": "Relates material properties to combustion without imposed flow using an analog.",
+        "source": "base"
+      },
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Includes extinction limits in gas mixtures.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        }
+      },
+      "mediciones": {
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-26": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Compares flammability tests on Earth and in microgravity.",
+        "source": "base"
+      },
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Evaluates an inert gaseous suppressant.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fabrics and fibers": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies fabrics among the samples."
+        },
+        "Polymers and waxes": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies polymeric materials such as PMMA or Ultem, depending on the study."
+        }
+      },
+      "condiciones": {
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Flame spread": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies flame spread as an observed or reconstructed quantity."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-101": {
+    "ambitos": [
+      {
+        "label": "Detection",
+        "status": "explicito",
+        "section": "Objectives and Research Impacts",
+        "reason": "Relates smoke-particle size to generation and transport. The record connects these data with detector response.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Completed test points",
+          "value": "66",
+          "kind": "Published count",
+          "section": "Approach"
+        },
+        {
+          "label": "Flight-test period",
+          "value": "July 16 to September 9, 2010",
+          "kind": "Reported period",
+          "section": "Approach"
+        },
+        {
+          "label": "Added test material",
+          "value": "Pyrell® intumescent foam",
+          "kind": "Reported material",
+          "section": "Approach"
+        },
+        {
+          "label": "Added test condition",
+          "value": "Sample heating without flow",
+          "kind": "Reported configuration",
+          "section": "Approach"
+        },
+        {
+          "label": "Instrumentation change",
+          "value": "M-PASS replaced one of the two commercial diagnostic enclosures used in SAME",
+          "kind": "Reported instrumentation",
+          "section": "Approach"
+        }
+      ],
+      "note": "The count records completed test points. Particle-size distributions require the measurements or published results."
+    },
+    "etiquetas": {
+      "combustible": {
+        "Pyrell® intumescent foam": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The record identifies the foam as an added test material."
+        }
+      },
+      "familia": {
+        "SAME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes temperature as a variable considered, controlled, or measured."
+        }
+      },
+      "mediciones": {
+        "Particles and smoke": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies smoke-particle observations, instruments, or calculated outputs."
+        }
+      },
+      "objetivos": {
+        "Smoke and aerosols": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies smoke formation, size, emission, or transport."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-115": {
+    "ambitos": [
+      {
+        "label": "Detection",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Models smoke-particle growth and its relationship to gravity. The findings are from simulation.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SAME": {
+          "status": "inferido",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Uses data, configurations, or methods from that family as a reference."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Earth gravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary identifies Earth-gravity cases in the comparison."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "mediciones": {
+        "Particles and smoke": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies smoke-particle observations, instruments, or calculated outputs."
+        },
+        "Simulation and calculations": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary documents calculated outputs or simulations."
+        }
+      },
+      "objetivos": {
+        "Smoke and aerosols": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies smoke formation, size, emission, or transport."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "Ground study / simulation": {
+          "status": "inferido",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "The record describes simulation or analysis and does not identify a dedicated flight platform."
+        }
+      }
+    }
+  },
+  "PSI-102": {
+    "ambitos": [
+      {
+        "label": "Detection",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Characterizes smoke particle sizes, generation, and transport.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SAME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "condiciones": {
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes temperature as a variable considered, controlled, or measured."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Particles and smoke": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies smoke-particle observations, instruments, or calculated outputs."
+        }
+      },
+      "objetivos": {
+        "Smoke and aerosols": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies smoke formation, size, emission, or transport."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-47": {
+    "ambitos": [
+      {
+        "label": "Detection",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Verifies the operation of a modified particle counter and compares it with another instrument.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "DAFT": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        }
+      },
+      "mediciones": {
+        "Particles and smoke": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies smoke-particle observations, instruments, or calculated outputs."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-60": {
+    "ambitos": [
+      {
+        "label": "Detection",
+        "status": "inferido",
+        "section": "objetivos",
+        "reason": "Analyzes soot formation and temperature using SPICE images. The connection is to a potential smoke signal.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SPICE": {
+          "status": "inferido",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Uses data, configurations, or methods from that family as a reference."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Earth gravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary identifies Earth-gravity cases in the comparison."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Soot": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies soot as a target or calculated quantity."
+        }
+      },
+      "objetivos": {
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "Ground study / simulation": {
+          "status": "inferido",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "The record describes simulation or analysis and does not identify a dedicated flight platform."
+        }
+      }
+    }
+  },
+  "PSI-117": {
+    "ambitos": [
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Models how thermal and convective perturbations affect cool-flame extinction.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "combustible": {
+        "Fuel droplets": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary describes fuel droplets. Check the study type to distinguish simulations from tests."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        }
+      },
+      "mediciones": {
+        "Simulation and calculations": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary documents calculated outputs or simulations."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Cool flames": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies cool flames as the subject of study."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "Ground study / simulation": {
+          "status": "inferido",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "The record describes simulation or analysis and does not identify a dedicated flight platform."
+        }
+      }
+    }
+  },
+  "PSI-159": {
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Propane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies gaseous propane."
+        },
+        "n-butane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies gaseous n-butane."
+        },
+        "n-pentane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies gaseous n-pentane."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Dilution and mixing": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes mixtures or dilution in the design or comparison."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes temperature as a variable considered, controlled, or measured."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        }
+      },
+      "objetivos": {
+        "Cool flames": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies cool flames as the subject of study."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-142": {
+    "ambitos": [
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "sensores_mediciones",
+        "reason": "The extinction limit is a target quantity. The summary describes simulation schemes.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        }
+      },
+      "mediciones": {
+        "Simulation and calculations": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary documents calculated outputs or simulations."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Cool flames": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies cool flames as the subject of study."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "Ground study / simulation": {
+          "status": "inferido",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "The record describes simulation or analysis and does not identify a dedicated flight platform."
+        }
+      }
+    }
+  },
+  "PSI-39": {
+    "ambitos": [
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Includes cool-flame extinction and variations in dilution and droplet size.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "CFI": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fuel droplets": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary describes fuel droplets. Check the study type to distinguish simulations from tests."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Cool flames": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary identifies cool flames as the subject of study."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-68": {
+    "ambitos": [
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Extinction is among the objectives of the FLEX-2 extension.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "FLEX": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fuel droplets": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary describes fuel droplets. Check the study type to distinguish simulations from tests."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Oxygen fraction is described as a measured, adjusted, or proposed parameter. See the text for its scope."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Pressure / flow": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes recording pressure or flow."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-23": {
+    "ambitos": [
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "objetivos",
+        "reason": "Studies extinction limits and instabilities of spherical flames.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        },
+        "Hydrogen": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies hydrogen among the fuels."
+        }
+      },
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "Pressure is listed as a parameter, proposed condition, or recorded quantity. See the text for its scope."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Dilution and mixing": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes mixtures or dilution in the design or comparison."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes temperature as a variable considered, controlled, or measured."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Temperature": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies temperature as measured or reconstructed, depending on the method."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-69": {
+    "ambitos": [
+      {
+        "label": "Prevention",
+        "status": "explicito",
+        "section": "Objectives",
+        "reason": "Aims to determine flammability limits of liquid fuels in microgravity.",
+        "source": "psi"
+      },
+      {
+        "label": "Extinguishment",
+        "status": "explicito",
+        "section": "Objectives and Approach",
+        "reason": "Studies gaseous suppressant effectiveness and the limits of sustained droplet combustion.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Selectable pressure for the LOI procedure",
+          "value": "0.5–1.5 atm",
+          "kind": "Described procedure",
+          "section": "Approach"
+        },
+        {
+          "label": "Small initial droplet size described for LOI",
+          "value": "≈ 3 mm",
+          "kind": "Described procedure",
+          "section": "Approach"
+        },
+        {
+          "label": "Fuels",
+          "value": "n-heptane and methanol",
+          "kind": "Test fuels",
+          "section": "NASA/TP—2015-216046 report",
+          "url": "https://ntrs.nasa.gov/citations/20150023456"
+        },
+        {
+          "label": "Suppressants considered",
+          "value": "CO₂, helium (He), and sulfur hexafluoride (SF₆)",
+          "kind": "Research objective",
+          "section": "Objectives"
+        }
+      ],
+      "note": "LOI is the limiting oxygen index. The procedural settings describe how the limit was determined. The individual test record is needed to establish the pressure or concentration applied in a specific run."
+    },
+    "etiquetas": {
+      "condiciones": {
+        "Pressure": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The LOI procedure explains how pressure is selected."
+        },
+        "Oxygen": {
+          "status": "explicito",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "The LOI procedure varies oxygen mole fraction."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        }
+      },
+      "familia": {
+        "FLEX": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Fuel droplets": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary describes fuel droplets. Check the study type to distinguish simulations from tests."
+        }
+      },
+      "mediciones": {
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        },
+        "Soot": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies soot as a target or calculated quantity."
+        },
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes observed, calculated, or targeted flame extinction quantities, depending on the study."
+        }
+      },
+      "objetivos": {
+        "Extinguishment": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The objectives include extinction limits or suppressant effectiveness."
+        },
+        "Modeling": {
+          "status": "explicito",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "The summary describes developing, testing, or validating models, or generating data for them."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-22": {
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Study name",
+          "reason": "The project family is identified in the study name in the catalog."
+        }
+      },
+      "combustible": {
+        "Methane": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies methane as a fuel or fuel-blend component."
+        },
+        "Ethylene": {
+          "status": "explicito",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "The summary identifies ethylene as a fuel or fuel-blend component."
+        }
+      },
+      "condiciones": {
+        "Microgravity": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary describes a microgravity or low-gravity setting that was tested, simulated, or analyzed, depending on the study type."
+        },
+        "Flow or flow rate": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary specifies flow that was controlled, compared, recorded, or suppressed, depending on the study."
+        },
+        "Electric field": {
+          "status": "explicito",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "The summary identifies a potential difference between the burner and the mesh."
+        }
+      },
+      "mediciones": {
+        "Cameras and imaging": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary identifies cameras or images. Check whether the study collected or reused the images."
+        },
+        "Radiation": {
+          "status": "explicito",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "The summary describes radiation measurements or objectives, or identifies radiometers."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "explicito",
+          "source": "base",
+          "section": "Declared platform",
+          "reason": "The platform field lists the International Space Station (ISS)."
+        }
+      }
+    }
+  }
+}

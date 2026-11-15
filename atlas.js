@@ -1,36 +1,36 @@
 'use strict';
 
 const categories = {
-  modalidad: 'Modalidad de investigación',
-  familia: 'Familia de proyecto',
-  combustible: 'Combustibles y materiales',
-  condiciones: 'Condiciones mencionadas',
-  mediciones: 'Mediciones o instrumentos mencionados',
-  objetivos: 'Objetivos científicos',
-  plataforma: 'Plataforma de trabajo',
-  ambitos: 'Área de aplicación',
+  modalidad: 'Study Type',
+  familia: 'Project Family',
+  combustible: 'Fuels and Materials',
+  condiciones: 'Reported Conditions',
+  mediciones: 'Reported Measurements or Instruments',
+  objetivos: 'Scientific Objectives',
+  plataforma: 'Research Platform',
+  ambitos: 'Application Area',
 };
 const fields = {
-  objetivos: 'Objetivos experimentales',
-  combustibles_muestras_quemadores: 'Combustibles, muestras y quemadores',
-  condiciones_prueba: 'Condiciones de prueba',
-  factores_modificados: 'Factores modificados',
-  aspectos_comunes: 'Aspectos comunes',
-  sensores_mediciones: 'Sensores y mediciones',
+  objetivos: 'Experimental Objectives',
+  combustibles_muestras_quemadores: 'Fuels, Samples, and Burners',
+  condiciones_prueba: 'Test Conditions',
+  factores_modificados: 'Varied Factors',
+  aspectos_comunes: 'Shared Features',
+  sensores_mediciones: 'Sensors and Measurements',
 };
 const levels = {
-  explicito: 'Vínculo explícito',
-  inferido: 'Vínculo inferido',
+  explicito: 'Explicit Link',
+  inferido: 'Inferred Link',
 };
 const domains = {
-  Prevención: '¿Qué condiciones favorecen la ignición o propagación? Explora materiales, atmósferas y geometrías.',
-  Detección: '¿Cómo se generan, transportan o reconocen las señales del fuego? Explora humo, aerosoles e instrumentos.',
-  Extinción: '¿En qué condiciones se apaga la llama? Explora límites de combustión y agentes supresores.',
+  Prevention: 'What conditions promote ignition or flame spread? Explore materials, atmospheres, and geometries.',
+  Detection: 'How are fire signals generated, transported, or detected? Explore smoke, aerosols, and instruments.',
+  Extinguishment: 'Under what conditions does a flame go out? Explore combustion limits and suppressants.',
 };
 const modalities = {
-  'Investigación experimental': 'Experimental',
-  'Simulación / reanálisis': 'Simulación / reanálisis',
-  'Experimentos y simulación': 'Mixta',
+  'Experimental study': 'Experimental',
+  'Simulation / reanalysis': 'Simulation / reanalysis',
+  'Experiments and simulation': 'Mixed',
 };
 const weights = { modalidad: .16, familia: .07, combustible: .26, condiciones: .18, mediciones: .17, objetivos: .16 };
 const $ = (selector) => document.querySelector(selector);
@@ -46,7 +46,7 @@ const empty = (message) => `<div class="empty">${esc(message)}</div>`;
 
 async function getJSON(path) {
   const response = await fetch(path);
-  if (!response.ok) throw new Error(`No se pudo cargar ${path} (${response.status})`);
+  if (!response.ok) throw new Error(`Could not load ${path} (${response.status})`);
   return response.json();
 }
 
@@ -67,7 +67,7 @@ function init(data, evidence) {
     if (key === 'ambitos') return review?.ambitos ?? [];
     if (key === 'modalidad' && study.modalidad) {
       return [{ label: study.modalidad, status: 'explicito', source: 'base', section: 'modalidad',
-        reason: 'Modalidad registrada por el proyecto. Puede integrar simulación de apoyo dentro de un estudio experimental.' }];
+        reason: 'Study type assigned by the project. An experimental study may also include supporting simulations.' }];
     }
     return Object.entries(review?.etiquetas?.[key] ?? {}).map(([label, record]) => ({ label, ...record }));
   }
@@ -84,12 +84,12 @@ function init(data, evidence) {
     const section = fields[review.section] ?? review.section;
     const excerpt = review.source === 'base' && study.atributos[review.section]?.text;
     const citation = review.source === 'base'
-      ? `Base del proyecto · ${section}`
+      ? `Project catalog · ${section}`
       : section;
     return `<article class="evidence-item">${chip(review)}
       <p>${esc(review.reason)}</p>
       ${excerpt ? `<p class="small">${esc(excerpt)}</p>` : ''}
-      <p class="small">${citation ? `${esc(citation)} · ` : ''}${sourceLink(study.url, 'Ficha PSI')}</p></article>`;
+      <p class="small">${citation ? `${esc(citation)} · ` : ''}${sourceLink(study.url, 'PSI record')}</p></article>`;
   }
 
   function showTab(which) {
@@ -125,7 +125,7 @@ function init(data, evidence) {
     else if (selected.length < 3) selected.push(id);
     else {
       $$('input[data-pick]').filter((input) => input.dataset.pick === id).forEach((input) => { input.checked = false; });
-      alert('Puedes comparar hasta tres investigaciones. Quita una para agregar otra.');
+      alert('You can compare up to three studies. Remove one to add another.');
       return;
     }
     renderSelection();
@@ -138,14 +138,14 @@ function init(data, evidence) {
     const compareShortcut = $('#studyCompare');
     if (compareShortcut) compareShortcut.hidden = selected.length < 2;
     $('#selectedList').innerHTML = selected.length
-      ? selected.map((id) => `<div class="slot"><span>${esc(id)} · ${esc(byId.get(id).nombre)}</span><button type="button" aria-label="Quitar ${esc(id)}" data-pick="${esc(id)}">✕</button></div>`).join('')
-      : '<div class="placeholder">Aún no hay investigaciones seleccionadas.</div>';
+      ? selected.map((id) => `<div class="slot"><span>${esc(id)} · ${esc(byId.get(id).nombre)}</span><button type="button" aria-label="Remove ${esc(id)}" data-pick="${esc(id)}">✕</button></div>`).join('')
+      : '<div class="placeholder">No studies selected yet.</div>';
     $('#goCompare').disabled = selected.length < 2;
     $$('input[data-pick]').forEach((input) => { input.checked = selected.includes(input.dataset.pick); });
     $$('button[data-add]').forEach((button) => {
       const active = selected.includes(button.dataset.add);
       button.setAttribute('aria-pressed', active);
-      button.textContent = active ? '✓ En comparación' : '+ Agregar a comparación';
+      button.textContent = active ? '✓ Selected for Comparison' : '+ Add to Comparison';
     });
     if (tab === 'comparar') renderCompare();
   }
@@ -172,15 +172,15 @@ function init(data, evidence) {
         grouped.add(study.id);
       }
     }
-    const sorted = [...groups].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], 'es'));
-    $('#countGroups').textContent = `${grouped.size} con etiquetas · ${sorted.length} grupos`;
+    const sorted = [...groups].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], 'en'));
+    $('#countGroups').textContent = `${grouped.size} tagged studies · ${sorted.length} groups`;
     $('#groups').innerHTML = sorted.length ? sorted.map(([label, items]) => `
       <section class="group"><div class="group-h"><h3>${esc(label)} <span class="count">${items.length}</span></h3></div>
       <div class="group-grid">${items.map(({ study, review }) => `<div class="item">
-        <input type="checkbox" data-pick="${esc(study.id)}" aria-label="Seleccionar ${esc(study.id)} para comparar">
+        <input type="checkbox" data-pick="${esc(study.id)}" aria-label="Select ${esc(study.id)} for comparison">
         <span class="item-text"><small>${esc(study.id)} · ${levels[review.status]}</small>${studyButton(study)}</span>
         ${sourceLink(study.url, 'PSI')}
-      </div>`).join('')}</div></section>`).join('') : empty('No hay vínculos que coincidan con estos filtros.');
+      </div>`).join('')}</div></section>`).join('') : empty('No links match these filters.');
     renderSelection();
   }
 
@@ -194,7 +194,7 @@ function init(data, evidence) {
       const counts = Object.entries(levels).map(([status, label]) =>
         `<span class="evidence-chip ${status}">${areaCount(domain, status)} · ${label}</span>`).join('');
       return `<article class="science-card"><h3>${domain}</h3><p>${description}</p><div>${counts}</div>
-        <footer><button type="button" class="secondary" data-domain="${domain}">Consultar investigaciones</button></footer></article>`;
+        <footer><button type="button" class="secondary" data-domain="${domain}">Browse Studies</button></footer></article>`;
     }).join('');
   }
 
@@ -214,7 +214,7 @@ function init(data, evidence) {
       return `<li><button type="button" class="home-bar" data-domain="${area}">
         <span class="home-bar-label"><span>${area}</span><b>${areaCount(area)}</b></span>
         <span class="home-bar-track" aria-hidden="true">${bar(explicit)}${bar(inferred, 'inferido')}</span>
-        <span class="small">${explicit} explícito${explicit === 1 ? '' : 's'} · ${inferred} inferido${inferred === 1 ? '' : 's'}</span>
+        <span class="small">${explicit} explicit link${explicit === 1 ? '' : 's'} · ${inferred} inferred link${inferred === 1 ? '' : 's'}</span>
       </button></li>`;
     }).join('');
   }
@@ -239,15 +239,15 @@ function init(data, evidence) {
       matchesSearch(study, $('#librarySearch').value) && (!modality || study.modalidad === modality)
       && (!featuredOnly || evidence[study.id]?.tecnica)
       && (!domain || tags(study, 'ambitos').some((review) => review.label === domain && matchesLevel(review, level))));
-    $('#libraryCount').textContent = `${filtered.length} de ${data.length} investigaciones`;
+    $('#libraryCount').textContent = `${filtered.length} of ${data.length} studies`;
     $('#libraryCards').innerHTML = filtered.length ? filtered.map((study) => `
       <article class="science-card"><div class="small">${esc(study.id)} · ${esc(modalities[study.modalidad] ?? study.modalidad)}</div>
         <h3>${studyButton(study)}</h3><p>${esc(study.atributos.objetivos?.text || '')}</p>
         <div>${tags(study, 'ambitos').map(chip).join('')}</div>
-        ${evidence[study.id]?.tecnica ? '<p class="small">Ficha técnica ampliada</p>' : ''}
+        ${evidence[study.id]?.tecnica ? '<p class="small">Expanded Technical Record</p>' : ''}
         <footer><button class="secondary" type="button" data-add="${esc(study.id)}"></button>
-          ${study.id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="Ver detalles experimentales de PSI-98">Ver detalles · Beta</a>' : ''}</footer>
-      </article>`).join('') : empty('No se encontraron investigaciones con estos filtros.');
+          ${study.id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="View experimental details for PSI-98">View Details · Beta</a>' : ''}</footer>
+      </article>`).join('') : empty('No studies match these filters.');
     renderSelection();
   }
 
@@ -258,39 +258,39 @@ function init(data, evidence) {
     const associations = tags(study, 'ambitos');
     studyOrigin = { id, trigger, tab };
     const sections = [
-      ['studyDescription', 'Descripción'],
-      ...(associations.length ? [['studyDomains', 'Áreas de aplicaciones']] : []),
-      ...(technical ? [['studyTechnical', 'Ficha técnica']] : []),
-      ['studyEvidence', 'Etiquetas'],
-      ['studySeries', 'Series temporales'],
+      ['studyDescription', 'Overview'],
+      ...(associations.length ? [['studyDomains', 'Application Areas']] : []),
+      ...(technical ? [['studyTechnical', 'Technical Record']] : []),
+      ['studyEvidence', 'Tags'],
+      ['studySeries', 'Time Series'],
     ];
     $('#studyJumps').innerHTML = sections.map(([id, title]) =>
       `<button type="button" class="secondary" data-section="${id}">${title}</button>`).join('');
     $('#studyDetail').innerHTML = `<div class="small">${esc(id)} · ${esc(study.modalidad)}</div>
       <h2 id="studyTitle">${esc(study.nombre)}</h2><p>${esc(study.titulo)}</p>
-      <div class="detail-actions">${sourceLink(study.url, 'Abrir ficha NASA PSI')}
-        ${id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="Ver detalles experimentales de PSI-98">Ver detalles · Beta</a>' : ''}
+      <div class="detail-actions">${sourceLink(study.url, 'Open NASA PSI Record')}
+        ${id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="View experimental details for PSI-98">View Details · Beta</a>' : ''}
         <button class="secondary" type="button" data-add="${esc(id)}"></button>
-        <button class="secondary" type="button" id="studyCompare" data-study-view="comparar" hidden>Ir a comparación</button>
-        <button class="secondary" type="button" data-study-view="similares">Ver similares</button></div>
-      <section id="studyDescription" class="detail-section" tabindex="-1"><h3>Descripción de la investigación</h3>
-        <p>Plataforma en el campo de catálogo: ${esc(declaredPlatform(study))}.</p>
+        <button class="secondary" type="button" id="studyCompare" data-study-view="comparar" hidden>Go to Comparison</button>
+        <button class="secondary" type="button" data-study-view="similares">Find Similar Studies</button></div>
+      <section id="studyDescription" class="detail-section" tabindex="-1"><h3>Study Overview</h3>
+        <p>Platform listed in the catalog: ${esc(declaredPlatform(study))}.</p>
         <div class="detail-grid">${Object.entries(fields).map(([key, label]) => `<article class="science-card">
-          <h4>${label}</h4><p>${esc(study.atributos[key]?.text || 'Sin datos en el catálogo')}</p>
-          <div class="small">${esc(study.atributos[key]?.estado || 'Pendiente')} · Base del proyecto</div></article>`).join('')}</div></section>
-      ${associations.length ? `<section id="studyDomains" class="detail-section" tabindex="-1"><h3>Áreas de aplicaciones</h3>
+          <h4>${label}</h4><p>${esc(study.atributos[key]?.text || 'No data in the catalog')}</p>
+          <div class="small">${esc(study.atributos[key]?.estado || 'Pending')} · Project catalog</div></article>`).join('')}</div></section>
+      ${associations.length ? `<section id="studyDomains" class="detail-section" tabindex="-1"><h3>Application Areas</h3>
         <div class="science-grid">${associations.map((tag) => evidenceDetail(study, tag)).join('')}</div></section>` : ''}
-      ${technical ? `<section id="studyTechnical" class="detail-section" tabindex="-1"><h3>Ficha técnica ampliada</h3>
+      ${technical ? `<section id="studyTechnical" class="detail-section" tabindex="-1"><h3>Expanded Technical Record</h3>
         <div class="science-grid">${technical.values.map((item) => `<article class="science-card">
           <h4>${esc(item.label)}</h4><strong>${esc(item.value)}</strong><p class="small">${esc(item.kind)}</p>
           ${sourceLink(item.url || study.url, item.section)}</article>`).join('')}</div><p>${esc(technical.note)}</p></section>` : ''}
-      <section id="studyEvidence" class="detail-section" tabindex="-1"><h3>Revisión de etiquetas</h3>
-        <p class="small">${sourceLink("https://github.com/Galacticlau/NasaChallenge/blob/main/docs/metodologia.md#revisión-de-etiquetas", "Cómo incorporar evidencia")}</p>
+      <section id="studyEvidence" class="detail-section" tabindex="-1"><h3>Tag Evidence</h3>
+        <p class="small">${sourceLink("https://github.com/Galacticlau/NasaChallenge/blob/main/docs/methodology.md#tag-evidence", "How to add evidence")}</p>
         ${Object.keys(categories).filter((key) => key !== 'ambitos' && tags(study, key).length).map((key) => `
           <details><summary>${categories[key]}</summary>
             <div class="science-grid">${tags(study, key).map((tag) => evidenceDetail(study, tag)).join('')}</div></details>`).join('')}</section>
-      <section id="studySeries" class="detail-section" tabindex="-1"><h3>Series temporales</h3>
-        <p>El catálogo no incorpora una serie temporal verificada para este estudio. Consulta en la ficha PSI los archivos y publicaciones disponibles.</p></section>`;
+      <section id="studySeries" class="detail-section" tabindex="-1"><h3>Time Series</h3>
+        <p>The catalog does not include a verified time series for this study. Check the PSI record for available files and publications.</p></section>`;
     renderSelection();
     if (!dialog.open) dialog.showModal();
     dialog.scrollTop = 0;
@@ -298,7 +298,7 @@ function init(data, evidence) {
 
   function declaredPlatform(study) {
     const platform = study.plataforma;
-    return platform && platform !== 'Not Applicable' ? platform : 'Sin plataforma declarada';
+    return platform && platform !== 'Not Applicable' ? platform : 'No platform listed';
   }
 
   function jaccard(a, b) {
@@ -328,7 +328,7 @@ function init(data, evidence) {
       const items = [...left].filter((label) => right.has(label));
       if (items.length) shared.push({ key, items });
     }
-    const lexical = jaccard(terms(a.atributos.objetivos?.text), terms(b.atributos.objetivos?.text));
+    const lexical = jaccard(terms(a.objetivo_original), terms(b.objetivo_original));
     if (lexical !== null) {
       weight += .12;
       total += .12 * lexical;
@@ -342,36 +342,36 @@ function init(data, evidence) {
     const reference = byId.get($('#reference').value) || data[0];
     const min = Number($('#minScore').value);
     const exploratory = $('#includeInferred').checked;
-    $('#referenceDetail').innerHTML = `Referencia: ${studyButton(reference)} · ${esc(reference.modalidad)}.
-      El índice usa los vínculos explícitos y el vocabulario de los objetivos.${exploratory ? ' También incluye los vínculos inferidos.' : ''}`;
+    $('#referenceDetail').innerHTML = `Reference: ${studyButton(reference)} · ${esc(reference.modalidad)}.
+      The score uses explicit links and vocabulary from study objectives.${exploratory ? ' Inferred links are also included.' : ''}`;
     const pairs = data.filter((study) => study !== reference).map((study) => ({ study, ...similarity(reference, study, exploratory) }));
     const ranked = pairs.filter(({ score }) => score !== null && score >= min).sort((a, b) => b.score - a.score || b.dimensions - a.dimensions);
     const unranked = pairs.filter(({ score }) => score === null);
     $('#similarList').innerHTML = (ranked.length ? ranked.map(({ study, score, dimensions, shared, lexical }) => `<article class="sim">
-      <div class="sim-top"><div><em>${esc(study.id)}</em><h3>${studyButton(study)}</h3></div><div><strong>${score}%</strong><div class="small">${exploratory ? 'Afinidad exploratoria' : 'Afinidad documental'}</div></div></div>
-      <p class="small">${dimensions} de 6 dimensiones comparables${lexical ? ' · incluye vocabulario de objetivos' : ''}</p>
-      <p class="sim-desc">${shared.length ? shared.map(({ key, items }) => `<b>${categories[key]}</b>: ${esc(items.join(', '))}`).join(' · ') : 'Sin etiquetas coincidentes en las dimensiones comparadas.'}</p>
+      <div class="sim-top"><div><em>${esc(study.id)}</em><h3>${studyButton(study)}</h3></div><div><strong>${score}%</strong><div class="small">${exploratory ? 'Exploratory Similarity' : 'Documentary Similarity'}</div></div></div>
+      <p class="small">${dimensions} of 6 comparable dimensions${lexical ? ' · includes vocabulary from objectives' : ''}</p>
+      <p class="sim-desc">${shared.length ? shared.map(({ key, items }) => `<b>${categories[key]}</b>: ${esc(items.join(', '))}`).join(' · ') : 'No tags match across the compared dimensions.'}</p>
       <button class="secondary" type="button" data-add="${esc(study.id)}"></button>
-      </article>`).join('') : empty('Ninguna investigación alcanza el umbral con el respaldo elegido.'))
-      + (unranked.length ? `<details><summary>${unranked.length} estudios con evidencia insuficiente para puntuar</summary>
-        <p class="small">Se requieren al menos dos dimensiones comparables de etiquetas.</p>
+      </article>`).join('') : empty('No studies meet the threshold with the selected evidence settings.'))
+      + (unranked.length ? `<details><summary>${unranked.length} studies with insufficient evidence to score</summary>
+        <p class="small">Scoring requires at least two comparable tag dimensions.</p>
         <ul>${unranked.map(({ study }) => `<li>${esc(study.id)} · ${studyButton(study)}</li>`).join('')}</ul></details>` : '');
     renderSelection();
   }
 
   function compareRows() {
     return [
-      ['ID y modalidad', (study) => ({ text: `${study.id} · ${study.modalidad}` })],
-      ['Plataforma declarada', (study) => ({ text: declaredPlatform(study) })],
-      ['Lugar del ensayo documentado', (study) => {
+      ['ID and Study Type', (study) => ({ text: `${study.id} · ${study.modalidad}` })],
+      ['Declared Platform', (study) => ({ text: declaredPlatform(study) })],
+      ['Documented Test Location', (study) => {
         const site = tags(study, 'plataforma').find((tag) => tag.source === 'psi' && tag.status === 'explicito');
-        return site ? { text: site.label, estado: site.reason } : { text: 'Pendiente de revisión independiente' };
+        return site ? { text: site.label, estado: site.reason } : { text: 'Independent review pending' };
       }],
-      ['Áreas de aplicaciones', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') })],
-      ...Object.entries(fields).map(([key, title]) => [title, (study) => study.atributos[key] ?? { text: 'Sin dato' }]),
-      ['Ficha técnica ampliada', (study) => ({
+      ['Application Areas', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') })],
+      ...Object.entries(fields).map(([key, title]) => [title, (study) => study.atributos[key] ?? { text: 'No data' }]),
+      ['Expanded Technical Record', (study) => ({
         text: evidence[study.id]?.tecnica?.values.map((item) => `${item.label}: ${item.value} [${item.kind}; ${item.section}; ${item.url || study.url}]`).join(' · ')
-          || 'Sin ficha ampliada',
+          || 'No expanded record',
       })],
     ].map(([label, getCell]) => [label, ...selected.map((id) => getCell(byId.get(id)))]);
   }
@@ -379,28 +379,28 @@ function init(data, evidence) {
   function renderCompare() {
     $('#downloadCSV').disabled = selected.length < 2;
     $('#compareBody').innerHTML = selected.length < 2
-      ? `<div class="empty"><p>Selecciona al menos dos investigaciones para compararlas.</p>
-        <button type="button" class="secondary" data-tab="biblioteca">Buscar en la Biblioteca</button>
-        <button type="button" class="secondary" data-tab="agrupar">Explorar grupos</button></div>`
+      ? `<div class="empty"><p>Select at least two studies to compare.</p>
+        <button type="button" class="secondary" data-tab="biblioteca">Browse the Library</button>
+        <button type="button" class="secondary" data-tab="agrupar">Explore Groups</button></div>`
       : `<div class="table-wrap"><table><thead><tr><th scope="col">Variable</th>${selected.map((id) => {
         const study = byId.get(id);
         return `<th scope="col">${esc(id)}<br>${studyButton(study)}<br>${sourceLink(study.url, 'NASA PSI')}</th>`;
       }).join('')}</tr></thead><tbody>${compareRows().map(([label, ...cells]) => `
-        <tr><th scope="row">${esc(label)}</th>${cells.map(({ text, estado }) => `<td>${esc(text ?? 'Sin dato')}${estado ? `<span class="status">${esc(estado)}</span>` : ''}</td>`).join('')}</tr>`).join('')}
-        </tbody></table></div><p class="hint">Los datos comparados describen investigaciones. Un parámetro de procedimiento y una medición de un ensayo tienen alcances distintos.</p>`;
+        <tr><th scope="row">${esc(label)}</th>${cells.map(({ text, estado }) => `<td>${esc(text ?? 'No data')}${estado ? `<span class="status">${esc(estado)}</span>` : ''}</td>`).join('')}</tr>`).join('')}
+        </tbody></table></div><p class="hint">The table compares study records. Procedure settings and individual test measurements describe different aspects of an investigation.</p>`;
   }
 
   function downloadCSV() {
     if (selected.length < 2) return;
     const rows = [['Variable', ...selected],
-      ['Fuente PSI', ...selected.map((id) => byId.get(id).url)],
+      ['PSI Source', ...selected.map((id) => byId.get(id).url)],
       ...compareRows().map(([label, ...cells]) => [label, ...cells.map(({ text, estado }) =>
         estado ? `${text} [${estado}]` : text)])];
     const csv = '\ufeff' + rows.map((row) => row.map((value) => `"${String(value ?? '').replaceAll('"', '""')}"`).join(';')).join('\r\n');
     const url = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8;' }));
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'flame-atlas-comparacion.csv';
+    link.download = 'zeroflame-comparison.csv';
     document.body.append(link);
     link.click();
     link.remove();
@@ -418,7 +418,7 @@ function init(data, evidence) {
 
   const counts = Object.entries(modalities).map(([value, label]) =>
     [value, label, data.filter((study) => study.modalidad === value).length]);
-  $('#modeFilters').innerHTML = [['', 'Todas', data.length], ...counts].map(([value, label, count]) =>
+  $('#modeFilters').innerHTML = [['', 'All', data.length], ...counts].map(([value, label, count]) =>
     `<button type="button" data-mode="${esc(value)}">${label} (${count})</button>`).join('');
   $('#catalogueSummary').textContent = counts.map(([, label, count]) => `${label} · ${count}`).join(' | ');
   $('#libraryMode').insertAdjacentHTML('beforeend', Object.entries(modalities).map(([key, value]) => option(key, value)).join(''));
@@ -426,7 +426,7 @@ function init(data, evidence) {
     $(selector).insertAdjacentHTML('beforeend', Object.keys(domains).map((name) => option(name)).join(''));
   });
   $$('.evidence-select').forEach((select) => {
-    select.innerHTML = Object.entries(levels).map(([key, label]) => option(key, label)).join('') + option('todas', 'Todos los vínculos');
+    select.innerHTML = Object.entries(levels).map(([key, label]) => option(key, label)).join('') + option('todas', 'All Links');
   });
   $('#reference').innerHTML = data.map((study) => option(study.id, `${study.id} · ${study.nombre}`)).join('');
 
@@ -515,12 +515,12 @@ function init(data, evidence) {
   readHash();
 }
 
-Promise.all([getJSON('data/investigaciones.json'), getJSON('data/evidencia.json?v=vinculos')])
+Promise.all([getJSON('data/investigaciones.en.json'), getJSON('data/evidencia.en.json')])
   .then(([data, evidence]) => {
-    if (!Array.isArray(data) || data.length === 0) throw new Error('Catálogo vacío');
+    if (!Array.isArray(data) || data.length === 0) throw new Error('Empty catalog');
     init(data, evidence);
   })
   .catch((error) => {
     console.error(error);
-    $('.layout').innerHTML = empty('No se pudo cargar el catálogo. Vuelve a cargar la página o abre la versión de GitHub Pages.');
+    $('.layout').innerHTML = empty('The catalog could not load. Reload the page or open the GitHub Pages version.');
   });
