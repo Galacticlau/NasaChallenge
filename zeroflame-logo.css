@@ -1,0 +1,18 @@
+.zeroflame-logo {
+  position: relative;
+  display: block;
+  flex: none;
+  width: 54px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+/* El recorte coincide con el aro exterior del emblema original de 1254 × 1254. */
+.zeroflame-logo img {
+  position: absolute;
+  inset: -3.95% auto auto -5.02%;
+  width: 110.48%;
+  height: 112.57%;
+  max-width: none;
+}

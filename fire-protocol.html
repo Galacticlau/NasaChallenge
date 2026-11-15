@@ -4,7 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#080e19">
-<title>Fire Protocol: 0G | Flame Atlas</title>
+<title>Fire Protocol: 0G | ZeroFlame</title>
+<link rel="stylesheet" href="zeroflame-logo.css">
 <style>
 :root{color-scheme:dark;--bg:#080e19;--panel:#101d2d;--border:#324b64;--text:#ecf6ff;--muted:#acc2d1;--cyan:#7be2ed;--orange:#ffb17c;--green:#8ee6bd;--violet:#bcb0f8}
 *{box-sizing:border-box}
@@ -14,7 +15,7 @@ button:focus-visible,a:focus-visible{outline:3px solid #8af2f8;outline-offset:3p
 .wrap{max-width:1280px;margin:auto;padding:17px 18px 52px}
 .top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px}
 .brand{display:flex;gap:11px;align-items:center;text-decoration:none;color:var(--text);font-size:17px;font-weight:800}
-.mark{width:42px;height:42px;background:linear-gradient(140deg,#ffdc96,#ff814d);border-radius:13px;display:grid;place-items:center;color:#201205;font-size:25px}
+
 .back{padding:9px 12px;border:1px solid #365771;background:#12243a;text-decoration:none;color:#d7edf8;border-radius:10px;font-weight:700;font-size:12px}
 .eyebrow{font:800 11px/1.5 system-ui;letter-spacing:1.8px;text-transform:uppercase;color:var(--orange)}
 h1{font-size:clamp(29px,4.1vw,45px);margin:4px 0 5px;letter-spacing:-1.2px;line-height:1.13}
@@ -128,8 +129,8 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
 <body>
 <div class="wrap">
 <header class="top">
-  <a class="brand" href="index.html"><span class="mark">♨</span>Flame Atlas <span style="color:#96bacf;font-size:12px">/ ARCADE</span></a>
-  <a class="back" href="index.html#inicio">← Back to Flame Atlas</a>
+  <a class="brand" href="index.html"><span class="zeroflame-logo"><img src="zeroflame-emblema.jpg" alt="" width="1254" height="1254"></span>ZeroFlame <span style="color:#96bacf;font-size:12px">/ ARCADE</span></a>
+  <a class="back" href="index.html#inicio">← Back to ZeroFlame</a>
 </header>
 <div class="eyebrow" id="missionLabel">Mission 01 / Flame Extinguishment</div>
 <h1>FIRE PROTOCOL: <span>0G</span></h1>
@@ -203,7 +204,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
     <div class="stage-note">Research reference: <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">NASA BASS-II Summary Report (2021), Table 7.1 and Figures 7.5–7.6</a>.</div>
   </aside>
 </div>
-<footer>Flame Atlas is an independent educational project, not an official NASA game. Based on published BASS-II experimental results. <a href="index.html#inicio">← Back to Flame Atlas</a>.</footer>
+<footer>ZeroFlame is an independent educational project, not an official NASA game. Based on published BASS-II experimental results. <a href="index.html#inicio">← Back to ZeroFlame</a>.</footer>
 </div>
 <dialog id="missionReport" aria-labelledby="reportTitle">
   <span class="pill" id="reportTag">SCIENTIFIC FINDING · NASA BASS-II</span>
@@ -213,7 +214,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
   <div class="dialog-actions">
     <button class="primary" id="nextMission">▶ INVESTIGATE THE CAUSE</button>
     <button class="secondary" id="replay">↻ REPLAY</button>
-    <a href="index.html#inicio" class="back-to-atlas">← Back to Flame Atlas</a>
+    <a href="index.html#inicio" class="back-to-atlas">← Back to ZeroFlame</a>
     <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">Read NASA's report ↗</a>
   </div>
 </dialog>
@@ -400,7 +401,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
     $("reportTag").textContent=isFirst?"RESEARCH FINDING · BASS-II / GMT45-T4":"FINAL REPORT · MISSION 02";
     $("reportTitle").textContent=title;$("reportIntro").textContent=message;
     $("reportBody").innerHTML=body;
-    $("nextMission").textContent=isFirst?"▶ BEGIN MISSION 2":"← BACK TO FLAME ATLAS";
+    $("nextMission").textContent=isFirst?"▶ BEGIN MISSION 2":"← BACK TO ZEROFLAME";
     $("nextMission").disabled=false;
     $("replay").textContent=isFirst?"↻ REPLAY MISSION 1":"↻ REPLAY MISSION 2";
     updateHUD();
