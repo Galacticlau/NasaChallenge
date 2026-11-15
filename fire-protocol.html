@@ -16,7 +16,7 @@ h1{font-size:clamp(31px,4.5vw,50px);letter-spacing:-1.5px;line-height:1.1;margin
 .lead{color:var(--muted);max-width:780px;margin:0 0 23px}
 .layout{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:17px;align-items:start}
 .panel{background:#0e1a29;border:1px solid var(--border);border-radius:19px;padding:15px;box-shadow:0 14px 45px #0004;min-width:0}
-.hud{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-bottom:12px}.stat{display:flex;justify-content:space-between;gap:7px;align-items:center;border:1px solid #304960;background:#152c3f;border-radius:10px;padding:10px;font-size:11px;color:#b6d1df}.stat strong{font-size:15px;color:#fff}
+.hud{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:12px}.stat{display:flex;justify-content:space-between;gap:7px;align-items:center;border:1px solid #304960;background:#152c3f;border-radius:10px;padding:10px;font-size:11px;color:#b6d1df}.stat strong{font-size:15px;color:#fff}
 .frame{position:relative;background:#070f1a;border-radius:11px;border:1px solid #34516a;overflow:hidden}
 canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated;touch-action:none}
 .overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:16px;background:#06101de8;z-index:3}.overlay[hidden]{display:none}.overlay>div{max-width:410px}
@@ -43,31 +43,56 @@ dialog::backdrop{background:#010611da}dialog h2{font-size:26px;margin:9px 0}dial
 .disclaimer{font-size:11px!important;color:#9db7c7!important}
 @media(max-width:870px){.layout{grid-template-columns:1fr}.info{display:block}}
 @media(max-width:520px){.wrap{padding:15px 9px 30px}.panel{padding:8px;border-radius:11px}.stat{padding:7px;flex-wrap:wrap;font-size:10px}.stat strong{font-size:13px}.hud{gap:5px}.pad{grid-template-columns:repeat(3,45px);grid-template-rows:repeat(2,44px)}.seal{width:100px}.overlay p{font-size:11px}.overlay h2{font-size:20px}}
+
+.brief{background:#163147;border:1px solid #42677d;border-radius:10px;padding:10px;text-align:left;margin:11px 0}
+.brief strong{color:#ffc18c}.brief ol{margin:6px 0 0;padding-left:19px}.brief li{font-size:12px;line-height:1.6}
+.science-log{background:#153243;border-left:3px solid #82eafa;border-radius:9px;padding:10px;margin:11px 0;font-size:12px;color:#d4f5ff}
+.science-log b{color:#99f4fc}.science-log p{margin:4px 0}
+.fire-progress{border:1px solid #36516c;background:#14293a;border-radius:10px;padding:11px;margin:12px 0}
+.fire-progress meter{display:block;width:100%;height:15px;margin-top:7px;accent-color:#fa875b}
+@media(max-width:520px){.hud{grid-template-columns:repeat(2,minmax(0,1fr))}.overlay{align-items:start;overflow:auto}.overlay>div{margin:auto}.brief li{font-size:11px}}
 </style>
 </head>
 <body><div class="wrap">
 <header class="top"><a class="brand" href="index.html"><b>♨</b>Flame Atlas / Arcade</a><a class="back" href="index.html#inicio">← Volver a Flame Atlas</a></header>
 <div class="eyebrow">Misión 01 · Seguridad contra incendios</div>
 <h1>FIRE PROTOCOL: <span>0G</span></h1>
-<p class="lead">Pilota un robot en microgravedad, esquiva partículas incandescentes y activa tres estaciones de contención. Inspirado en <strong>BASS-II (PSI-25)</strong>, una investigación real de combustión.</p>
+<p class="lead">En una estación espacial ficticia, un incendio avanza sobre muestras combustibles. Explora la cámara, ajusta la ventilación y detén la propagación antes de que alcance los sistemas críticos. Inspirado en <strong>BASS-II (PSI-25)</strong>.</p>
 <div class="layout">
   <section class="panel" aria-label="Juego Fire Protocol 0G">
-    <div class="hud"><div class="stat">INTEGRIDAD <strong id="hp">♥ ♥ ♥</strong></div><div class="stat">ESTACIONES <strong id="count">0 / 3</strong></div><div class="stat">TIEMPO <strong id="timer">00:00</strong></div></div>
+    <div class="hud"><div class="stat">INTEGRIDAD <strong id="hp">♥ ♥ ♥</strong></div><div class="stat">ESTACIONES <strong id="count">0 / 3</strong></div><div class="stat">TIEMPO <strong id="timer">00:00</strong></div><div class="stat">PROPAGACIÓN <strong id="fireLevel">0 %</strong></div></div>
     <div class="frame">
       <canvas id="scene" width="640" height="360" role="img" aria-label="Mapa pixel art de una cámara espacial con estaciones, robot y peligros"></canvas>
-      <div class="overlay" id="intro"><div><div class="robot" aria-hidden="true">🤖</div><h2>PROTOCOLO DE CONTENCIÓN</h2><p>Muévete con <b>WASD</b> o flechas, esquiva las partículas y pulsa <b>E</b> o espacio para sellar las tres estaciones azules.</p><button class="primary" id="start">▶ INICIAR MISIÓN</button></div></div>
+      <div class="overlay" id="intro"><div>
+<div class="eyebrow">Mensaje de control de misión · Escenario ficticio</div>
+<h2>¡INCENDIO EN ÓRBITA!</h2>
+<p>La prueba de combustión ha salido mal. <strong>El fuego está avanzando por tres muestras sólidas hacia equipos críticos.</strong> Tienes que contener las tres zonas antes de perder la cámara.</p>
+<div class="brief"><strong>PROTOCOLO DE EMERGENCIA</strong><ol>
+<li><b>OBSERVA</b> cómo avanzan las franjas de fuego hasta el módulo del extremo. Si lo alcanzan, pierdes.</li>
+<li><b>AJUSTA</b> el flujo de ventilación y compara qué ocurre con las llamas y las brasas.</li>
+<li><b>MUÉVETE</b> con WASD o las flechas. Pulsa E, espacio o SELLAR cerca de los terminales azules.</li>
+</ol></div>
+<p>Recuerda: en microgravedad el fuego también puede propagarse. ¡El tiempo importa!</p>
+<button class="primary" id="start">▶ DESPLEGAR ROBOT</button>
+</div></div>
       <div class="overlay" id="pauseScreen" hidden><div><h2>MISIÓN EN PAUSA</h2><p>Tu robot está a salvo mientras decides la próxima ruta.</p><button class="primary" id="resume">▶ CONTINUAR</button></div></div>
     </div>
-    <p class="status" id="message" role="status" aria-live="polite">Busca las estaciones luminosas.</p>
+    <p class="status" id="message" role="status" aria-live="polite">Observa cómo avanzan los frentes de fuego.</p>
+<div class="science-log" aria-live="polite"><b>🛰️ Bitácora científica</b><p id="scienceText">Sin convección natural intensa, la ventilación puede afectar profundamente la combustión. Debes ganar tiempo antes de que el fuego alcance los módulos críticos.</p></div>
     <div class="toolbar"><div><b>FLUJO DE AIRE</b><button class="preset" data-flow="0" aria-pressed="false">0 cm/s</button><button class="preset" data-flow="20" aria-pressed="true">20 cm/s</button><button class="preset" data-flow="40" aria-pressed="false">40 cm/s</button></div><button class="preset" id="pauseButton" disabled>⏸ Pausar</button></div>
     <div class="controls"><div class="pad" aria-label="Controles de movimiento"><button data-dir="up" aria-label="Arriba">▲</button><button data-dir="left" aria-label="Izquierda">◀</button><button data-dir="down" aria-label="Abajo">▼</button><button data-dir="right" aria-label="Derecha">▶</button></div><button class="seal" id="sealButton" disabled>⚡ SELLAR</button></div>
   </section>
   <aside class="panel info">
-    <h2>🎯 Tu misión</h2><p>Activa las tres estaciones. Cada estación sellada detiene una fuente de partículas. Tu robot tiene tres puntos de integridad.</p>
+    <h2>🚨 Misión de emergencia</h2>
+<p><strong>Historia ficticia:</strong> tres muestras combustibles arden dentro de una cámara experimental. El fuego se extiende por cada muestra y amenaza un módulo de soporte. Si una llama alcanza su extremo, la misión fracasa aunque el robot no sufra daño.</p>
+<div class="fire-progress"><strong>Máximo avance: <span id="dangerPct">0 %</span></strong><meter id="dangerMeter" min="0" max="100" value="0">0%</meter></div>
+<h3>Tu estrategia</h3><p>Observa el frente de fuego, cambia el flujo de aire para ganar tiempo y llega a los terminales azules. Cada terminal sella un foco y detiene su avance (regla ficticia del juego).</p>
     <h3>Controles</h3><ul><li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> o flechas: moverte.</li><li><kbd>E</kbd> o <kbd>Espacio</kbd>: sellar una estación cercana.</li><li>En celulares: controles táctiles.</li></ul>
-    <h3>La ciencia detrás del juego</h3><p>BASS-II investiga ignición, crecimiento, propagación y extinción de materiales sólidos en microgravedad, incluyendo cambios de flujo de aire y oxígeno.</p>
+    <h3>La ciencia detrás del juego</h3>
+<p>NASA estudió en <strong>BASS-II</strong> el crecimiento y la propagación de llamas sobre sólidos en microgravedad. Algunas llamas pueden mantenerse con un flujo muy bajo y aumentar su intensidad cuando la ventilación cambia.</p>
+<p>No existe una regla universal de que más flujo produzca siempre mayor propagación: también influyen el combustible, la geometría y el oxígeno.</p>
     <p class="caution">En la descripción revisada se menciona un túnel de aire capaz de alcanzar <strong>40 cm/s</strong>. Los botones 0, 20 y 40 cm/s son opciones del juego, <strong>no una lista de ensayos comprobados</strong>.</p>
-    <p class="caution">Esta es una <strong>representación educativa y recreativa</strong>, no una simulación física validada. No predice la propagación ni la eficacia real de extintores.</p>
+    <p class="caution">La propagación y los efectos de cada botón son <strong>reglas educativas ficticias</strong>, no datos medidos. Este juego no es una simulación física validada ni indica cómo combatir un incendio real.</p>
   </aside>
 </div>
 <footer>Flame Atlas · Proyecto educativo independiente · <a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-25" target="_blank" rel="noopener noreferrer">Fuente NASA PSI-25</a></footer>
@@ -76,6 +101,7 @@ dialog::backdrop{background:#010611da}dialog h2{font-size:26px;margin:9px 0}dial
   <span class="tag">INVESTIGACIÓN DE BASE · NASA PSI-25</span>
   <h2 id="endTitle">¡Misión completada!</h2><p id="endMessage"></p><div class="results" id="stats"></div>
   <h3>🔬 BASS-II · Burning and Suppression of Solids – II</h3>
+<p><strong>¿Qué descubriste?</strong> La microgravedad no impide la propagación del fuego sobre sólidos. El flujo forzado de aire puede modificar las llamas, junto con el oxígeno y las propiedades del material. Tu experiencia fue recreativa, no una reproducción de los ensayos.</p>
   <p id="objective">BASS-II estudia ignición, crecimiento, propagación y extinción de sólidos en microgravedad.</p>
   <h3>Condiciones documentadas</h3><p id="conditions">Las pruebas investigan el flujo de aire, la concentración de oxígeno y las características de los materiales.</p>
   <p class="disclaimer">Los comportamientos del juego son ilustrativos. Los textos científicos proceden de la ficha del proyecto, no de resultados numéricos de pruebas individuales.</p>
