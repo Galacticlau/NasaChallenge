@@ -95,13 +95,41 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
 @media(max-width:1000px){.layout{grid-template-columns:1fr}.science-data{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:640px){.wrap{padding:13px 9px 34px}.panel{padding:9px}.hud{grid-template-columns:repeat(2,1fr);gap:5px}.readout.air strong{font-size:25px}.science-data{grid-template-columns:repeat(2,1fr)}.cover{padding:8px;align-items:flex-start}.cover .inner{margin:auto}.cover h2{font-size:19px}.cover p{font-size:11px;line-height:1.35}.alarm .symbol{width:35px;height:35px;font-size:22px;margin-bottom:4px}.radio{padding:7px;margin:7px 0}.dpad{grid-template:repeat(2,42px)/repeat(3,42px)}.interact{height:62px;min-width:110px;max-width:144px;font-size:12px}.lead{font-size:12px}}
 @media(prefers-reduced-motion:reduce){.alarm:before,.alarm .symbol{animation:none}.progress-track span{transition:none}}
+
+/* Navigation and legibility improvements: the #airflow span must inherit the numeric size. */
+.top{position:sticky;top:0;z-index:10;padding:8px 0;background:#080e19f2;backdrop-filter:blur(10px)}
+.back{font-size:14px;padding:11px 15px;border-color:#5091a7}
+.hud{grid-template-columns:minmax(0,1.7fr) repeat(3,minmax(0,1fr));gap:11px}
+.readout{padding:13px 14px}
+.readout small{font-size:12px;letter-spacing:.9px;margin-bottom:3px}
+.readout strong{font-size:clamp(19px,2.1vw,25px)}
+.readout.air strong{font-size:clamp(46px,5.7vw,70px);line-height:1.08;letter-spacing:-1px}
+.readout.air strong #airflow{font-size:inherit;color:#9cfff4}
+.readout.air strong span:not(#airflow){font-size:18px;color:#bde8e4;letter-spacing:normal}
+.sidebar h3{font-size:14px}
+.sidebar p,.sidebar li{font-size:13px}
+.fact{padding:12px}
+.fact small{font-size:12px}
+.fact strong{font-size:15px;line-height:1.35}
+.back-to-atlas{border:1px solid #44758d;border-radius:10px;padding:9px 11px;text-decoration:none;color:#bcefff;font-weight:700;font-size:12px}
+@media(max-width:640px){
+  .hud{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+  .readout{padding:10px 12px}
+  .readout strong{font-size:19px}
+  .readout.air strong{font-size:clamp(33px,8vw,46px)}
+  .readout.air strong span:not(#airflow){font-size:13px}
+  .science-data{grid-template-columns:1fr 1fr}
+  .fact strong{font-size:14px}
+  .top{padding:7px 0}
+  .back{font-size:12px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header class="top">
   <a class="brand" href="index.html"><span class="mark">♨</span>Flame Atlas <span style="color:#96bacf;font-size:12px">/ ARCADE</span></a>
-  <a class="back" href="index.html#biblioteca">← Research Library</a>
+  <a class="back" href="index.html#inicio">← Back to Flame Atlas</a>
 </header>
 <div class="eyebrow" id="missionLabel">Mission 01 / Flame Extinguishment</div>
 <h1>FIRE PROTOCOL: <span>0G</span></h1>
@@ -175,7 +203,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
     <div class="stage-note">Research reference: <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">NASA BASS-II Summary Report (2021), Table 7.1 and Figures 7.5–7.6</a>.</div>
   </aside>
 </div>
-<footer>Flame Atlas is an independent educational project, not an official NASA game. Based on published BASS-II experimental results. <a href="index.html#biblioteca">Return to the research catalog</a>.</footer>
+<footer>Flame Atlas is an independent educational project, not an official NASA game. Based on published BASS-II experimental results. <a href="index.html#inicio">← Back to Flame Atlas</a>.</footer>
 </div>
 <dialog id="missionReport" aria-labelledby="reportTitle">
   <span class="pill" id="reportTag">SCIENTIFIC FINDING · NASA BASS-II</span>
@@ -185,6 +213,7 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
   <div class="dialog-actions">
     <button class="primary" id="nextMission">▶ INVESTIGATE THE CAUSE</button>
     <button class="secondary" id="replay">↻ REPLAY</button>
+    <a href="index.html#inicio" class="back-to-atlas">← Back to Flame Atlas</a>
     <a target="_blank" rel="noopener noreferrer" href="https://ntrs.nasa.gov/api/citations/20210011385/downloads/TM-20210011385.pdf">Read NASA's report ↗</a>
   </div>
 </dialog>
@@ -355,8 +384,8 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
     $("reportTag").textContent=isFirst?"RESEARCH FINDING · BASS-II / GMT45-T4":"FINAL REPORT · MISSION 02";
     $("reportTitle").textContent=title;$("reportIntro").textContent=message;
     $("reportBody").innerHTML=body;
-    $("nextMission").textContent=isFirst?"▶ BEGIN MISSION 2":"✓ MISSIONS COMPLETE";
-    $("nextMission").disabled=!isFirst;
+    $("nextMission").textContent=isFirst?"▶ BEGIN MISSION 2":"← BACK TO FLAME ATLAS";
+    $("nextMission").disabled=false;
     $("replay").textContent=isFirst?"↻ REPLAY MISSION 1":"↻ REPLAY MISSION 2";
     updateHUD();
     report.showModal();
@@ -533,7 +562,10 @@ dialog p{font-size:13px;color:#d1e3ed;line-height:1.67}
   $("interact").addEventListener("click",interact);
   $("pauseButton").addEventListener("click",togglePause);
   $("resume").addEventListener("click",togglePause);
-  $("nextMission").addEventListener("click",()=>{if(level===1)resetLevel(2);});
+  $("nextMission").addEventListener("click",()=>{
+    if(level===1){resetLevel(2);}
+    else{window.location.assign("index.html#inicio");}
+  });
   $("replay").addEventListener("click",()=>resetLevel(level));
   $("analysisClose").addEventListener("click",()=>analysis.close());
   document.querySelectorAll("[data-answer]").forEach(button=>button.addEventListener("click",()=>{
