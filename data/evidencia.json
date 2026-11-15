@@ -1,0 +1,2229 @@
+{
+  "PSI-10": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Estudia el inicio de formación de hollín y cómo cambian las llamas con el caudal, la dilución y la presión.",
+        "source": "base"
+      },
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Busca determinar límites de extinción.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Dilución y mezcla": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe mezclas o dilución en el diseño o comparación."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        },
+        "Hollín": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica hollín como magnitud buscada o calculada."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-62": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Busca predecir propagación de llamas y límites de inflamabilidad de materiales mediante modelos.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Usa datos, configuraciones o metodología de esa familia como referencia."
+        }
+      },
+      "combustible": {
+        "Polímeros y ceras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica materiales poliméricos, como PMMA o Ultem según el estudio."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Gravedad terrestre": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen identifica casos de gravedad terrestre en la comparación."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica propagación de la llama como magnitud observada o reconstruida."
+        },
+        "Hollín": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica hollín como magnitud buscada o calculada."
+        },
+        "Simulación y cálculos": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen documenta salidas calculadas o simulación."
+        }
+      },
+      "objetivos": {
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye investigar o modelar la propagación."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "Trabajo en tierra / simulación": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "La ficha describe trabajo de simulación o análisis, sin una plataforma de vuelo propia identificada."
+        }
+      }
+    }
+  },
+  "PSI-98": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "Objectives",
+        "reason": "Estudia el crecimiento de incendios y compara límites de inflamabilidad.",
+        "source": "psi"
+      },
+      {
+        "label": "Detección",
+        "status": "indirecto",
+        "section": "Approach",
+        "reason": "Registró temperatura y gases para observar el incendio. La evaluación de detectores queda por documentar.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Composición del tejido SIBAL",
+          "value": "75 % algodón y 25 % fibra de vidrio en masa",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        },
+        {
+          "label": "Dimensiones de muestra",
+          "value": "≈ 0,94 m × 0,40 m",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        },
+        {
+          "label": "Velocidad del aire",
+          "value": "20 cm/s",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        }
+      ],
+      "note": "El ensayo se realizó en la nave Cygnus después de separarse de la ISS, según Approach. El campo Flight Platform de la misma ficha indica ISS."
+    },
+    "etiquetas": {
+      "plataforma": {
+        "Nave Cygnus": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "El experimento se realizó en Cygnus después de separarse de la ISS."
+        }
+      },
+      "objetivos": {
+        "Propagación": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Objectives",
+          "reason": "La investigación busca determinar con qué rapidez crece un incendio de gran escala."
+        },
+        "Extinción": {
+          "status": "pendiente",
+          "source": "psi",
+          "section": "Objectives",
+          "reason": "El objetivo descrito es crecimiento e inflamabilidad. La etiqueta anterior requiere un objetivo de apagado trazable."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Tejidos y fibras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica tejidos entre las muestras."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        },
+        "Presión / flujo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe el registro de presión o flujo."
+        }
+      }
+    }
+  },
+  "PSI-99": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Estudia el crecimiento de incendios y los límites de inflamabilidad.",
+        "source": "base"
+      },
+      {
+        "label": "Detección",
+        "status": "indirecto",
+        "section": "sensores_mediciones",
+        "reason": "La instrumentación registra señales térmicas y gases durante la combustión. La evaluación de detectores queda por documentar.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "objetivos": {
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de la investigación identifica el crecimiento del incendio como objetivo."
+        },
+        "Extinción": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe crecimiento e inflamabilidad. Falta un objetivo explícito de apagado."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Tejidos y fibras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica tejidos entre las muestras."
+        },
+        "Polímeros y ceras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica materiales poliméricos, como PMMA o Ultem según el estudio."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        },
+        "Presión / flujo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe el registro de presión o flujo."
+        }
+      },
+      "plataforma": {
+        "Nave Cygnus": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe el ensayo en Cygnus tras separarse de la ISS."
+        }
+      }
+    }
+  },
+  "PSI-100": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Estudia el crecimiento de incendios y los límites de inflamabilidad.",
+        "source": "base"
+      },
+      {
+        "label": "Detección",
+        "status": "indirecto",
+        "section": "sensores_mediciones",
+        "reason": "La instrumentación registra señales térmicas y gases durante la combustión. La evaluación de detectores queda por documentar.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "objetivos": {
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de la investigación identifica el crecimiento del incendio como objetivo."
+        },
+        "Extinción": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe crecimiento e inflamabilidad. Falta un objetivo explícito de apagado."
+        }
+      },
+      "familia": {
+        "SAFFIRE": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Tejidos y fibras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica tejidos entre las muestras."
+        }
+      },
+      "condiciones": {
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        },
+        "Presión / flujo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe el registro de presión o flujo."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-106": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "indirecto",
+        "section": "objetivos",
+        "reason": "La estabilidad de llamas y sus cambios según combustible y dilución pueden orientar preguntas sobre condiciones de combustión.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SLICE": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe una temperatura considerada, controlada o medida."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Presión / flujo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe el registro de presión o flujo."
+        }
+      },
+      "objetivos": {
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-107": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "indirecto",
+        "section": "Objectives",
+        "reason": "Relaciona la aparición del hollín con el combustible y el flujo. Su aporte a la prevención se interpreta a partir de esos mecanismos.",
+        "source": "psi"
+      },
+      {
+        "label": "Detección",
+        "status": "directo",
+        "section": "Objectives y Approach",
+        "reason": "Estudia el inicio de la emisión de hollín y cómo cambia con el quemador y el coflujo. Aporta evidencia sobre la señal de humo.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Llamas estudiadas",
+          "value": "526",
+          "kind": "Conteo publicado",
+          "section": "Approach"
+        },
+        {
+          "label": "Diámetros de quemador",
+          "value": "0,41 · 0,76 · 1,6 mm",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        },
+        {
+          "label": "Velocidad del coflujo de aire",
+          "value": "5,4–65 cm/s",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        },
+        {
+          "label": "Combustibles",
+          "value": "Metano, etileno, propano, propileno y mezclas de propileno",
+          "kind": "Materiales reportados",
+          "section": "Approach"
+        }
+      ],
+      "note": "El conteo corresponde al conjunto de llamas estudiadas. La ficha no enumera aquí 526 configuraciones distintas."
+    },
+    "etiquetas": {
+      "condiciones": {
+        "Oxígeno": {
+          "status": "pendiente",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha describe aire en coflujo. Falta una concentración de O₂ especificada como variable."
+        },
+        "Presión": {
+          "status": "pendiente",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha consultada no identifica la presión en la configuración descrita."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "Reporta coflujo de aire de 5,4 a 65 cm/s."
+        },
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha identifica metano entre los combustibles usados."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha identifica etileno entre los combustibles usados."
+        },
+        "Propano": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha identifica propano entre los combustibles usados."
+        },
+        "Propileno": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha identifica propileno entre los combustibles usados."
+        }
+      },
+      "familia": {
+        "SPICE": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        }
+      },
+      "objetivos": {
+        "Humo y aerosoles": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica formación, tamaño, emisión o transporte de humo."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-21": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "indirecto",
+        "section": "objetivos",
+        "reason": "Estudia llamas débiles y su respuesta a la dilución, relevante para explorar estabilidad.",
+        "source": "base"
+      },
+      {
+        "label": "Extinción",
+        "status": "pendiente",
+        "section": "objetivos",
+        "reason": "La extinción láser es una técnica óptica. El extracto no establece que se estudie el apagado de la llama.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Dilución y mezcla": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe mezclas o dilución en el diseño o comparación."
+        }
+      },
+      "mediciones": {
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Hollín": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica hollín como magnitud buscada o calculada."
+        }
+      },
+      "objetivos": {
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-25": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Estudia ignición, crecimiento y propagación de sólidos.",
+        "source": "base"
+      },
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "La extinción de sólidos figura entre los objetivos.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Tejidos y fibras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica tejidos entre las muestras."
+        }
+      },
+      "condiciones": {
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica propagación de la llama como magnitud observada o reconstruida."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye investigar o modelar la propagación."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-20": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "indirecto",
+        "section": "objetivos",
+        "reason": "Relaciona propiedades de materiales con combustión sin flujo impuesto mediante un emulador.",
+        "source": "base"
+      },
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Incluye límites de extinción en mezclas gaseosas.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        }
+      },
+      "mediciones": {
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-26": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Compara pruebas de inflamabilidad en tierra y microgravedad.",
+        "source": "base"
+      },
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Evalúa un gas extintor inerte.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "BASS": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Tejidos y fibras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica tejidos entre las muestras."
+        },
+        "Polímeros y ceras": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica materiales poliméricos, como PMMA o Ultem según el estudio."
+        }
+      },
+      "condiciones": {
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Propagación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica propagación de la llama como magnitud observada o reconstruida."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-101": {
+    "ambitos": [
+      {
+        "label": "Detección",
+        "status": "directo",
+        "section": "Objectives y Research Impacts",
+        "reason": "Relaciona el tamaño de partículas de humo con generación y transporte. La ficha vincula estos datos con la respuesta de detectores.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Puntos de ensayo completados",
+          "value": "66",
+          "kind": "Conteo publicado",
+          "section": "Approach"
+        },
+        {
+          "label": "Periodo de ensayos de vuelo",
+          "value": "16 de julio al 9 de septiembre de 2010",
+          "kind": "Periodo reportado",
+          "section": "Approach"
+        },
+        {
+          "label": "Material incorporado",
+          "value": "Espuma intumescente Pyrell®",
+          "kind": "Material reportado",
+          "section": "Approach"
+        },
+        {
+          "label": "Condición incorporada",
+          "value": "Calentamiento de muestra sin flujo",
+          "kind": "Configuración reportada",
+          "section": "Approach"
+        },
+        {
+          "label": "Cambio en instrumentación",
+          "value": "M-PASS reemplazó uno de los dos recintos de diagnóstico comerciales utilizados en SAME",
+          "kind": "Instrumentación reportada",
+          "section": "Approach"
+        }
+      ],
+      "note": "El conteo registra puntos de ensayo completados. La distribución de tamaños de partículas requiere consultar las mediciones o los resultados publicados."
+    },
+    "etiquetas": {
+      "combustible": {
+        "Humo y aerosoles": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El humo o aerosol es una señal o un objeto de estudio. Para agrupar por combustible se requiere identificar la muestra que lo generó."
+        },
+        "Espuma intumescente Pyrell®": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "La ficha indica que la espuma se incorporó como material de ensayo."
+        }
+      },
+      "familia": {
+        "SAME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe una temperatura considerada, controlada o medida."
+        }
+      },
+      "mediciones": {
+        "Partículas y humo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica observaciones, instrumentación o salidas calculadas de partículas de humo."
+        }
+      },
+      "objetivos": {
+        "Humo y aerosoles": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica formación, tamaño, emisión o transporte de humo."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-115": {
+    "ambitos": [
+      {
+        "label": "Detección",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Modela el crecimiento de partículas de humo y su relación con la gravedad. El aporte es de simulación.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "combustible": {
+        "Humo y aerosoles": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El humo o aerosol es una señal o un objeto de estudio. Para agrupar por combustible se requiere identificar la muestra que lo generó."
+        }
+      },
+      "familia": {
+        "SAME": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Usa datos, configuraciones o metodología de esa familia como referencia."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Gravedad terrestre": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen identifica casos de gravedad terrestre en la comparación."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "mediciones": {
+        "Partículas y humo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica observaciones, instrumentación o salidas calculadas de partículas de humo."
+        },
+        "Simulación y cálculos": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen documenta salidas calculadas o simulación."
+        }
+      },
+      "objetivos": {
+        "Humo y aerosoles": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica formación, tamaño, emisión o transporte de humo."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "Trabajo en tierra / simulación": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "La ficha describe trabajo de simulación o análisis, sin una plataforma de vuelo propia identificada."
+        }
+      }
+    }
+  },
+  "PSI-102": {
+    "ambitos": [
+      {
+        "label": "Detección",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Caracteriza tamaños de partículas de humo y su generación y transporte.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "combustible": {
+        "Humo y aerosoles": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El humo o aerosol es una señal o un objeto de estudio. Para agrupar por combustible se requiere identificar la muestra que lo generó."
+        }
+      },
+      "familia": {
+        "SAME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "condiciones": {
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe una temperatura considerada, controlada o medida."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Partículas y humo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica observaciones, instrumentación o salidas calculadas de partículas de humo."
+        }
+      },
+      "objetivos": {
+        "Humo y aerosoles": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica formación, tamaño, emisión o transporte de humo."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-47": {
+    "ambitos": [
+      {
+        "label": "Detección",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Verifica el funcionamiento de un contador de partículas modificado y lo compara con otro instrumento.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "combustible": {
+        "Humo y aerosoles": {
+          "status": "pendiente",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El humo o aerosol es una señal o un objeto de estudio. Para agrupar por combustible se requiere identificar la muestra que lo generó."
+        }
+      },
+      "familia": {
+        "DAFT": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        }
+      },
+      "mediciones": {
+        "Partículas y humo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica observaciones, instrumentación o salidas calculadas de partículas de humo."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-60": {
+    "ambitos": [
+      {
+        "label": "Detección",
+        "status": "indirecto",
+        "section": "objetivos",
+        "reason": "Analiza formación y temperatura del hollín a partir de imágenes de SPICE. El vínculo es con una posible señal de humo.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "SPICE": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "Usa datos, configuraciones o metodología de esa familia como referencia."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Gravedad terrestre": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen identifica casos de gravedad terrestre en la comparación."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Hollín": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica hollín como magnitud buscada o calculada."
+        }
+      },
+      "objetivos": {
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "Trabajo en tierra / simulación": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "La ficha describe trabajo de simulación o análisis, sin una plataforma de vuelo propia identificada."
+        }
+      }
+    }
+  },
+  "PSI-117": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Modela cómo perturbaciones térmicas y convectivas afectan la extinción de llamas frías.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "combustible": {
+        "Gotas de combustible": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen describe gotas de combustible. Revisa la modalidad para distinguir simulación de ensayo."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        }
+      },
+      "mediciones": {
+        "Simulación y cálculos": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen documenta salidas calculadas o simulación."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Llamas frías": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica llamas frías como objeto de estudio."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "Trabajo en tierra / simulación": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "La ficha describe trabajo de simulación o análisis, sin una plataforma de vuelo propia identificada."
+        }
+      }
+    }
+  },
+  "PSI-159": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "pendiente",
+        "section": "objetivos",
+        "reason": "El extracto se centra en la aparición de llamas frías. El estudio del apagado queda por verificar.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Propano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica propano gaseoso."
+        },
+        "n-butano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica n-butano gaseoso."
+        },
+        "n-pentano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica n-pentano gaseoso."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Dilución y mezcla": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe mezclas o dilución en el diseño o comparación."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe una temperatura considerada, controlada o medida."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        }
+      },
+      "objetivos": {
+        "Llamas frías": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica llamas frías como objeto de estudio."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-142": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "sensores_mediciones",
+        "reason": "El límite de extinción figura como magnitud objetivo. La ficha resumida describe esquemas de simulación.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        }
+      },
+      "mediciones": {
+        "Simulación y cálculos": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen documenta salidas calculadas o simulación."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Llamas frías": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica llamas frías como objeto de estudio."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "Trabajo en tierra / simulación": {
+          "status": "indirecto",
+          "source": "base",
+          "section": "modalidad",
+          "reason": "La ficha describe trabajo de simulación o análisis, sin una plataforma de vuelo propia identificada."
+        }
+      }
+    }
+  },
+  "PSI-39": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Incluye extinción de llamas frías y variación de dilución y tamaño de gota.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "CFI": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Gotas de combustible": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen describe gotas de combustible. Revisa la modalidad para distinguir simulación de ensayo."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Llamas frías": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen identifica llamas frías como objeto de estudio."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-68": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "La extinción figura entre los objetivos de la extensión FLEX-2.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "FLEX": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Gotas de combustible": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen describe gotas de combustible. Revisa la modalidad para distinguir simulación de ensayo."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La fracción de oxígeno se menciona como parámetro medido, ajustado o propuesto. Consulta el alcance en el texto."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Presión / flujo": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe el registro de presión o flujo."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-23": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "objetivos",
+        "reason": "Estudia límites de extinción e inestabilidades de llamas esféricas.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        },
+        "Hidrógeno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica hidrógeno entre los combustibles."
+        }
+      },
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "La presión figura como parámetro, condición propuesta o magnitud registrada. Consulta el alcance en el texto."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Dilución y mezcla": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe mezclas o dilución en el diseño o comparación."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe una temperatura considerada, controlada o medida."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Temperatura": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica temperatura, medida o reconstruida según el método."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-69": {
+    "ambitos": [
+      {
+        "label": "Prevención",
+        "status": "directo",
+        "section": "Objectives",
+        "reason": "Busca determinar límites de inflamabilidad de combustibles líquidos en microgravedad.",
+        "source": "psi"
+      },
+      {
+        "label": "Extinción",
+        "status": "directo",
+        "section": "Objectives y Approach",
+        "reason": "Estudia la eficacia de gases supresores y los límites para sostener la combustión de gotas.",
+        "source": "psi"
+      }
+    ],
+    "tecnica": {
+      "values": [
+        {
+          "label": "Presión seleccionable para el procedimiento LOI",
+          "value": "0,5–1,5 atm",
+          "kind": "Procedimiento descrito",
+          "section": "Approach"
+        },
+        {
+          "label": "Tamaño inicial pequeño descrito para LOI",
+          "value": "≈ 3 mm",
+          "kind": "Procedimiento descrito",
+          "section": "Approach"
+        },
+        {
+          "label": "Combustibles",
+          "value": "n-heptano y metanol",
+          "kind": "Combustibles de los ensayos",
+          "section": "Informe NASA/TP—2015-216046",
+          "url": "https://ntrs.nasa.gov/citations/20150023456"
+        },
+        {
+          "label": "Supresores considerados",
+          "value": "CO₂, helio (He) y hexafluoruro de azufre (SF₆)",
+          "kind": "Objetivo de investigación",
+          "section": "Objectives"
+        }
+      ],
+      "note": "LOI es el índice límite de oxígeno. Los parámetros de procedimiento describen cómo se buscó ese límite. Para conocer la presión o concentración aplicada en una corrida se necesita su registro."
+    },
+    "etiquetas": {
+      "condiciones": {
+        "Presión": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "El procedimiento LOI explica cómo se selecciona la presión."
+        },
+        "Oxígeno": {
+          "status": "directo",
+          "source": "psi",
+          "section": "Approach",
+          "reason": "El procedimiento LOI varía la fracción molar de oxígeno."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        }
+      },
+      "familia": {
+        "FLEX": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Gotas de combustible": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen describe gotas de combustible. Revisa la modalidad para distinguir simulación de ensayo."
+        }
+      },
+      "mediciones": {
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        },
+        "Hollín": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica hollín como magnitud buscada o calculada."
+        },
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe magnitudes de apagado de llama, observadas, calculadas o buscadas según el estudio."
+        }
+      },
+      "objetivos": {
+        "Extinción": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen de objetivos incluye estudiar límites de extinción o la eficacia de un supresor."
+        },
+        "Modelación": {
+          "status": "directo",
+          "source": "base",
+          "section": "objetivos",
+          "reason": "El resumen describe desarrollar, contrastar o validar modelos, o generar datos para ello."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  },
+  "PSI-22": {
+    "ambitos": [
+      {
+        "label": "Extinción",
+        "status": "pendiente",
+        "section": "objetivos",
+        "reason": "El extracto describe estabilización con campo eléctrico en condiciones límite. Falta un objetivo explícito de apagado o supresión.",
+        "source": "base"
+      }
+    ],
+    "etiquetas": {
+      "familia": {
+        "ACME": {
+          "status": "directo",
+          "source": "base",
+          "section": "nombre del estudio",
+          "reason": "La familia se identifica en el nombre de la investigación en la base."
+        }
+      },
+      "combustible": {
+        "Metano": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica metano como combustible o componente de una mezcla combustible."
+        },
+        "Etileno": {
+          "status": "directo",
+          "source": "base",
+          "section": "combustibles_muestras_quemadores",
+          "reason": "El resumen identifica etileno como combustible o componente de una mezcla combustible."
+        }
+      },
+      "condiciones": {
+        "Microgravedad": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen describe un entorno de microgravedad o baja gravedad, experimental, simulado o analizado según la modalidad."
+        },
+        "Flujo o caudal": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen especifica que el flujo se controla, compara, registra o suprime según el estudio."
+        },
+        "Campo eléctrico": {
+          "status": "directo",
+          "source": "base",
+          "section": "condiciones_prueba",
+          "reason": "El resumen identifica una diferencia de potencial entre el quemador y la malla."
+        }
+      },
+      "mediciones": {
+        "Cámaras e imágenes": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen identifica cámaras o imágenes. Consulta si se capturaron en el estudio o se reutilizaron."
+        },
+        "Radiación": {
+          "status": "directo",
+          "source": "base",
+          "section": "sensores_mediciones",
+          "reason": "El resumen describe mediciones u objetivos radiativos o identifica radiómetros."
+        }
+      },
+      "plataforma": {
+        "ISS": {
+          "status": "directo",
+          "source": "base",
+          "section": "plataforma declarada",
+          "reason": "El campo de plataforma registra International Space Station (ISS)."
+        }
+      }
+    }
+  }
+}
