@@ -8,7 +8,7 @@ const categories = {
   mediciones: 'Mediciones o instrumentos mencionados',
   objetivos: 'Objetivos científicos',
   plataforma: 'Plataforma de trabajo',
-  ambitos: 'Ámbito de seguridad',
+  ambitos: 'Área de aplicación',
 };
 const fields = {
   objetivos: 'Objetivos experimentales',
@@ -56,7 +56,7 @@ function init(data, evidence) {
     Object.fromEntries(Object.keys(categories).map((key) => [key, tagRecords(study, key)]))]));
   let selected = [];
   let mode = '';
-  let tab = 'agrupar';
+  let tab = 'inicio';
   const dialog = $('#studyDialog');
   let studyOrigin;
   let outsidePointer = false;
@@ -95,6 +95,7 @@ function init(data, evidence) {
   function showTab(which) {
     tab = which;
     $('.layout').classList.toggle('is-comparing', tab === 'comparar');
+    $('.layout').classList.toggle('is-home', tab === 'inicio');
     $$('.view').forEach((view) => view.classList.toggle('hidden', view.id !== tab));
     $$('.nav [data-tab]').forEach((button) => {
       button.classList.toggle('active', button.dataset.tab === tab);
@@ -116,7 +117,7 @@ function init(data, evidence) {
 
   function readHash() {
     const hash = location.hash.slice(1);
-    showTab($$('.view').some((view) => view.id === hash) ? hash : 'agrupar');
+    showTab($$('.view').some((view) => view.id === hash) ? hash : 'inicio');
   }
 
   function toggleSelection(id) {
@@ -183,20 +184,49 @@ function init(data, evidence) {
     renderSelection();
   }
 
+  function areaCount(area, status) {
+    return data.filter((study) => tags(study, 'ambitos')
+      .some((review) => review.label === area && (!status || review.status === status))).length;
+  }
+
   function renderDomains() {
     $('#domainCards').innerHTML = Object.entries(domains).map(([domain, description]) => {
-      const counts = Object.keys(levels).map((status) => {
-        const count = data.filter((study) => tags(study, 'ambitos').some((review) => review.label === domain && review.status === status)).length;
-        return `<span class="evidence-chip ${status}">${count} · ${levels[status]}</span>`;
-      }).join('');
+      const counts = Object.entries(levels).map(([status, label]) =>
+        `<span class="evidence-chip ${status}">${areaCount(domain, status)} · ${label}</span>`).join('');
       return `<article class="science-card"><h3>${domain}</h3><p>${description}</p><div>${counts}</div>
         <footer><button type="button" class="secondary" data-domain="${domain}">Consultar investigaciones</button></footer></article>`;
     }).join('');
   }
 
-  function setLibraryFilters(domain = '') {
+  function renderHome(modalityCounts) {
+    const technical = data.filter((study) => evidence[study.id]?.tecnica).length;
+    const metrics = [[data.length, 'Investigaciones'], [technical, 'Fichas técnicas ampliadas'],
+      [Object.keys(domains).length, 'Áreas de aplicaciones']];
+    $('#heroCount').textContent = data.length;
+    $('#homeMetrics').innerHTML = metrics.map(([value, label]) =>
+      `<li><strong>${value}</strong><span>${label}</span></li>`).join('');
+
+    const bar = (value, className = '') =>
+      `<span class="${className}" style="--bar-width:${100 * value / data.length}%"></span>`;
+    $('#homeModalities').innerHTML = modalityCounts.map(([value, label, count]) => `
+      <li><button type="button" class="home-bar" data-library-mode="${esc(value)}">
+        <span class="home-bar-label"><span>${label}</span><b>${count}</b></span>
+        <span class="home-bar-track" aria-hidden="true">${bar(count)}</span>
+      </button></li>`).join('');
+    $('#homeAreas').innerHTML = Object.keys(domains).map((area) => {
+      const explicit = areaCount(area, 'explicito');
+      const inferred = areaCount(area, 'inferido');
+      return `<li><button type="button" class="home-bar" data-domain="${area}">
+        <span class="home-bar-label"><span>${area}</span><b>${areaCount(area)}</b></span>
+        <span class="home-bar-track" aria-hidden="true">${bar(explicit)}${bar(inferred, 'inferido')}</span>
+        <span class="small">${explicit} explícito${explicit === 1 ? '' : 's'} · ${inferred} inferido${inferred === 1 ? '' : 's'}</span>
+      </button></li>`;
+    }).join('');
+  }
+
+  function setLibraryFilters(domain = '', modality = '') {
     $('#librarySearch').value = '';
-    $('#libraryMode').value = '';
+    $('#libraryMode').value = modality;
     $('#libraryDomain').value = domain;
     $('#libraryEvidence').value = domain ? 'todas' : 'explicito';
     featuredOnly = false;
@@ -233,7 +263,7 @@ function init(data, evidence) {
     studyOrigin = { id, trigger, tab };
     const sections = [
       ['studyDescription', 'Descripción'],
-      ...(associations.length ? [['studyDomains', 'Ámbitos']] : []),
+      ...(associations.length ? [['studyDomains', 'Áreas de aplicaciones']] : []),
       ...(technical ? [['studyTechnical', 'Ficha técnica']] : []),
       ['studyEvidence', 'Etiquetas'],
       ['studySeries', 'Series temporales'],
@@ -251,7 +281,7 @@ function init(data, evidence) {
         <div class="detail-grid">${Object.entries(fields).map(([key, label]) => `<article class="science-card">
           <h4>${label}</h4><p>${esc(study.atributos[key]?.text || 'Sin datos en el catálogo')}</p>
           <div class="small">${esc(study.atributos[key]?.estado || 'Pendiente')} · Base del proyecto</div></article>`).join('')}</div></section>
-      ${associations.length ? `<section id="studyDomains" class="detail-section" tabindex="-1"><h3>Ámbitos de seguridad</h3>
+      ${associations.length ? `<section id="studyDomains" class="detail-section" tabindex="-1"><h3>Áreas de aplicaciones</h3>
         <div class="science-grid">${associations.map((tag) => evidenceDetail(study, tag)).join('')}</div></section>` : ''}
       ${technical ? `<section id="studyTechnical" class="detail-section" tabindex="-1"><h3>Ficha técnica ampliada</h3>
         <div class="science-grid">${technical.values.map((item) => `<article class="science-card">
@@ -340,7 +370,7 @@ function init(data, evidence) {
         const site = tags(study, 'plataforma').find((tag) => tag.source === 'psi' && tag.status === 'explicito');
         return site ? { text: site.label, estado: site.reason } : { text: 'Pendiente de revisión independiente' };
       }],
-      ['Ámbitos de seguridad', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') })],
+      ['Áreas de aplicaciones', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') })],
       ...Object.entries(fields).map(([key, title]) => [title, (study) => study.atributos[key] ?? { text: 'Sin dato' }]),
       ['Ficha técnica ampliada', (study) => ({
         text: evidence[study.id]?.tecnica?.values.map((item) => `${item.label}: ${item.value} [${item.kind}; ${item.section}; ${item.url || study.url}]`).join(' · ')
@@ -406,13 +436,13 @@ function init(data, evidence) {
   document.addEventListener('click', ({ target }) => {
     const button = target.closest('button');
     if (!button) return;
-    const { tab: view, mode: modality, pick, add, study, domain, section, studyView } = button.dataset;
+    const { tab: view, mode: modality, pick, add, study, domain, libraryMode, section, studyView } = button.dataset;
     if (view) navigate(view);
     if (modality !== undefined) setMode(modality);
     if (pick || add) toggleSelection(pick || add);
     if (study) openStudy(study, button);
-    if (domain) {
-      setLibraryFilters(domain);
+    if (domain || libraryMode) {
+      setLibraryFilters(domain, libraryMode);
       navigate('biblioteca');
     }
     if (section) {
@@ -481,6 +511,7 @@ function init(data, evidence) {
   });
   window.addEventListener('hashchange', readHash);
   setMode('');
+  renderHome(counts);
   renderDomains();
   renderLibrary();
   renderSimilars();
