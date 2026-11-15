@@ -251,11 +251,7 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
 /* Dashboard */
 .layout.is-home{grid-template-columns:minmax(0,1fr)}
 .layout.is-home .side{display:none}
-.home-metrics{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:0;margin:20px 0}
-.home-metrics li{background:var(--surface2);border:1px solid var(--border);border-radius:12px;padding:12px 15px}
-.home-metrics strong{display:block;color:var(--orange);font:600 clamp(22px,4vw,34px)/1.15 var(--font-mono);margin-bottom:4px}
-.home-metrics span{color:var(--muted);font-size:13px}
-.home-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.home-charts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}
 .home-chart{min-width:0}
 .home-chart ul{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:8px}
 .home-bar{display:grid;gap:5px;width:100%;text-align:left;color:var(--text);padding:7px 9px;background:#09141e;border:1px solid var(--border);border-radius:9px}
@@ -274,7 +270,6 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
   .view{scroll-margin-top:106px}
 }
 @media(max-width:760px){.home-charts{grid-template-columns:1fr}}
-@media(max-width:480px){.home-metrics{gap:7px}.home-metrics li{padding:9px 7px}.home-metrics span{font-size:11px;overflow-wrap:anywhere}}
 </style></head>
 <body><div class="shell"><header class="top"><div class="brand"><div class="logo">♨</div><div><strong>Flame Atlas</strong><small>NASA · Combustion investigations</small></div></div><div class="tip">NASA Physical Sciences Informatics</div></header>
 <section class="hero"><div><div class="eyebrow">Combustión en microgravedad</div><h1>Explora las investigaciones de NASA PSI</h1><p>Consulta, agrupa y compara estudios sobre el fuego en microgravedad y sus aplicaciones a la seguridad espacial.</p></div><div class="counter"><b id="heroCount">24</b><span>Investigaciones</span></div></section>
@@ -288,7 +283,6 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
   <button type="button" data-tab="glosario">Glosario</button></nav>
 <div class="layout is-home"><main>
 <section id="inicio" class="panel view"><h2>El catálogo de un vistazo</h2>
-<ul id="homeMetrics" class="home-metrics" aria-label="Resumen del catálogo"></ul>
 <div class="home-charts">
   <article class="science-card home-chart"><h3>Modalidades de investigación</h3><ul id="homeModalities"></ul></article>
   <article class="science-card home-chart"><h3>Áreas de aplicaciones</h3><ul id="homeAreas"></ul>
@@ -353,4 +347,4 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
 </div>
 <dialog id="studyDialog" aria-labelledby="studyTitle"><div class="dialog-inner"><div class="dialog-top"><nav id="studyJumps" class="study-jumps" aria-label="Secciones de la ficha"></nav><form method="dialog"><button class="secondary" autofocus aria-label="Cerrar ficha">Cerrar</button></form></div><div id="studyDetail"></div></div></dialog>
 <noscript>Activa JavaScript para consultar el catálogo de Flame Atlas.</noscript>
-<script src="atlas.js?v=inicio" defer></script></body></html>
+<script src="atlas.js?v=portada" defer></script></body></html>
