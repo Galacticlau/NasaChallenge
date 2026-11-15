@@ -122,17 +122,20 @@ const walls=[
 const stars=Array.from({length:75},(_,i)=>({x:26+(i*139)%586,y:28+(i*97)%306}));
 const keys={up:false,down:false,left:false,right:false};
 const keyMap={arrowup:"up",w:"up",arrowdown:"down",s:"down",arrowleft:"left",a:"left",arrowright:"right",d:"right"};
-let mode="ready", flow=20, player, sealed, particles, hp, elapsed, immunity, spawnTick, last=0, frame=0, until=0;
+let mode="ready", flow=20, player, sealed, particles, hp, elapsed, immunity, spawnTick, last=0, frame=0, until=0, fronts, flowChanges=0;
+const tracks=[{x:245,y:122,dx:1,dy:0,len:130},{x:443,y:269,dx:1,dy:0,len:150},{x:545,y:257,dx:0,dy:-1,len:146}];
+const researchNotes=["BASS-II estudió la propagación de llamas sobre sólidos en microgravedad. La ausencia de gravedad no significa que la llama permanezca inmóvil.","El oxígeno, el combustible y la geometría también influyen: el flujo por sí solo no predice todo el comportamiento.","Las pruebas de microgravedad contribuyen a comprender la seguridad de las naves. La ventilación puede modificar la llama."];
 function reset(){
- player={x:77,y:182,vx:0,vy:0};sealed=[false,false,false];particles=[];hp=3;elapsed=0;immunity=0;spawnTick=0;until=0;
+ player={x:77,y:182,vx:0,vy:0};sealed=[false,false,false];fronts=[.05,.05,.05];flowChanges=0;particles=[];hp=3;elapsed=0;immunity=0;spawnTick=0;until=0;
  for(const key in keys)keys[key]=false;
  document.querySelectorAll("[data-dir]").forEach(b=>b.classList.remove("pressed"));
- updateHud();$("message").textContent="Sella las estaciones para detener las fuentes de peligro.";
+ updateHud();$("message").textContent="¡Alerta! El fuego avanza hacia módulos críticos.";$("scienceText").textContent="Las llamas pueden propagarse sobre materiales sólidos en microgravedad. Observa cómo influye la ventilación.";
 }
 function updateHud(){
  $("hp").textContent=("♥ ".repeat(hp)+"♡ ".repeat(3-hp)).trim();
  $("count").textContent=sealed.filter(Boolean).length+" / 3";
  const secs=Math.floor(elapsed/60);$("timer").textContent=String(Math.floor(secs/60)).padStart(2,"0")+":"+String(secs%60).padStart(2,"0");
+const risk=Math.round(100*Math.max(...fronts.map((v,i)=>sealed[i]?0:v)));$("fireLevel").textContent=risk+" %";$("dangerPct").textContent=risk+" %";$("dangerMeter").value=risk;
 }
 function notify(s){$("message").textContent=s;until=elapsed+170;}
 function begin(){
@@ -152,16 +155,16 @@ function nearest(){
 function activate(){
  if(mode!=="playing")return;
  const i=nearest();if(i<0){notify("Acércate a una estación azul y vuelve a pulsar SELLAR.");return;}
- sealed[i]=true;particles=particles.filter(p=>p.from!==i);
- notify("¡Estación "+stations[i].label+" sellada! Ya no genera partículas.");
+ sealed[i]=true;particles=particles.filter(p=>p.from!==i);$("scienceText").textContent=researchNotes[i];
+ notify("¡Foco "+stations[i].label+" contenido! Su frente de fuego se detuvo.");
  updateHud();if(sealed.every(Boolean))finish(true);
 }
 function finish(won){
  mode=won?"won":"lost";$("pauseButton").disabled=true;$("sealButton").disabled=true;
  $("endTitle").textContent=won?"¡Protocolo completado!":"Robot fuera de servicio";
- $("endMessage").textContent=won?"Has activado las tres estaciones y controlado las fuentes de peligro.":"La integridad del robot llegó a cero. Puedes volver a intentarlo, cambiar tu ruta y ajustar el flujo.";
+ $("endMessage").textContent=won?"¡Contuviste los tres focos antes de que las llamas alcanzaran los sistemas críticos!":hp<=0?"El robot perdió su integridad. Esquiva las brasas y ensaya otra ruta.":"El frente de fuego alcanzó un módulo crítico. No basta con evitar partículas: debes actuar antes de que las llamas se propaguen.";
  $("stats").replaceChildren();
- ["Estaciones "+sealed.filter(Boolean).length+"/3","Tiempo "+$("timer").textContent,"Integridad "+hp+"/3"].forEach(t=>{const b=document.createElement("b");b.textContent=t;$("stats").append(b);});
+ ["Estaciones "+sealed.filter(Boolean).length+"/3","Tiempo "+$("timer").textContent,"Integridad "+hp+"/3","Cambios de flujo "+flowChanges].forEach(t=>{const b=document.createElement("b");b.textContent=t;$("stats").append(b);});
  $("endCard").showModal();
 }
 function touchesWall(x,y,r){
@@ -189,7 +192,11 @@ function tick(dt){
  const nx=player.x+player.vx*dt,ny=player.y+player.vy*dt;
  if(!touchesWall(nx,player.y,9))player.x=nx;else player.vx*=-.12;
  if(!touchesWall(player.x,ny,9))player.y=ny;else player.vy*=-.12;
- spawnTick+=dt;if(spawnTick>=29){spawnTick-=29;generate();}
+ // Velocidades deliberadamente ficticias: NO corresponden a resultados experimentales.
+const rates={0:.00016,20:.00028,40:.00043};
+fronts.forEach((v,i)=>{if(!sealed[i])fronts[i]=Math.min(1,v+rates[flow]*dt*(1+i*.04));});
+if(fronts.some((v,i)=>!sealed[i]&&v>=1)){updateHud();finish(false);return;}
+spawnTick+=dt;if(spawnTick>=29){spawnTick-=29;generate();}
  const drift=flow/40;
  particles=particles.filter(p=>p.t>0);
  particles.forEach(p=>{
@@ -201,7 +208,7 @@ function tick(dt){
    if(Math.hypot(p.x-player.x,p.y-player.y)<10+p.r)hit();
  });
  vents.forEach(v=>{if(!sealed[v.station]&&Math.hypot(v.x-player.x,v.y-player.y)<18)hit();});
- if(until<elapsed)$("message").textContent=nearest()>=0?"Estación al alcance. Pulsa E o SELLAR.":"Muévete hacia las estaciones azules; evita las partículas naranja.";
+ if(until<elapsed){const risk=Math.round(Math.max(...fronts.map((v,i)=>sealed[i]?0:v))*100);$("message").textContent=nearest()>=0?"¡Terminal al alcance! Pulsa E / SELLAR para detener ese foco.":risk>70?"¡PELIGRO! Las llamas se acercan a un equipo crítico.":"¡El fuego está avanzando! Controla el flujo y llega a las estaciones.";}
  updateHud();
 }
 function rect(x,y,w,h,color){c.fillStyle=color;c.fillRect(Math.round(x),Math.round(y),w,h);}
@@ -219,6 +226,20 @@ function render(){
     rect(v.x-5,v.y-10-pulse,10,16+pulse,"#f29a49");
     rect(v.x-3,v.y-5-pulse,6,10,"#ffe18d");
    }else txt("✓",v.x,v.y+5,17,"#b8ffdc","center");
+ });
+ // Frentes de llama que avanzan por materiales sólidos; visualización ilustrativa, no modelo físico.
+ tracks.forEach((t,i)=>{
+   const head=fronts[i]*t.len;
+   for(let d=0;d<=t.len;d+=6){const x=t.x+t.dx*d,y=t.y+t.dy*d,ash=d<=head;rect(x-4,y-4,8,8,ash?"#793e2a":"#526875");if(!ash)rect(x-2,y-2,4,4,"#a7c0b9");}
+   if(!sealed[i]){
+     const fx=t.x+t.dx*head,fy=t.y+t.dy*head,pulse=Math.round(Math.sin(frame*.2+i)*2);
+     rect(fx-6,fy-12-pulse,12,17+pulse,"#f38242");rect(fx-3,fy-9-pulse,6,11+pulse,"#ffd37b");
+   }
+   const ex=t.x+t.dx*t.len,ey=t.y+t.dy*t.len;
+   rect(ex-10,ey-10,20,20,sealed[i]?"#246a53":"#8d3434");
+   rect(ex-6,ey-6,12,12,sealed[i]?"#8ce1b8":"#ffb67e");
+   txt(sealed[i]?"✓":"!",ex,ey+4,13,"#fff","center");
+   txt("MÓDULO "+stations[i].label,ex,ey+(t.dx?-18:24),9,sealed[i]?"#9decc5":"#ffc6a7","center");
  });
  particles.forEach(p=>{
    rect(p.x,p.y,p.r,p.r,p.t<45?"#c97847":"#ffd18a");
@@ -254,7 +275,9 @@ $("pauseButton").addEventListener("click",togglePause);
 $("sealButton").addEventListener("click",activate);
 document.querySelectorAll("[data-flow]").forEach(b=>b.addEventListener("click",()=>{
  flow=Number(b.dataset.flow);document.querySelectorAll("[data-flow]").forEach(a=>a.setAttribute("aria-pressed",String(a===b)));
- if(mode==="playing")notify("Flujo ilustrativo: "+flow+" cm/s. Cambia la deriva de partículas.");
+ if(mode==="playing"){flowChanges++;
+$("scienceText").textContent=flow===0?"En este juego, menos flujo hace más lento el avance. Sin embargo, BASS-II observó que algunas llamas persisten con flujo muy bajo: el riesgo no desaparece.":flow===20?"La ventilación modifica el transporte en este escenario. En ciencia real, la respuesta depende del oxígeno, material y orientación del flujo.":"BASS-II observó que algunas llamas tenues se intensifican al aumentar bruscamente el flujo. Las velocidades que ves aquí son ficticias.";
+notify("Ventilación ilustrativa: "+flow+" cm/s. ¡Observa los frentes!");}
 }));
 document.addEventListener("keydown",e=>{
  const k=e.key.toLowerCase(),dir=keyMap[k];
