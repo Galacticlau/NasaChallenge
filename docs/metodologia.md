@@ -28,7 +28,7 @@ Las dimensiones y pesos de la implementación actual son:
 | Mediciones | 0,17 |
 | Objetivos | 0,16 |
 
-También se incorpora un solapamiento léxico entre los textos de objetivos, con peso **0,12**. Se excluyen algunas etiquetas genéricas de ausencia de información. Cuando una dimensión no cuenta con etiquetas comparables en ambas investigaciones, no participa en el denominador. El resultado es la media ponderada de las coincidencias disponibles, multiplicada por 100 y redondeada. Se requieren al menos dos dimensiones de etiquetas comparables. La vista muestra cuántas contribuyen al cálculo. El modo inicial usa etiquetas de respaldo directo. La opción exploratoria incorpora también los vínculos indirectos y las etiquetas por verificar.
+También se incorpora un solapamiento léxico entre los textos de objetivos, con peso **0,12**. Participan las etiquetas que tienen un vínculo explícito o inferido documentado. Cuando una dimensión no cuenta con etiquetas comparables en ambas investigaciones, no participa en el denominador. El resultado es la media ponderada de las coincidencias disponibles, multiplicada por 100 y redondeada. Se requieren al menos dos dimensiones de etiquetas comparables. La vista muestra cuántas contribuyen al cálculo. El modo inicial usa los vínculos explícitos. La opción exploratoria incorpora también los vínculos inferidos.
 
 **Precaución:** el índice representa **similitud documental según etiquetas y vocabulario**, no porcentaje de pruebas iguales, equivalencia física, validación estadística ni resultado de un modelo predictivo entrenado.
 
@@ -52,10 +52,11 @@ El catálogo toma las fichas de `data/investigaciones.json` y añade la revisió
 
 | Nivel | Qué significa |
 | --- | --- |
-| Respaldo directo | Un objetivo, método, resultado o campo de catálogo respalda la asociación. Cuando la fuente dice «Base del proyecto», la evidencia es el resumen disponible. |
-| Vínculo indirecto | El texto justifica una conexión temática o metodológica. El vínculo depende de una interpretación del alcance del estudio. |
-| Por verificar | Hay una etiqueta heredada o una hipótesis temática cuyo respaldo está pendiente, ausente o es ambiguo en la documentación consultada. |
+| Vínculo explícito | Un objetivo, método, resultado o campo de catálogo expresa una conexión con la categoría. Cuando la fuente dice «Base del proyecto», la evidencia es el resumen disponible. |
+| Vínculo inferido | Una interpretación justificada relaciona el contenido de la fuente con la categoría. |
+
+Si la evidencia es insuficiente o ambigua, omite la etiqueta. Registra los vínculos sustentados con `status: "explicito"` o `status: "inferido"`.
 
 Para incorporar nueva evidencia, localiza el ID PSI y el apartado preciso, revisa el contexto completo, indica si el contenido es un objetivo, una condición propuesta, un parámetro de procedimiento, un valor observado o una salida calculada, y actualiza la entrada pertinente en `data/evidencia.json`. Usa `source: "psi"` para el apartado de la ficha original consultada y `source: "base"` para un campo del catálogo. En una ficha técnica, registra además unidades, tipo de dato y, para una publicación distinta de PSI, su URL. Abre la ficha en el sitio para comprobar el resultado en Agrupar, Biblioteca y Comparar. Una etiqueta nueva puede añadirse en la revisión sin modificar la base histórica.
 
-Por ejemplo, SAFFIRE-I documenta crecimiento e inflamabilidad en *Objectives*. Sus lecturas térmicas y de gases en *Approach* motivan un vínculo indirecto con detección. SAME-R estudia explícitamente partículas de humo y relaciona esa evidencia con detectores. En FLEX, el intervalo de presión del procedimiento LOI describe cómo se eligieron condiciones y se conserva con ese alcance.
+Por ejemplo, SAFFIRE-I documenta crecimiento e inflamabilidad en *Objectives*. Sus lecturas térmicas y de gases en *Approach* motivan un vínculo inferido con detección. SAME-R estudia explícitamente partículas de humo y relaciona esa evidencia con detectores. En FLEX, el intervalo de presión del procedimiento LOI describe cómo se eligieron condiciones y se conserva con ese alcance.
