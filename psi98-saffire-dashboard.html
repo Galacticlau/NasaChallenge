@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>PSI-98 · SAFFIRE-I | Dashboard explicado · fuentes originales</title>
+<title>PSI-98 · SAFFIRE-I | Flight Deck · Flame Atlas</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 :root{--bg:#07101c;--panel:#101d2d;--panel2:#14253a;--line:#263c55;--txt:#edf5ff;--muted:#9eb0c7;--cyan:#56d8ef;--blue:#82aaff;--orange:#ffbd72;--green:#70e0b5;--red:#ff7d91}
@@ -56,26 +56,127 @@ button:hover{border-color:#9df5ff}
 th{position:sticky;top:0;background:#173550}
 td{color:#cfe2f0}
 @media(max-width:580px){main{padding:14px 10px 30px}.return-link{width:100%;justify-content:center}.console-note{padding:12px}}
+
+/* PSI-98 visualization · flight deck presentation only */
+html{scroll-behavior:smooth;scroll-padding-top:75px}
+:root{--bg:#050b15;--panel:#101d2e;--line:#365e7a;--txt:#eaf6fe;--muted:#a4c1d1;--cyan:#8ceafb;--orange:#ffcc97}
+body{background:radial-gradient(ellipse at 0% -10%,#24455b,transparent 48%),radial-gradient(ellipse at 100% 5%,#162b45,transparent 35%),#050a14}
+main{max-width:1500px;padding:18px 26px 66px}
+header{padding:15px 0 25px;align-items:center;border-bottom:1px solid #42677d}
+header h1{font:900 clamp(40px,5.6vw,76px)/1 ui-monospace,Consolas,monospace;letter-spacing:-.065em}
+.headline-hyphen{color:#8eeaf7}
+.headline-code{display:inline-flex;vertical-align:middle;font:800 14px/1.2 system-ui;letter-spacing:1px;color:#ffcc95;border:1px solid #8d7352;border-radius:7px;padding:7px 9px;background:#392e224f}
+header .sub{font-size:15px;line-height:1.65}
+.deck-nav{display:flex;gap:4px;position:sticky;top:0;z-index:20;padding:10px 0;margin-bottom:15px;overflow:auto;white-space:nowrap;background:#081626f5;backdrop-filter:blur(12px);border-bottom:1px solid #35566e}
+.deck-nav a{display:inline-block;color:#b0d3df;font-size:12px;text-decoration:none;font-weight:850;padding:10px 12px;border-radius:8px;border:1px solid transparent}
+.deck-nav a:hover,.deck-nav a:focus-visible{background:#184157;border-color:#4a8296;color:#e2fbff}
+.flight-console{background:radial-gradient(ellipse at 83% 10%,#1a485a,transparent 55%),linear-gradient(135deg,#133248,#081726);border:1px solid #47768e;border-radius:17px;overflow:hidden;box-shadow:0 20px 45px #0006}
+.console-heading{display:flex;justify-content:space-between;gap:10px;padding:13px 20px;background:#081829a5;border-bottom:1px solid #345a71;color:#8dded9;font:800 11px/1.4 ui-monospace,monospace;letter-spacing:1px}
+.console-heading span:last-child{color:#9fb8c7}
+.console-dot{display:inline-block;height:8px;width:8px;background:#7feac2;border-radius:50%;box-shadow:0 0 12px #6fe8bd;margin-right:6px}
+.console-body{display:grid;grid-template-columns:1fr 1.12fr;gap:21px;align-items:center;padding:22px}
+.console-label{font-size:12px;letter-spacing:1.7px;font-weight:900;color:#9fcede}
+.console-flow{display:flex;gap:14px;align-items:baseline}
+.console-flow strong{font:900 clamp(86px,11vw,163px)/1 ui-monospace,Consolas,monospace;letter-spacing:-.1em;color:#9bfff0;text-shadow:0 0 45px #5deec733}
+.console-flow span{font-size:clamp(21px,2.3vw,34px);font-weight:800;color:#b4eff3}
+.console-overview p{font-size:13px;max-width:460px;color:#c0d4e1;line-height:1.6}
+.console-chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:16px}
+.console-chips span{font-size:11px;color:#b6eceb;border:1px solid #417b8c;background:#163d4d;border-radius:7px;padding:6px 8px;font-weight:800}
+.schematic{min-height:238px;background:linear-gradient(140deg,#0b1d2b,#102b3d);border:1px solid #416e86;border-radius:12px;padding:15px 19px}
+.schematic-label{font:800 10px/1.4 ui-monospace,Consolas,monospace;color:#a2ddeb;letter-spacing:1px}
+.schematic-tube{display:flex;align-items:center;justify-content:space-between;height:120px;margin:13px 0 9px;padding:15px 25px;gap:22px;background:linear-gradient(#0b2a42,#091b2c);border:5px solid #3b5c75;border-radius:10px;overflow:hidden}
+.schematic-fan{flex:none;width:80px;height:80px;border:5px solid #518eaa;border-radius:50%;background:#09283a;display:grid;place-items:center}
+.schematic-rotor{font-size:65px;line-height:1;color:#b0e5ef;animation:rotateFan 2.3s linear infinite}
+.schematic-stream{display:flex;flex:1;justify-content:space-around}
+.schematic-stream i{width:20%;height:3px;background:linear-gradient(90deg,#a1ebf9,transparent);animation:breeze 1.8s ease-in-out infinite alternate}
+.schematic-stream i:nth-child(2){animation-delay:.25s}
+.schematic-stream i:nth-child(3){animation-delay:.45s}
+.schematic-stream i:nth-child(4){animation-delay:.65s}
+.schematic-fuel{flex:none;height:77px;width:30px;border:4px solid #688797;background:repeating-linear-gradient(40deg,#b0a58d 0 6px,#817d72 6px 12px)}
+.schematic p{font-size:11px;line-height:1.5;color:#9eb9c9;margin:12px 0 0}
+.console-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#081a2ac9;border-top:1px solid #35536a}
+.console-metrics>div{padding:14px 19px;border-right:1px solid #31566b}
+.console-metrics>div:last-child{border-right:none}
+.console-metrics small{display:block;font-size:10px;color:#a4c5d2;letter-spacing:1px;font-weight:850}
+.console-metrics strong{display:block;font:850 clamp(22px,2.6vw,35px)/1.4 ui-monospace,Consolas,monospace;color:#e8faff}
+.console-metrics em{font:700 13px system-ui;color:#b4d8e4}
+section{scroll-margin-top:78px}
+section>.head{padding-bottom:11px;border-bottom:1px solid #2e5066;align-items:center}
+h2{font:850 20px system-ui;letter-spacing:-.02em}
+.card{padding:20px;border-color:#385f79;background:linear-gradient(155deg,#142a40,#0c1a2b)}
+.card:hover{border-color:#608ba2}
+.card .v{font:850 clamp(28px,2.8vw,40px)/1.3 ui-monospace,Consolas,monospace;color:#a5f5f4}
+.card .k{font-size:11px;letter-spacing:1px}
+.test-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
+.test-card{background:linear-gradient(140deg,#13364b,#0b1c2c);border:1px solid #436e88;border-radius:13px;padding:19px}
+.test-card:nth-child(2){background:linear-gradient(140deg,#292e44,#0b1c2c);border-color:#665f85}
+.test-heading{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.test-heading span{font:850 18px ui-monospace,Consolas,monospace;background:#154158;padding:6px 10px;border-radius:7px;color:#c3f7ff}
+.test-heading b{font-size:11px;color:#b1d4e0;letter-spacing:1px;text-align:right}
+.test-time strong{font:900 clamp(52px,6vw,78px)/1.2 ui-monospace,Consolas,monospace;color:#ffdaa6;letter-spacing:-.08em}
+.test-time span{font-size:14px;color:#bfd5df;margin-left:7px}
+.test-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.test-metrics div{border:1px solid #355c72;background:#0a2336;padding:9px;border-radius:8px;font-size:10px;color:#aec8d6}
+.test-metrics strong{display:block;color:#e0f5fe;font-size:12px;margin-top:2px}
+.test-card p{font-size:12px;color:#bbd0dc;margin-bottom:0}
+.table-intro{display:flex;justify-content:space-between;gap:10px;font-size:11px;color:#9ebbc9;margin:14px 0 8px}
+.audit-flag{display:flex;gap:12px;align-items:center;padding:13px;border:1px solid #467d84;background:#102f40;border-radius:10px}
+.audit-symbol{display:grid;place-items:center;flex:none;width:33px;height:33px;border-radius:8px;background:#1b5446;color:#99efc9;font-size:21px}
+.audit-flag strong{color:#e0fbf1;font-size:13px}
+.audit-flag p{margin:3px 0 0;color:#b7cfda;font-size:12px}
+.scientific-details{margin-top:8px}
+.scientific-details summary{cursor:pointer;font-weight:850;color:#d8f7f3}
+.audit-expanded{padding-top:12px}
+.chart{height:360px}
+.chart.tall{height:415px}
+@keyframes rotateFan{to{transform:rotate(360deg)}}
+@keyframes breeze{from{opacity:.25;transform:translateX(-8px)}to{opacity:1;transform:translateX(6px)}}
+@media(max-width:950px){.console-body{grid-template-columns:1fr}.console-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.console-metrics>div:nth-child(2){border-right:0}.console-metrics>div:nth-child(-n+2){border-bottom:1px solid #31566b}}
+@media(max-width:680px){main{padding:12px}.console-body{padding:14px}.console-flow strong{font-size:105px}.test-cards{grid-template-columns:1fr}.console-heading{padding:12px;flex-wrap:wrap}.test-metrics{grid-template-columns:repeat(3,1fr)}.deck-nav{margin-left:-10px;margin-right:-10px}h1{font-size:47px}header .actions{width:100%}}
+@media(max-width:420px){.schematic-tube{padding:8px}.schematic-fan{width:60px;height:60px}.schematic-rotor{font-size:49px}.schematic-fuel{height:65px}.test-metrics{grid-template-columns:1fr 1fr}.console-metrics>div{padding:11px}.console-metrics strong{font-size:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.schematic-rotor,.schematic-stream i{animation:none}}
 </style></head>
 <body><main>
-<header><div><div class="eyebrow">NASA · Physical Sciences Informatics · Fuentes originales</div><h1>PSI-98 / SAFFIRE-I</h1>
-<div class="sub">Datos originales, explicación de variables y gráficos de los ensayos S1 y S2.</div>
+<header><div><div class="eyebrow">NASA · Physical Sciences Informatics · Fuentes originales</div><h1>SAFFIRE<span class="headline-hyphen">–I</span> <span class="headline-code">PSI-98</span></h1>
+<div class="sub">Condiciones experimentales, registros de sensores y comparación de S1/S2 en una consola de exploración científica.</div>
 <div class="muted" id="period"></div><div class="provenance">BETA DASHBOARD · NASA-verified test summary + uploaded telemetry extract</div></div>
 <div class="actions"><a href="index.html#biblioteca" class="return-link">← Volver a Flame Atlas</a><button id="all" class="active" onclick="setMode('all')">Registro completo</button><button id="focus" onclick="setMode('focus')">Ventana desde 14.950 s</button></div>
 </header>
-
-
-
-
-<section class="source-audit"><div class="head"><h2>Auditoría científica · Qué está verificado</h2><span class="pill"><i></i> BETA CIENTÍFICA</span></div>
-<div class="console-note">
+<nav class="deck-nav" aria-label="Navegación de los datos">
+ <a href="#resumen">Resumen</a><a href="#ensayos">Ensayos S1 / S2</a><a href="#telemetria">Telemetría</a><a href="#ambiente">Sensores Cygnus</a><a href="#auditoria">Auditoría</a><a href="#documentacion">Documentación</a>
+</nav>
+<div id="resumen" class="flight-console">
+ <div class="console-heading"><span><i class="console-dot"></i> SAFFIRE-I · FLIGHT DATA CONSOLE</span><span>ARCHIVO HISTÓRICO · NO ES TELEMETRÍA EN VIVO</span></div>
+ <div class="console-body">
+   <div class="console-overview">
+     <div class="console-label">FLUJO DE AIRE DOCUMENTADO</div>
+     <div class="console-flow"><strong>20</strong><span>cm/s</span></div>
+     <p>Velocidad de referencia informada para ambos ensayos. La dirección del flujo difiere entre S1 y S2.</p>
+     <div class="console-chips"><span>SIBAL</span><span>75 % algodón</span><span>25 % fibra de vidrio</span></div>
+   </div>
+   <div class="schematic" role="img" aria-label="Esquema ilustrativo, no a escala, de un ventilador que dirige aire hacia una muestra SIBAL.">
+     <div class="schematic-label">DIAGRAMA CONCEPTUAL · NO A ESCALA</div>
+     <div class="schematic-tube"><div class="schematic-fan"><div class="schematic-rotor">✣</div></div><div class="schematic-stream"><i></i><i></i><i></i><i></i></div><div class="schematic-fuel"></div></div>
+     <p>Animación decorativa. No representa el comportamiento registrado ni una simulación de combustión.</p>
+   </div>
+ </div>
+ <div class="console-metrics">
+  <div><small>IGNICIÓN</small><strong>182 <em>W</em></strong></div>
+  <div><small>DURACIÓN DE IGNICIÓN</small><strong>8 <em>s</em></strong></div>
+  <div><small>ESPESOR PUBLICADO</small><strong>0,37 <em>mm</em></strong></div>
+  <div><small>ANCHO PUBLICADO</small><strong>40,6 <em>cm</em></strong></div>
+ </div>
+</div>
+<section class="source-audit" id="auditoria"><div class="head"><h2>Auditoría de fuentes y precisión</h2><span class="pill"><i></i> BETA CIENTÍFICA</span></div>
+<div class="audit-flag"><span class="audit-symbol">✓</span><div><strong>Resultados físicos contrastados con publicaciones de NASA.</strong><p>Los canales de telemetría son extractos del HTML aportado, aún pendientes de cotejo fila por fila con los archivos brutos. Puedes revisar los detalles de verificación aquí.</p></div></div>
+<details class="console-note scientific-details"><summary>Revisar discrepancias, limitaciones y fuentes originales</summary><div class="audit-expanded">
   <strong>Datos contrastados con NASA:</strong> material SIBAL (75 % algodón y 25 % fibra de vidrio), velocidad de aire 20 cm/s, 0,37 <b>mm</b> de espesor, 40,6 cm de <b>ancho</b> y 94 cm de <b>largo inicial</b> en S1. El ensayo S2 utilizó aproximadamente 10 cm remanentes de la misma muestra después de S1. La potencia de 182 W y los tiempos de 8 s de ignición, 420 s y 70 s de duración figuran en la tabla de resultados de NASA.
   <p><strong>Discrepancia en la tabla CSV incorporada:</strong> sus encabezados declaran «thickness (cm) = 0.37», «length (cm) = 40.6» y «width (cm) = 94». Son incompatibles con las dimensiones físicas publicadas por NASA (espesor 0,37 mm, ancho 40,6 cm y largo 94 cm). La tabla resumida que ves abajo usa <strong>las magnitudes verificadas</strong>, sin alterar la telemetría incrustada ni ocultar esta diferencia.</p>
   <p><strong>Telemetría:</strong> las series provienen de los valores incorporados en el HTML adjunto, atribuidos al archivo Excel citado. No se adjuntaron aquí los archivos fuente originales para comprobar cada fila, su calibración o sincronización: se muestran como <em>extractos aportados</em>, no como mediciones independientemente validadas por este sitio.</p>
   <p><strong>S1 y S2 no son réplicas equivalentes.</strong> Aproximadamente el 90 % del material se consumió en el primer ensayo; por tanto, no atribuyas las diferentes duraciones a la dirección del flujo por sí sola.</p>
   <div class="source-links"><a href="https://psi.nasa.gov/physci/repo/data/investigations/PSI-98" target="_blank" rel="noopener noreferrer">NASA PSI-98 ↗</a><a href="https://ntrs.nasa.gov/api/citations/20170008805/downloads/20170008805.pdf" target="_blank" rel="noopener noreferrer">NASA · Resultados SAFFIRE (Tabla I) ↗</a></div>
-</div></section>
-<section><div class="head"><h2>01 · Vista general del conjunto de datos</h2><span class="hint" id="modeLabel">Mostrando registros completos de cada hoja</span></div>
+</div></div></details></section>
+<section id="inventario"><div class="head"><h2>Inventario de registros</h2><span class="hint" id="modeLabel">Mostrando registros completos de cada hoja</span></div>
 <div class="grid">
 <div class="card"><div class="k">Telemetría SAFFIRE</div><div class="v">105</div><div class="note">Registros con tiempo y canales completos en SaffireData</div></div>
 <div class="card"><div class="k">Temperatura Cygnus</div><div class="v">322</div><div class="note">Registros de la hoja dedicada</div></div>
@@ -83,7 +184,20 @@ td{color:#cfe2f0}
 <div class="card"><div class="k">Detectores de humo</div><div class="v">561</div><div class="note">289 oscurecimiento + 272 dispersión</div></div>
 </div></section>
 
-<section><div class="head"><h2>02 · Parámetros de las muestras</h2><span class="hint">Fuente: PSI-98_Experimental table_SAFFIRE-1.csv</span></div>
+<section id="ensayos"><div class="head"><h2>Comparación de ensayos</h2><span class="hint">Magnitudes publicadas por NASA · Códigos de cámaras del CSV aportado</span></div>
+<div class="test-cards">
+ <article class="test-card"><div class="test-heading"><span>S1</span><b>FLUJO CONCURRENTE</b></div>
+   <div class="test-time"><strong>420</strong> <span>segundos</span></div>
+   <div class="test-metrics"><div>FLUJO <strong>20 cm/s</strong></div><div>OXÍGENO <strong>21,7–21,5 %</strong></div><div>COMBUSTIBLE <strong>Muestra inicial</strong></div></div>
+   <p>Duración consignada del primer ensayo con tejido SIBAL.</p>
+ </article>
+ <article class="test-card"><div class="test-heading"><span>S2</span><b>FLUJO OPUESTO</b></div>
+   <div class="test-time"><strong>70</strong> <span>segundos</span></div>
+   <div class="test-metrics"><div>FLUJO <strong>20 cm/s</strong></div><div>OXÍGENO <strong>≈21,5 %</strong></div><div>COMBUSTIBLE <strong>Material residual</strong></div></div>
+   <p>S2 utilizó alrededor de 10 cm de material remanente de S1. La diferencia de duración no aísla el efecto de la dirección.</p>
+ </article>
+</div>
+<div class="table-intro"><strong>PARÁMETROS FÍSICOS</strong><span>Desplázate horizontalmente para ver todos los campos</span></div>
 <div class="card scroll"><table><thead><tr><th>Ensayo</th><th>Material</th><th>Espesor NASA</th><th>Largo efectivo NASA</th><th>Ancho NASA</th><th>Flujo</th><th>O₂</th><th>Potencia</th><th>Ignición</th><th>Duración registrada</th><th>Dirección</th><th>Cámaras (CSV)</th></tr></thead><tbody id="samples"></tbody></table></div>
 <div class="info" style="margin-top:12px"><strong>Tabla física corregida según NASA:</strong> estas dimensiones y resultados proceden de la Tabla I, no de una reinterpretación automática de los encabezados del CSV. S2 no fue una muestra nueva de 94 cm: se ensayó material restante de S1. Los códigos de cámaras se conservan como etiquetas del archivo de origen aportado. <strong>Qué significa cada parámetro:</strong><p><b>Material y espesor:</b> describen el combustible probado y su grosor. <b>Largo y ancho:</b> tamaño de la muestra. <b>Flujo de aire:</b> velocidad del aire indicada en la tabla. <b>O₂:</b> porcentaje de oxígeno del ambiente. <b>Potencia y tiempo de ignición:</b> energía por unidad de tiempo aplicada por el sistema de encendido y cuánto duró esa aplicación. <b>Tiempo de combustión:</b> duración anotada para la quema. <b>Dirección:</b> si el aire iba en el mismo sentido general de propagación (concurrente) o en sentido contrario (opuesto). <b>Cámaras:</b> identificadores de las cámaras que registraron el ensayo.</p><p><b>Para qué sirve:</b> comparar las condiciones de S1 y S2 y detectar qué parámetros son iguales y cuáles cambian. En estos datos, la dirección del flujo cambia junto con el tiempo de combustión; con solo dos ensayos no se puede demostrar que esa sea la única causa de la diferencia.</p></div>
 <div class="three" style="margin-top:13px">
@@ -92,7 +206,7 @@ td{color:#cfe2f0}
 <div class="card"><div class="k">Condiciones comunes</div><div class="v">182 W</div><div class="note">Potencia de ignición consignada para ambas muestras; ignición 8 s</div></div>
 </div></section>
 
-<section><div class="head"><h2>03 · Verificación de requisitos NASA</h2><span class="hint">Fuente: SFSDP-VIS-0295 · aprobado 26/03/2015</span></div>
+<section id="verificacion"><div class="head"><h2>Verificación del montaje</h2><span class="hint">Fuente: SFSDP-VIS-0295 · aprobado 26/03/2015</span></div>
 <div class="grid">
 <div class="card"><div class="k">Tamaño requerido</div><div class="v">300 × 800</div><div class="note">mm · ancho × largo requerido</div></div>
 <div class="card"><div class="k">Tamaño objetivo</div><div class="v">500 × 1000</div><div class="note">mm · ancho × largo objetivo indicado en el documento</div></div>
@@ -104,9 +218,9 @@ td{color:#cfe2f0}
 <div class="card"><h3 style="margin:0 0 8px;color:var(--cyan)">Cómo leer las dimensiones</h3><p>El documento de verificación presenta dimensiones de requisito (300 × 800 mm) y dimensiones objetivo (500 × 1000 mm). El CSV de la tabla experimental registra para S1 y S2 94 cm de ancho y 40,6 cm de largo. Son campos de fuentes y contextos distintos; este dashboard no los fusiona ni los declara equivalentes.</p><p class="small">El PDF menciona los planos 120102MFA000 y 120102MFA310. Los planos no están incluidos como páginas en el PDF cargado.</p></div>
 </div></section>
 
-<section><div class="head"><h2>Cómo leer los gráficos</h2><span class="hint">Guía rápida para interpretar las curvas</span></div><div class="three"><div class="card"><h3>Eje horizontal (X)</h3><p>Representa el tiempo transcurrido en segundos. Permite ubicar cuándo ocurre un cambio.</p></div><div class="card"><h3>Eje vertical (Y)</h3><p>Representa el valor medido por el sensor. La unidad depende de la variable: cm/s, °C, psi o voltios, entre otras.</p></div><div class="card"><h3>Curvas y puntos</h3><p>Cada color identifica un canal. Una subida o bajada muestra un cambio en la lectura, no necesariamente la causa del cambio. No compares alturas de variables con unidades distintas.</p></div></div></section>
+<section id="guiagraficos"><div class="head"><h2>Cómo leer las gráficas</h2><span class="hint">Guía rápida para interpretar las curvas</span></div><div class="three"><div class="card"><h3>Eje horizontal (X)</h3><p>Representa el tiempo transcurrido en segundos. Permite ubicar cuándo ocurre un cambio.</p></div><div class="card"><h3>Eje vertical (Y)</h3><p>Representa el valor medido por el sensor. La unidad depende de la variable: cm/s, °C, psi o voltios, entre otras.</p></div><div class="card"><h3>Curvas y puntos</h3><p>Cada color identifica un canal. Una subida o bajada muestra un cambio en la lectura, no necesariamente la causa del cambio. No compares alturas de variables con unidades distintas.</p></div></div></section>
 
-<section><div class="head"><h2>04 · Telemetría SAFFIRE</h2><span class="hint">Fuente: hoja SaffireData · 105 marcas temporales</span></div>
+<section id="telemetria"><div class="head"><h2>Telemetría · Instrumentación SAFFIRE</h2><span class="hint">Fuente: hoja SaffireData · 105 marcas temporales</span></div>
 <div class="two">
 <div class="card"><h3>Radiómetros 1–4</h3><div class="chart tall"><canvas id="rad"></canvas></div><p class="note"><strong>Qué mide:</strong> los radiómetros detectan radiación que llega a cada sensor. Los cuatro canales permiten comparar cómo cambia la señal en distintos puntos o direcciones del montaje.</p><p class="note"><strong>Cómo leerlo:</strong> eje horizontal = tiempo (segundos); eje vertical = lectura registrada por cada radiómetro. Compara las curvas para ver cuándo cambian y si los sensores responden de forma parecida. Los primeros valores cercanos a −4.000 se conservan, pero no se interpretan como radiación física negativa: falta la explicación de esa escala.</p></div>
 <div class="card"><h3>Anemómetros y columna Tach/100</h3><div class="chart tall"><canvas id="air"></canvas></div><p class="note"><strong>Qué mide:</strong> los anemómetros registran el movimiento del aire; la columna Tach/100 corresponde a una señal relacionada con la rotación del ventilador.</p><p class="note"><strong>Cómo leerlo:</strong> el eje horizontal es el tiempo y el vertical es la lectura de cada canal. Sirve para observar cambios en el flujo y en la señal del ventilador durante la prueba. No se deben llamar RPM a Tach/100 porque el archivo no especifica esa unidad; tampoco se asigna dirección física a los signos sin conocer la convención del sensor.</p></div>
@@ -114,13 +228,13 @@ td{color:#cfe2f0}
 <div class="card"><h3>Canales de ignición S1 y S2</h3><div class="chart"><canvas id="ign"></canvas></div><p class="note"><strong>Qué mide:</strong> son las señales de voltaje (V) y corriente (I) de los circuitos de ignición asociados a las muestras 1 y 2. El ignitor es el dispositivo que inicia la combustión.</p><p class="note"><strong>Cómo leerlo:</strong> permite revisar en qué momento cambian las señales eléctricas de cada ignitor y compararlas. No representa directamente la temperatura de la llama ni permite calcular potencia instantánea sin confirmar el método de medición y sincronización.</p></div>
 </div></section>
 
-<section><div class="head"><h2>05 · Detectores de humo y condiciones de Cygnus</h2><span class="hint">Cada sensor conserva sus marcas temporales propias</span></div>
+<section id="ambiente"><div class="head"><h2>Señales ambientales · Cygnus</h2><span class="hint">Cada sensor conserva sus marcas temporales propias</span></div>
 <div class="two">
 <div class="card"><h3>Oscurecimiento y dispersión</h3><div class="chart"><canvas id="smoke"></canvas></div><p class="note"><strong>Qué mide:</strong> el canal de oscurecimiento responde a la luz que atraviesa el aire y llega al detector; el scatterometer responde a la luz dispersada por partículas. Ambos son detectores ópticos de humo.</p><p class="note"><strong>Cómo leerlo:</strong> el eje horizontal muestra el tiempo propio de cada sensor y el vertical el voltaje de salida. Cambios en las curvas indican cambios en la respuesta óptica del detector. No equivalen a concentración de humo: para eso se necesita una calibración. Las series tienen diferente número de puntos y no deben compararse punto por punto.</p></div>
 <div class="card"><h3>Temperatura del aire y presión</h3><div class="chart"><canvas id="env"></canvas></div><p class="note"><strong>Qué mide:</strong> temperatura en grados Celsius (°C) y presión en psi en el entorno registrado por Cygnus. No son temperatura de llama ni presión diferencial del ventilador.</p><p class="note"><strong>Cómo leerlo:</strong> el tiempo aparece en el eje horizontal. Cada variable usa su propia escala vertical, porque °C y psi son unidades distintas. El gráfico sirve para comprobar si el ambiente se mantuvo estable o presentó variaciones durante el registro.</p></div>
 </div></section>
 
-<section><div class="head"><h2>06 · Auditoría de datos y límites de interpretación</h2><span class="hint">Hallazgos contrastados con las fuentes recién entregadas</span></div>
+<section id="limites"><div class="head"><h2>Interpretación y límites de los datos</h2><span class="hint">Hallazgos contrastados con las fuentes recién entregadas</span></div>
 <div class="notice" id="audit"></div>
 <div class="textgrid" style="margin-top:13px">
 <div class="card"><h3>Comparación S1 / S2</h3><p>S1 tiene flujo concurrente y registra 420 s de combustión; S2 tiene flujo opuesto y registra 70 s. La diferencia es descriptiva para estas dos pruebas. No basta para atribuir causalidad ni para generalizar a todos los ensayos de combustión en microgravedad.</p></div>
@@ -131,7 +245,7 @@ td{color:#cfe2f0}
 <div class="info" style="margin-top:13px"><strong>Canales de termopares</strong><p>El PDF verifica que se instalaron seis sensores en las ubicaciones requeridas, pero el Excel entregado no contiene seis series de medición de esos termopares. Por tanto, este dashboard puede documentar la verificación de instalación, pero no graficar temperaturas de llama en esos seis puntos.</p></div>
 </section>
 
-<section><div class="head"><h2>07 · Inventario de las hojas originales</h2><span class="hint">Conteos del archivo Excel entregado</span></div>
+<section id="documentacion"><div class="head"><h2>Documentación de archivos originales</h2><span class="hint">Conteos del archivo Excel entregado</span></div>
 <p class="hint">Este inventario permite saber de qué hoja sale cada gráfico y evita mezclar registros que tienen relojes o frecuencias de muestreo diferentes.</p><div class="card scroll"><table><thead><tr><th>Hoja</th><th>Contenido</th><th>Registros relevantes</th><th>Uso en el dashboard</th></tr></thead><tbody>
 <tr><td>RawData</td><td>Tabla combinada de telemetría SAFFIRE y Cygnus</td><td>9.749 filas totales; 2.645 con RelativeSeconds</td><td>Referencia de integración; no se usa para alinear series por posición</td></tr>
 <tr><td>SaffireData</td><td>Radiómetros, anemómetros, tacómetro, smoke wire e ignitores</td><td>105 filas con Relative Time (s)</td><td>Gráficos SAFFIRE</td></tr>
