@@ -19,9 +19,8 @@ const fields = {
   sensores_mediciones: 'Sensores y mediciones',
 };
 const levels = {
-  directo: 'Respaldo directo',
-  indirecto: 'Vínculo indirecto',
-  pendiente: 'Por verificar',
+  explicito: 'Vínculo explícito',
+  inferido: 'Vínculo inferido',
 };
 const domains = {
   Prevención: '¿Qué condiciones favorecen la ignición o propagación? Explora materiales, atmósferas y geometrías.',
@@ -34,7 +33,6 @@ const modalities = {
   'Experimentos y simulación': 'Mixta',
 };
 const weights = { modalidad: .16, familia: .07, combustible: .26, condiciones: .18, mediciones: .17, objetivos: .16 };
-const broadLabel = /^(?:no especificado|no precisad|no informad|otras investigaciones|otros objetivos)/i;
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
 const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (c) =>
@@ -65,16 +63,11 @@ function init(data, evidence) {
   function tagRecords(study, key) {
     const review = evidence[study.id];
     if (key === 'ambitos') return review?.ambitos ?? [];
-    const curated = review?.etiquetas?.[key] ?? {};
-    const labels = new Set([...(study.tags[key] ?? []).filter((label) => !broadLabel.test(label)), ...Object.keys(curated)]);
-    return [...labels].map((label) => {
-      if (curated[label]) return { label, ...curated[label] };
-      if (key === 'modalidad' && label === study.modalidad) {
-        return { label, status: 'directo', source: 'base', section: 'modalidad',
-          reason: 'Modalidad registrada por el proyecto. Puede integrar simulación de apoyo dentro de un estudio experimental.' };
-      }
-      return { label, status: 'pendiente', reason: 'Etiqueta de la base inicial. Su asignación queda por revisar con el apartado pertinente de la fuente.' };
-    });
+    if (key === 'modalidad' && study.modalidad) {
+      return [{ label: study.modalidad, status: 'explicito', source: 'base', section: 'modalidad',
+        reason: 'Modalidad registrada por el proyecto. Puede integrar simulación de apoyo dentro de un estudio experimental.' }];
+    }
+    return Object.entries(review?.etiquetas?.[key] ?? {}).map(([label, record]) => ({ label, ...record }));
   }
 
   function tags(study, key) {
@@ -157,11 +150,9 @@ function init(data, evidence) {
     $('#domainGroup').hidden = key !== 'ambitos';
     const filtered = data.filter((study) => (!mode || mode === study.modalidad) && matchesSearch(study, $('#search').value));
     const groups = new Map();
-    const unclassified = [];
     const grouped = new Set();
     for (const study of filtered) {
       const choices = tags(study, key).filter((review) => matchesLevel(review, level) && (!domain || review.label === domain));
-      if (choices.length === 0 && !domain) unclassified.push({ study });
       for (const review of choices) {
         if (!groups.has(review.label)) groups.set(review.label, []);
         groups.get(review.label).push({ study, review });
@@ -169,15 +160,14 @@ function init(data, evidence) {
       }
     }
     const sorted = [...groups].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], 'es'));
-    $('#countGroups').textContent = `${grouped.size} con etiquetas · ${sorted.length} grupos${unclassified.length ? ` · ${unclassified.length} sin etiqueta para este filtro` : ''}`;
-    if (unclassified.length) sorted.push(['Sin etiquetas con el respaldo elegido', unclassified]);
+    $('#countGroups').textContent = `${grouped.size} con etiquetas · ${sorted.length} grupos`;
     $('#groups').innerHTML = sorted.length ? sorted.map(([label, items]) => `
       <section class="group"><div class="group-h"><h3>${esc(label)} <span class="count">${items.length}</span></h3></div>
       <div class="group-grid">${items.map(({ study, review }) => `<div class="item">
         <input type="checkbox" data-pick="${esc(study.id)}" aria-label="Seleccionar ${esc(study.id)} para comparar">
-        <span class="item-text"><small>${esc(study.id)}${review ? ` · ${levels[review.status]}` : ''}</small>${studyButton(study)}</span>
+        <span class="item-text"><small>${esc(study.id)} · ${levels[review.status]}</small>${studyButton(study)}</span>
         ${sourceLink(study.url, 'PSI')}
-      </div>`).join('')}</div></section>`).join('') : empty('No se encontraron investigaciones con estos filtros.');
+      </div>`).join('')}</div></section>`).join('') : empty('No hay vínculos que coincidan con estos filtros.');
     renderSelection();
   }
 
@@ -216,13 +206,14 @@ function init(data, evidence) {
     const study = byId.get(id);
     const review = evidence[id];
     const technical = review?.tecnica;
+    const associations = tags(study, 'ambitos');
     focusedStudy = id;
     $('#studyDetail').innerHTML = `<div class="small">${esc(id)} · ${esc(study.modalidad)}</div>
       <h2 id="studyTitle">${esc(study.nombre)}</h2><p>${esc(study.titulo)}</p>
       <div class="detail-actions">${sourceLink(study.url, 'Abrir ficha NASA PSI')}
         <button class="secondary" type="button" data-add="${esc(id)}"></button></div>
-      <section class="detail-section"><h3>Ámbitos de seguridad</h3>
-        <div class="science-grid">${tags(study, 'ambitos').map((tag) => evidenceDetail(study, tag)).join('') || empty('No hay ámbitos revisados para esta ficha.')}</div></section>
+      ${associations.length ? `<section class="detail-section"><h3>Ámbitos de seguridad</h3>
+        <div class="science-grid">${associations.map((tag) => evidenceDetail(study, tag)).join('')}</div></section>` : ''}
       ${technical ? `<section class="detail-section"><h3>Ficha técnica ampliada</h3>
         <div class="science-grid">${technical.values.map((item) => `<article class="science-card">
           <h4>${esc(item.label)}</h4><strong>${esc(item.value)}</strong><p class="small">${esc(item.kind)}</p>
@@ -234,9 +225,9 @@ function init(data, evidence) {
           <div class="small">${esc(study.atributos[key]?.estado || 'Pendiente')} · Base del proyecto</div></details>`).join('')}</section>
       <section class="detail-section"><h3>Revisión de etiquetas</h3>
         <p class="small">${sourceLink("https://github.com/Galacticlau/NasaChallenge/blob/main/docs/metodologia.md#revisión-de-etiquetas", "Cómo incorporar evidencia")}</p>
-        ${Object.keys(categories).filter((key) => key !== 'ambitos').map((key) => `
-          <details><summary>${categories[key]} · ${tags(study, key).filter((tag) => tag.status === 'pendiente').length} por verificar</summary>
-            <div class="science-grid">${tags(study, key).map((tag) => evidenceDetail(study, tag)).join('') || empty('Sin etiquetas registradas.')}</div></details>`).join('')}</section>
+        ${Object.keys(categories).filter((key) => key !== 'ambitos' && tags(study, key).length).map((key) => `
+          <details><summary>${categories[key]}</summary>
+            <div class="science-grid">${tags(study, key).map((tag) => evidenceDetail(study, tag)).join('')}</div></details>`).join('')}</section>
       <section class="detail-section"><h3>Series temporales</h3>
         <p>El catálogo no incorpora una serie temporal verificada para este estudio. Consulta en la ficha PSI los archivos y publicaciones disponibles.</p></section>`;
     renderSelection();
@@ -263,7 +254,7 @@ function init(data, evidence) {
     let total = 0;
     let dimensions = 0;
     for (const [key, value] of Object.entries(weights)) {
-      const include = (tag) => tag.status === 'directo' || exploratory;
+      const include = (tag) => tag.status === 'explicito' || exploratory;
       const features = (study) => new Set(tags(study, key).filter(include).map((tag) => tag.label));
       const left = features(a);
       const right = features(b);
@@ -288,9 +279,9 @@ function init(data, evidence) {
   function renderSimilars() {
     const reference = byId.get($('#reference').value) || data[0];
     const min = Number($('#minScore').value);
-    const exploratory = $('#includeProvisional').checked;
+    const exploratory = $('#includeInferred').checked;
     $('#referenceDetail').innerHTML = `Referencia: ${studyButton(reference)} · ${esc(reference.modalidad)}.
-      El índice usa las etiquetas de respaldo directo y el vocabulario de los objetivos.${exploratory ? ' También incluye vínculos indirectos y etiquetas por verificar.' : ''}`;
+      El índice usa los vínculos explícitos y el vocabulario de los objetivos.${exploratory ? ' También incluye los vínculos inferidos.' : ''}`;
     const pairs = data.filter((study) => study !== reference).map((study) => ({ study, ...similarity(reference, study, exploratory) }));
     const ranked = pairs.filter(({ score }) => score !== null && score >= min).sort((a, b) => b.score - a.score || b.dimensions - a.dimensions);
     const unranked = pairs.filter(({ score }) => score === null);
@@ -311,10 +302,10 @@ function init(data, evidence) {
       ['ID y modalidad', (study) => ({ text: `${study.id} · ${study.modalidad}` })],
       ['Plataforma declarada', (study) => ({ text: declaredPlatform(study) })],
       ['Lugar del ensayo documentado', (study) => {
-        const site = tags(study, 'plataforma').find((tag) => tag.source === 'psi' && tag.status === 'directo');
+        const site = tags(study, 'plataforma').find((tag) => tag.source === 'psi' && tag.status === 'explicito');
         return site ? { text: site.label, estado: site.reason } : { text: 'Pendiente de revisión independiente' };
       }],
-      ['Ámbitos de seguridad', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') || 'Sin revisión' })],
+      ['Ámbitos de seguridad', (study) => ({ text: tags(study, 'ambitos').map((tag) => `${tag.label} (${levels[tag.status]})`).join(' · ') })],
       ...Object.entries(fields).map(([key, title]) => [title, (study) => study.atributos[key] ?? { text: 'Sin dato' }]),
       ['Ficha técnica ampliada', (study) => ({
         text: evidence[study.id]?.tecnica?.values.map((item) => `${item.label}: ${item.value} [${item.kind}; ${item.section}; ${item.url || study.url}]`).join(' · ')
@@ -331,7 +322,7 @@ function init(data, evidence) {
         const study = byId.get(id);
         return `<th scope="col">${esc(id)}<br>${studyButton(study)}<br>${sourceLink(study.url, 'NASA PSI')}</th>`;
       }).join('')}</tr></thead><tbody>${compareRows().map(([label, ...cells]) => `
-        <tr><th scope="row">${esc(label)}</th>${cells.map(({ text, estado }) => `<td>${esc(text || 'Sin dato')}${estado ? `<span class="status">${esc(estado)}</span>` : ''}</td>`).join('')}</tr>`).join('')}
+        <tr><th scope="row">${esc(label)}</th>${cells.map(({ text, estado }) => `<td>${esc(text ?? 'Sin dato')}${estado ? `<span class="status">${esc(estado)}</span>` : ''}</td>`).join('')}</tr>`).join('')}
         </tbody></table></div><p class="hint">Los datos comparados describen investigaciones. Un parámetro de procedimiento y una medición de un ensayo tienen alcances distintos.</p>`;
   }
 
@@ -371,7 +362,7 @@ function init(data, evidence) {
     $(selector).insertAdjacentHTML('beforeend', Object.keys(domains).map((name) => option(name)).join(''));
   });
   $$('.evidence-select').forEach((select) => {
-    select.innerHTML = Object.entries(levels).map(([key, label]) => option(key, label)).join('') + option('todas', 'Todos los niveles');
+    select.innerHTML = Object.entries(levels).map(([key, label]) => option(key, label)).join('') + option('todas', 'Todos los vínculos');
   });
   $('#reference').innerHTML = data.map((study) => option(study.id, `${study.id} · ${study.nombre}`)).join('');
 
@@ -402,7 +393,7 @@ function init(data, evidence) {
   $('#clearFilters').onclick = () => {
     $('#search').value = '';
     $('#groupBy').value = 'modalidad';
-    $('#groupEvidence').value = 'directo';
+    $('#groupEvidence').value = 'explicito';
     $('#groupDomain').value = '';
     setMode('');
   };
@@ -413,7 +404,7 @@ function init(data, evidence) {
     $('#featuredOnly').setAttribute('aria-pressed', featuredOnly);
     renderLibrary();
   };
-  ['#reference', '#minScore', '#includeProvisional'].forEach((id) => { $(id).onchange = renderSimilars; });
+  ['#reference', '#minScore', '#includeInferred'].forEach((id) => { $(id).onchange = renderSimilars; });
   $('#goCompare').onclick = () => navigate('comparar');
   $('#clearSelection').onclick = () => { selected = []; renderSelection(); };
   $('#downloadCSV').onclick = downloadCSV;
@@ -429,7 +420,7 @@ function init(data, evidence) {
   readHash();
 }
 
-Promise.all([getJSON('data/investigaciones.json'), getJSON('data/evidencia.json')])
+Promise.all([getJSON('data/investigaciones.json'), getJSON('data/evidencia.json?v=vinculos')])
   .then(([data, evidence]) => {
     if (!Array.isArray(data) || data.length === 0) throw new Error('Catálogo vacío');
     init(data, evidence);

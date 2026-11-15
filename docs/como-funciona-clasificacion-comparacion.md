@@ -1,6 +1,6 @@
 # Cómo funciona Flame Atlas: clasificación, similitud y comparación
 
-> Esta guía conserva el ejemplo del prototipo inicial. La versión actual usa respaldo directo por defecto y muestra la cobertura de cada comparación. Consulta la [metodología vigente y el flujo de revisión](metodologia.md#revisión-de-etiquetas) para reproducir la versión publicada.
+> Esta guía conserva el ejemplo del prototipo inicial. La versión actual usa vínculos explícitos por defecto y muestra la cobertura de cada comparación. Consulta la [metodología vigente y el flujo de revisión](metodologia.md#revisión-de-etiquetas) para reproducir la versión publicada.
 
 > **Guía para estudiantes, docentes, colaboradores y jurados.** Describe la versión actual de NasaChallenge tal como está implementada en [index.html](../index.html) y con las 24 investigaciones publicadas en [investigaciones.json](../data/investigaciones.json). Fecha de revisión: 14 de noviembre de 2026.
 
