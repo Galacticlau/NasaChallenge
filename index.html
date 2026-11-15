@@ -274,6 +274,14 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
 /* Enlace independiente al minijuego; no modifica las vistas existentes. */
 .nav .game-nav-link{display:inline-flex;align-items:center;justify-content:center;padding:11px 16px;border-radius:12px;border:1px solid #a86a42;background:#ff9d5c18;color:#ffceaa;font-size:13px;font-weight:750;text-decoration:none}
 .nav .game-nav-link:hover,.nav .game-nav-link:focus-visible{border-color:#ffba84;background:#ff9d5c2b}
+
+/* Access to the independent scientific arcade on the home dashboard. */
+.game-resource{width:100%;text-decoration:none!important;color:var(--text);background:linear-gradient(110deg,#142b3b,#132a3a);border:1px solid #416776;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease}
+.game-resource:hover,.game-resource:focus-visible{border-color:var(--cyan);transform:translateY(-2px);box-shadow:0 12px 28px #0005}
+.game-resource h3{font-size:19px;margin:0 0 5px}
+.game-resource p{font-size:14px;color:var(--muted);max-width:750px;line-height:1.55}
+.game-resource-cta{white-space:nowrap;background:#174458;color:#d8fbff;border:1px solid #4e8792;padding:12px 16px;border-radius:10px;font-size:13px;font-weight:800}
+@media(max-width:600px){.game-resource{align-items:flex-start}.game-resource-cta{width:100%;text-align:center}}
 </style></head>
 <body><div class="shell"><header class="top"><div class="brand"><div class="logo">♨</div><div><strong>Flame Atlas</strong><small>NASA · Combustion investigations</small></div></div><div class="tip">NASA Physical Sciences Informatics</div></header>
 <section class="hero"><div><div class="eyebrow">Combustión en microgravedad</div><h1>Explora las investigaciones de NASA PSI</h1><p>Consulta, agrupa y compara estudios sobre el fuego en microgravedad y sus aplicaciones a la seguridad espacial.</p></div><div class="counter"><b id="heroCount">24</b><span>Investigaciones</span></div></section>
@@ -293,10 +301,10 @@ html,dialog{scrollbar-color:#2c4459 #060b12}
   <article class="science-card home-chart"><h3>Áreas de aplicaciones</h3><ul id="homeAreas"></ul>
     <p class="small">Una investigación puede aparecer en más de un área.</p></article>
 </div>
-<div class="science-card home-resource">
-  <div><h3>Mapa mental</h3><p>Explora el mapa interactivo en NotebookLM.</p></div>
-  <a class="secondary" href="https://notebooklm.link.google/6o0I3kVNcHNh" target="_blank" rel="noopener noreferrer">Abrir mapa mental en NotebookLM ↗</a>
-</div>
+<a class="science-card home-resource game-resource" href="fire-protocol.html" aria-label="Jugar Fire Protocol: 0G, un juego sobre combustión en microgravedad">
+  <div><h3>🎮 Fire Protocol: 0G</h3><p>Controla un robot, descubre cómo extinguir una llama en microgravedad e investiga las condiciones de combustión utilizando evidencia de NASA BASS-II.</p></div>
+  <span class="game-resource-cta">▶ Jugar ahora</span>
+</a>
 </section>
 <section id="agrupar" class="panel view hidden"><h2>Agrupar por similitud</h2><p>Elige un criterio y explora qué estudios comparten características. Una investigación puede pertenecer a más de un grupo.</p><div class="controls"><div class="field"><label for="groupBy">Criterio de agrupación</label><select id="groupBy"><option value="modalidad">Modalidad de investigación</option><option value="familia">Familia de proyecto</option><option value="combustible">Combustibles y materiales</option><option value="condiciones">Condiciones mencionadas</option><option value="mediciones">Mediciones o instrumentos mencionados</option><option value="objetivos">Objetivos científicos</option><option value="ambitos">Área de aplicación</option><option value="plataforma">Plataforma de trabajo</option></select></div><div class="field"><label for="search">Buscar dentro de los grupos</label><input type="search" id="search" placeholder="Ej.: FLEX, oxígeno, hollín, PSI-98"></div></div>
 <div class="controls"><div class="field"><label for="groupEvidence">Tipo de vínculo</label><select id="groupEvidence" class="evidence-select"></select></div><div class="field" id="domainGroup" hidden><label for="groupDomain">Área de aplicación</label><select id="groupDomain"><option value="">Todos</option></select></div></div>
