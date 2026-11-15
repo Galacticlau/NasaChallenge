@@ -245,7 +245,8 @@ function init(data, evidence) {
         <h3>${studyButton(study)}</h3><p>${esc(study.atributos.objetivos?.text || '')}</p>
         <div>${tags(study, 'ambitos').map(chip).join('')}</div>
         ${evidence[study.id]?.tecnica ? '<p class="small">Ficha técnica ampliada</p>' : ''}
-        <footer><button class="secondary" type="button" data-add="${esc(study.id)}"></button></footer>
+        <footer><button class="secondary" type="button" data-add="${esc(study.id)}"></button>
+          ${study.id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="Ver detalles experimentales de PSI-98">Ver detalles · Beta</a>' : ''}</footer>
       </article>`).join('') : empty('No se encontraron investigaciones con estos filtros.');
     renderSelection();
   }
@@ -268,6 +269,7 @@ function init(data, evidence) {
     $('#studyDetail').innerHTML = `<div class="small">${esc(id)} · ${esc(study.modalidad)}</div>
       <h2 id="studyTitle">${esc(study.nombre)}</h2><p>${esc(study.titulo)}</p>
       <div class="detail-actions">${sourceLink(study.url, 'Abrir ficha NASA PSI')}
+        ${id === 'PSI-98' ? '<a class="secondary" href="psi98-saffire-dashboard.html" aria-label="Ver detalles experimentales de PSI-98">Ver detalles · Beta</a>' : ''}
         <button class="secondary" type="button" data-add="${esc(id)}"></button>
         <button class="secondary" type="button" id="studyCompare" data-study-view="comparar" hidden>Ir a comparación</button>
         <button class="secondary" type="button" data-study-view="similares">Ver similares</button></div>
