@@ -199,12 +199,7 @@ function init(data, evidence) {
   }
 
   function renderHome(modalityCounts) {
-    const technical = data.filter((study) => evidence[study.id]?.tecnica).length;
-    const metrics = [[data.length, 'Investigaciones'], [technical, 'Fichas técnicas ampliadas'],
-      [Object.keys(domains).length, 'Áreas de aplicaciones']];
     $('#heroCount').textContent = data.length;
-    $('#homeMetrics').innerHTML = metrics.map(([value, label]) =>
-      `<li><strong>${value}</strong><span>${label}</span></li>`).join('');
 
     const bar = (value, className = '') =>
       `<span class="${className}" style="--bar-width:${100 * value / data.length}%"></span>`;
